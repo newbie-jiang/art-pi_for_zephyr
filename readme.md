@@ -4,6 +4,10 @@
 
 ![art_pi](https://cloud.rocketpi.club/cloud/art_pi.webp)
 
+![pages](https://newbie-jiang.github.io/art-pi_for_zephyr)
+
+
+
 # Support hardware 
 
 ## Basic development board
