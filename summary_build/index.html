@@ -1,0 +1,2264 @@
+<!DOCTYPE html><html lang="zh" class="no-js"><head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+        <link rel="canonical" href="https://newbie-jiang.github.io/blogs_mkdocs/summary_build/">
+      
+      
+        <link rel="prev" href="../linux%E4%B8%8Bcubeprogrammer%E4%B8%AD%E6%B7%BB%E5%8A%A0%E8%87%AA%E5%B7%B1%E7%9A%84%E5%A4%96%E9%83%A8%E4%B8%8B%E8%BD%BD%E7%AE%97%E6%B3%95/">
+      
+      
+        <link rel="next" href="../zephyr%E5%A2%9E%E5%8A%A0%E8%87%AA%E5%B7%B1%E7%9A%84%E9%A9%B1%E5%8A%A8%28%E5%AE%98%E6%96%B9%E8%B7%AF%E5%BE%84%29/">
+      
+      
+      <link rel="icon" href="../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.6.22">
+    
+    
+      
+        <title>批量构建总结 - ART-PI  for Zephyr</title>
+      
+    
+    
+      <link rel="stylesheet" href="../assets/stylesheets/main.84d31ad4.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&amp;display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../styles/status.css">
+    
+    <script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  <link href="../assets/stylesheets/glightbox.min.css" rel="stylesheet"><script src="../assets/javascripts/glightbox.min.js"></script><style id="glightbox-style">
+            html.glightbox-open { overflow: initial; height: 100%; }
+            .gslide-title { margin-top: 0px; user-select: text; }
+            .gslide-desc { color: #666; user-select: text; }
+            .gslide-image img { background: white; }
+            .gscrollbar-fixer { padding-right: 15px; }
+            .gdesc-inner { font-size: 0.75rem; }
+            body[data-md-color-scheme="slate"] .gdesc-inner { background: var(--md-default-bg-color); }
+            body[data-md-color-scheme="slate"] .gslide-title { color: var(--md-default-fg-color); }
+            body[data-md-color-scheme="slate"] .gslide-desc { color: var(--md-default-fg-color); }
+        </style></head>
+  
+  
+    <body dir="ltr">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#batch-build-summary" class="md-skip">
+          跳转至
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="页眉">
+    <a href=".." title="ART-PI  for Zephyr" class="md-header__button md-logo" aria-label="ART-PI  for Zephyr" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"></path></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"></path></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            ART-PI  for Zephyr
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              批量构建总结
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"></path></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="搜索" placeholder="搜索" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"></path></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"></path></svg>
+      </label>
+      <nav class="md-search__options" aria-label="查找">
+        
+        <button type="reset" class="md-search__icon md-icon" title="清空当前内容" aria-label="清空当前内容" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"></path></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            正在初始化搜索引擎
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation">
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="导航栏" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href=".." title="ART-PI  for Zephyr" class="md-nav__button md-logo" aria-label="ART-PI  for Zephyr" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"></path></svg>
+
+    </a>
+    ART-PI  for Zephyr
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href=".." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    ART-PI
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../1.with_mcuboot/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    1.with_mcuboot
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../2.app/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    2.app
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../3.fmc_sdram_speedtest/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    3.fmc_sdram_speedtest.md
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../4.sdmmc_sd_speedtest/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    4.sdmmc_sd_speedtest
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../5.beep/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    5.beep
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../6.rs232/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    6.rs232
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../7.rs485/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    7.rs485
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../8.eth/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    8.eth
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../9.eth_speed_test/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    9.eth_speed_test
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../10.touch_gt1151/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    10.touch_gt1151
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../11.lvgl/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    11.lvgl
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../12.lvgl_demos/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    12.lvgl_demos
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../13.usb_mass_ram/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    13.usb_mass
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../15.usb_mass_sdmmc/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    15.usb mass sdmmc
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../16.webusb/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    16. webusb
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../17.hid_keyboard/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    17.hid_keyboard
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../18.hid_mouse/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    18.hid_mouse
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../19.uvc/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    19.uvc.md
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../linux%E4%B8%8Bcubeprogrammer%E4%B8%AD%E6%B7%BB%E5%8A%A0%E8%87%AA%E5%B7%B1%E7%9A%84%E5%A4%96%E9%83%A8%E4%B8%8B%E8%BD%BD%E7%AE%97%E6%B3%95/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Linux 下 CubeProgrammer 添加外部下载算法
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    批量构建总结
+    
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    批量构建总结
+    
+  </span>
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="目录">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      目录
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#1with_mcuboot-ok" class="md-nav__link">
+    <span class="md-ellipsis">
+      1.with_mcuboot — OK
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2app-ok" class="md-nav__link">
+    <span class="md-ellipsis">
+      2.app — OK
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3fmc_sdram_speedtest-ok" class="md-nav__link">
+    <span class="md-ellipsis">
+      3.fmc_sdram_speedtest — OK
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#4sdmmc_sd_speedtest-ok" class="md-nav__link">
+    <span class="md-ellipsis">
+      4.sdmmc_sd_speedtest — OK
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#5beep-ok" class="md-nav__link">
+    <span class="md-ellipsis">
+      5.beep — OK
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#6rs232-ok" class="md-nav__link">
+    <span class="md-ellipsis">
+      6.rs232 — OK
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#7rs485-ok" class="md-nav__link">
+    <span class="md-ellipsis">
+      7.rs485 — OK
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#8eth-ok" class="md-nav__link">
+    <span class="md-ellipsis">
+      8.eth — OK
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#9eth_speed_test-ok" class="md-nav__link">
+    <span class="md-ellipsis">
+      9.eth_speed_test — OK
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#10touch_gt1151-ok" class="md-nav__link">
+    <span class="md-ellipsis">
+      10.touch_gt1151 — OK
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#11lvgl-ok" class="md-nav__link">
+    <span class="md-ellipsis">
+      11.lvgl — OK
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#12lvgl_demos-ok" class="md-nav__link">
+    <span class="md-ellipsis">
+      12.lvgl_demos — OK
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#13usb_mass_ram-ok" class="md-nav__link">
+    <span class="md-ellipsis">
+      13.usb_mass_ram — OK
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#15usb_mass_sdmmc-ok" class="md-nav__link">
+    <span class="md-ellipsis">
+      15.usb_mass_sdmmc — OK
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#16webusb-ok" class="md-nav__link">
+    <span class="md-ellipsis">
+      16.webusb — OK
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#17hid_keyboard-ok" class="md-nav__link">
+    <span class="md-ellipsis">
+      17.hid_keyboard — OK
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#18hid_mouse-ok" class="md-nav__link">
+    <span class="md-ellipsis">
+      18.hid_mouse — OK
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#19uvc-ok" class="md-nav__link">
+    <span class="md-ellipsis">
+      19.uvc — OK
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../zephyr%E5%A2%9E%E5%8A%A0%E8%87%AA%E5%B7%B1%E7%9A%84%E9%A9%B1%E5%8A%A8%28%E5%AE%98%E6%96%B9%E8%B7%AF%E5%BE%84%29/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Zephyr 增加自定义驱动（官方路径）
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../zephyr%E6%9F%A5%E6%89%BE%E6%96%B9%E6%B3%95%E4%BD%9C%E5%8F%82%E8%80%83/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Zephyr 查找方法参考
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../%E8%AE%BE%E5%A4%87%E6%A0%91%E6%97%B6%E9%92%9F%E9%85%8D%E7%BD%AE%E5%8F%82%E8%80%83/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    STM32H750 设备树时钟配置参考
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc">
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="目录">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      目录
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#1with_mcuboot-ok" class="md-nav__link">
+    <span class="md-ellipsis">
+      1.with_mcuboot — OK
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2app-ok" class="md-nav__link">
+    <span class="md-ellipsis">
+      2.app — OK
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3fmc_sdram_speedtest-ok" class="md-nav__link">
+    <span class="md-ellipsis">
+      3.fmc_sdram_speedtest — OK
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#4sdmmc_sd_speedtest-ok" class="md-nav__link">
+    <span class="md-ellipsis">
+      4.sdmmc_sd_speedtest — OK
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#5beep-ok" class="md-nav__link">
+    <span class="md-ellipsis">
+      5.beep — OK
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#6rs232-ok" class="md-nav__link">
+    <span class="md-ellipsis">
+      6.rs232 — OK
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#7rs485-ok" class="md-nav__link">
+    <span class="md-ellipsis">
+      7.rs485 — OK
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#8eth-ok" class="md-nav__link">
+    <span class="md-ellipsis">
+      8.eth — OK
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#9eth_speed_test-ok" class="md-nav__link">
+    <span class="md-ellipsis">
+      9.eth_speed_test — OK
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#10touch_gt1151-ok" class="md-nav__link">
+    <span class="md-ellipsis">
+      10.touch_gt1151 — OK
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#11lvgl-ok" class="md-nav__link">
+    <span class="md-ellipsis">
+      11.lvgl — OK
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#12lvgl_demos-ok" class="md-nav__link">
+    <span class="md-ellipsis">
+      12.lvgl_demos — OK
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#13usb_mass_ram-ok" class="md-nav__link">
+    <span class="md-ellipsis">
+      13.usb_mass_ram — OK
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#15usb_mass_sdmmc-ok" class="md-nav__link">
+    <span class="md-ellipsis">
+      15.usb_mass_sdmmc — OK
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#16webusb-ok" class="md-nav__link">
+    <span class="md-ellipsis">
+      16.webusb — OK
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#17hid_keyboard-ok" class="md-nav__link">
+    <span class="md-ellipsis">
+      17.hid_keyboard — OK
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#18hid_mouse-ok" class="md-nav__link">
+    <span class="md-ellipsis">
+      18.hid_mouse — OK
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#19uvc-ok" class="md-nav__link">
+    <span class="md-ellipsis">
+      19.uvc — OK
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+
+<h1 id="batch-build-summary">Batch Build Summary<a class="headerlink" href="#batch-build-summary" title="Permanent link">¶</a></h1>
+<ul>
+<li><strong>Time</strong>: 2025-10-31 02:21:08</li>
+<li><strong>Working dir</strong>: <code>/home/hdj/zephyrproject/art_pi_example</code></li>
+<li><strong>Key</strong>: <code>/home/hdj/zephyrproject/bootloader/mcuboot/root-rsa-2048.pem</code> ✅ exists</li>
+<li><strong>Parallel</strong>: <code>CMAKE_BUILD_PARALLEL_LEVEL=12</code></li>
+<li><strong>Commands file</strong>: <code>/home/hdj/zephyrproject/art_pi_example/commands_build.txt</code> (found)</li>
+</ul>
+<p><strong>Totals</strong>: 18  •  ✅ OK: 18  •  ❌ FAIL: 0  •  ⏭️ SKIP: 0</p>
+<table>
+<thead>
+<tr>
+<th>Target</th>
+<th>Status</th>
+<th>Template</th>
+<th style="text-align: right;">Last Change</th>
+<th style="text-align: right;">Last Build</th>
+<th style="text-align: right;">FLASH</th>
+<th style="text-align: right;">RAM</th>
+<th style="text-align: right;">Elapsed</th>
+<th>Build dir</th>
+<th>Log</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>1.with_mcuboot</code></td>
+<td>OK</td>
+<td>default</td>
+<td style="text-align: right;">2025-09-23 20:38:12</td>
+<td style="text-align: right;">2025-10-31 02:21:23</td>
+<td style="text-align: right;">20100 B (0.96%)</td>
+<td style="text-align: right;">4608 B (0.88%)</td>
+<td style="text-align: right;">15.1s</td>
+<td><code>/home/hdj/zephyrproject/art_pi_example/build-1.with_mcuboot</code></td>
+<td><code>/home/hdj/zephyrproject/art_pi_example/logs/1.with_mcuboot.log</code></td>
+</tr>
+<tr>
+<td><code>2.app</code></td>
+<td>OK</td>
+<td>default</td>
+<td style="text-align: right;">2025-09-23 23:07:26</td>
+<td style="text-align: right;">2025-10-31 02:21:37</td>
+<td style="text-align: right;">21384 B (1.02%)</td>
+<td style="text-align: right;">4608 B (0.88%)</td>
+<td style="text-align: right;">13.8s</td>
+<td><code>/home/hdj/zephyrproject/art_pi_example/build-2.app</code></td>
+<td><code>/home/hdj/zephyrproject/art_pi_example/logs/2.app.log</code></td>
+</tr>
+<tr>
+<td><code>3.fmc_sdram_speedtest</code></td>
+<td>OK</td>
+<td>default</td>
+<td style="text-align: right;">2025-09-30 02:05:25</td>
+<td style="text-align: right;">2025-10-31 02:21:52</td>
+<td style="text-align: right;">41736 B (1.99%)</td>
+<td style="text-align: right;">72384 B (13.81%)</td>
+<td style="text-align: right;">14.8s</td>
+<td><code>/home/hdj/zephyrproject/art_pi_example/build-3.fmc_sdram_speedtest</code></td>
+<td><code>/home/hdj/zephyrproject/art_pi_example/logs/3.fmc_sdram_speedtest.log</code></td>
+</tr>
+<tr>
+<td><code>4.sdmmc_sd_speedtest</code></td>
+<td>OK</td>
+<td>default</td>
+<td style="text-align: right;">2025-09-30 02:05:38</td>
+<td style="text-align: right;">2025-10-31 02:22:09</td>
+<td style="text-align: right;">60496 B (2.88%)</td>
+<td style="text-align: right;">291552 B (55.61%)</td>
+<td style="text-align: right;">16.8s</td>
+<td><code>/home/hdj/zephyrproject/art_pi_example/build-4.sdmmc_sd_speedtest</code></td>
+<td><code>/home/hdj/zephyrproject/art_pi_example/logs/4.sdmmc_sd_speedtest.log</code></td>
+</tr>
+<tr>
+<td><code>5.beep</code></td>
+<td>OK</td>
+<td>default</td>
+<td style="text-align: right;">2025-09-29 22:38:53</td>
+<td style="text-align: right;">2025-10-31 02:22:24</td>
+<td style="text-align: right;">21364 B (1.02%)</td>
+<td style="text-align: right;">4608 B (0.88%)</td>
+<td style="text-align: right;">15.6s</td>
+<td><code>/home/hdj/zephyrproject/art_pi_example/build-5.beep</code></td>
+<td><code>/home/hdj/zephyrproject/art_pi_example/logs/5.beep.log</code></td>
+</tr>
+<tr>
+<td><code>6.rs232</code></td>
+<td>OK</td>
+<td>default</td>
+<td style="text-align: right;">2025-09-29 22:29:54</td>
+<td style="text-align: right;">2025-10-31 02:22:38</td>
+<td style="text-align: right;">21772 B (1.04%)</td>
+<td style="text-align: right;">4608 B (0.88%)</td>
+<td style="text-align: right;">13.6s</td>
+<td><code>/home/hdj/zephyrproject/art_pi_example/build-6.rs232</code></td>
+<td><code>/home/hdj/zephyrproject/art_pi_example/logs/6.rs232.log</code></td>
+</tr>
+<tr>
+<td><code>7.rs485</code></td>
+<td>OK</td>
+<td>default</td>
+<td style="text-align: right;">2025-10-31 00:56:56</td>
+<td style="text-align: right;">2025-10-31 02:22:51</td>
+<td style="text-align: right;">21808 B (1.04%)</td>
+<td style="text-align: right;">4608 B (0.88%)</td>
+<td style="text-align: right;">13.1s</td>
+<td><code>/home/hdj/zephyrproject/art_pi_example/build-7.rs485</code></td>
+<td><code>/home/hdj/zephyrproject/art_pi_example/logs/7.rs485.log</code></td>
+</tr>
+<tr>
+<td><code>8.eth</code></td>
+<td>OK</td>
+<td>default</td>
+<td style="text-align: right;">2025-10-31 00:57:25</td>
+<td style="text-align: right;">2025-10-31 02:23:11</td>
+<td style="text-align: right;">124676 B (5.95%)</td>
+<td style="text-align: right;">54488 B (10.39%)</td>
+<td style="text-align: right;">20.0s</td>
+<td><code>/home/hdj/zephyrproject/art_pi_example/build-8.eth</code></td>
+<td><code>/home/hdj/zephyrproject/art_pi_example/logs/8.eth.log</code></td>
+</tr>
+<tr>
+<td><code>9.eth_speed_test</code></td>
+<td>OK</td>
+<td>default</td>
+<td style="text-align: right;">2025-10-31 00:58:53</td>
+<td style="text-align: right;">2025-10-31 02:23:37</td>
+<td style="text-align: right;">127988 B (6.10%)</td>
+<td style="text-align: right;">61952 B (11.82%)</td>
+<td style="text-align: right;">25.8s</td>
+<td><code>/home/hdj/zephyrproject/art_pi_example/build-9.eth_speed_test</code></td>
+<td><code>/home/hdj/zephyrproject/art_pi_example/logs/9.eth_speed_test.log</code></td>
+</tr>
+<tr>
+<td><code>10.touch_gt1151</code></td>
+<td>OK</td>
+<td>default</td>
+<td style="text-align: right;">2025-10-31 01:04:54</td>
+<td style="text-align: right;">2025-10-31 02:23:52</td>
+<td style="text-align: right;">37008 B (1.76%)</td>
+<td style="text-align: right;">16832 B (3.21%)</td>
+<td style="text-align: right;">14.7s</td>
+<td><code>/home/hdj/zephyrproject/art_pi_example/build-10.touch_gt1151</code></td>
+<td><code>/home/hdj/zephyrproject/art_pi_example/logs/10.touch_gt1151.log</code></td>
+</tr>
+<tr>
+<td><code>11.lvgl</code></td>
+<td>OK</td>
+<td>default</td>
+<td style="text-align: right;">2025-10-31 01:05:56</td>
+<td style="text-align: right;">2025-10-31 02:24:09</td>
+<td style="text-align: right;">313692 B (14.96%)</td>
+<td style="text-align: right;">291784 B (55.65%)</td>
+<td style="text-align: right;">17.5s</td>
+<td><code>/home/hdj/zephyrproject/art_pi_example/build-11.lvgl</code></td>
+<td><code>/home/hdj/zephyrproject/art_pi_example/logs/11.lvgl.log</code></td>
+</tr>
+<tr>
+<td><code>12.lvgl_demos</code></td>
+<td>OK</td>
+<td>default</td>
+<td style="text-align: right;">2025-09-24 21:57:06</td>
+<td style="text-align: right;">2025-10-31 02:24:31</td>
+<td style="text-align: right;">962352 B (45.89%)</td>
+<td style="text-align: right;">334088 B (63.72%)</td>
+<td style="text-align: right;">22.1s</td>
+<td><code>/home/hdj/zephyrproject/art_pi_example/build-12.lvgl_demos</code></td>
+<td><code>/home/hdj/zephyrproject/art_pi_example/logs/12.lvgl_demos.log</code></td>
+</tr>
+<tr>
+<td><code>13.usb_mass_ram</code></td>
+<td>OK</td>
+<td>default</td>
+<td style="text-align: right;">2025-09-26 19:54:23</td>
+<td style="text-align: right;">2025-10-31 02:24:49</td>
+<td style="text-align: right;">71768 B (3.42%)</td>
+<td style="text-align: right;">66080 B (12.60%)</td>
+<td style="text-align: right;">17.5s</td>
+<td><code>/home/hdj/zephyrproject/art_pi_example/build-13.usb_mass_ram</code></td>
+<td><code>/home/hdj/zephyrproject/art_pi_example/logs/13.usb_mass_ram.log</code></td>
+</tr>
+<tr>
+<td><code>15.usb_mass_sdmmc</code></td>
+<td>OK</td>
+<td>default</td>
+<td style="text-align: right;">2025-09-27 00:26:44</td>
+<td style="text-align: right;">2025-10-31 02:25:05</td>
+<td style="text-align: right;">88020 B (4.20%)</td>
+<td style="text-align: right;">68256 B (13.02%)</td>
+<td style="text-align: right;">15.9s</td>
+<td><code>/home/hdj/zephyrproject/art_pi_example/build-15.usb_mass_sdmmc</code></td>
+<td><code>/home/hdj/zephyrproject/art_pi_example/logs/15.usb_mass_sdmmc.log</code></td>
+</tr>
+<tr>
+<td><code>16.webusb</code></td>
+<td>OK</td>
+<td>default</td>
+<td style="text-align: right;">2025-09-25 14:00:29</td>
+<td style="text-align: right;">2025-10-31 02:25:19</td>
+<td style="text-align: right;">65892 B (3.14%)</td>
+<td style="text-align: right;">15580 B (2.97%)</td>
+<td style="text-align: right;">14.7s</td>
+<td><code>/home/hdj/zephyrproject/art_pi_example/build-16.webusb</code></td>
+<td><code>/home/hdj/zephyrproject/art_pi_example/logs/16.webusb.log</code></td>
+</tr>
+<tr>
+<td><code>17.hid_keyboard</code></td>
+<td>OK</td>
+<td>default</td>
+<td style="text-align: right;">2025-09-27 02:29:08</td>
+<td style="text-align: right;">2025-10-31 02:25:38</td>
+<td style="text-align: right;">72768 B (3.47%)</td>
+<td style="text-align: right;">15640 B (2.98%)</td>
+<td style="text-align: right;">18.2s</td>
+<td><code>/home/hdj/zephyrproject/art_pi_example/build-17.hid_keyboard</code></td>
+<td><code>/home/hdj/zephyrproject/art_pi_example/logs/17.hid_keyboard.log</code></td>
+</tr>
+<tr>
+<td><code>18.hid_mouse</code></td>
+<td>OK</td>
+<td>default</td>
+<td style="text-align: right;">2025-09-27 02:55:50</td>
+<td style="text-align: right;">2025-10-31 02:25:56</td>
+<td style="text-align: right;">71480 B (3.41%)</td>
+<td style="text-align: right;">16712 B (3.19%)</td>
+<td style="text-align: right;">18.0s</td>
+<td><code>/home/hdj/zephyrproject/art_pi_example/build-18.hid_mouse</code></td>
+<td><code>/home/hdj/zephyrproject/art_pi_example/logs/18.hid_mouse.log</code></td>
+</tr>
+<tr>
+<td><code>19.uvc</code></td>
+<td>OK</td>
+<td>override</td>
+<td style="text-align: right;">2025-09-29 19:15:55</td>
+<td style="text-align: right;">2025-10-31 02:26:12</td>
+<td style="text-align: right;">84380 B (4.02%)</td>
+<td style="text-align: right;">355256 B (67.76%)</td>
+<td style="text-align: right;">16.0s</td>
+<td><code>build</code></td>
+<td><code>/home/hdj/zephyrproject/art_pi_example/logs/19.uvc.log</code></td>
+</tr>
+</tbody>
+</table>
+<h2 id="1with_mcuboot-ok">1.with_mcuboot — OK<a class="headerlink" href="#1with_mcuboot-ok" title="Permanent link">¶</a></h2>
+<ul>
+<li><strong>Command</strong>: <code>west build -p always -b art_pi -d /home/hdj/zephyrproject/art_pi_example/build-1.with_mcuboot /home/hdj/zephyrproject/art_pi_example/1.with_mcuboot -- -DCONFIG_BOOTLOADER_MCUBOOT=y -DCONFIG_MCUBOOT_SIGNATURE_KEY_FILE="/home/hdj/zephyrproject/bootloader/mcuboot/root-rsa-2048.pem"</code></li>
+<li><code>[148/148] Linking C executable zephyr/zephyr.elf</code></li>
+<li><strong>Build dir</strong>: <code>/home/hdj/zephyrproject/art_pi_example/build-1.with_mcuboot</code></li>
+<li><strong>Log</strong>: <code>/home/hdj/zephyrproject/art_pi_example/logs/1.with_mcuboot.log</code></li>
+<li><strong>Last change</strong>: 2025-09-23 20:38:12</li>
+<li><strong>Last build</strong>: 2025-10-31 02:21:23</li>
+<li><strong>Elapsed</strong>: 15.1s</li>
+</ul>
+<details><summary>Memory usage table</summary>
+
+<div class="language-text highlight"><table class="highlighttable"><tbody><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-0-1"> 1</a></span>
+<span class="normal"><a href="#__codelineno-0-2"> 2</a></span>
+<span class="normal"><a href="#__codelineno-0-3"> 3</a></span>
+<span class="normal"><a href="#__codelineno-0-4"> 4</a></span>
+<span class="normal"><a href="#__codelineno-0-5"> 5</a></span>
+<span class="normal"><a href="#__codelineno-0-6"> 6</a></span>
+<span class="normal"><a href="#__codelineno-0-7"> 7</a></span>
+<span class="normal"><a href="#__codelineno-0-8"> 8</a></span>
+<span class="normal"><a href="#__codelineno-0-9"> 9</a></span>
+<span class="normal"><a href="#__codelineno-0-10">10</a></span>
+<span class="normal"><a href="#__codelineno-0-11">11</a></span>
+<span class="normal"><a href="#__codelineno-0-12">12</a></span>
+<span class="normal"><a href="#__codelineno-0-13">13</a></span>
+<span class="normal"><a href="#__codelineno-0-14">14</a></span>
+<span class="normal"><a href="#__codelineno-0-15">15</a></span>
+<span class="normal"><a href="#__codelineno-0-16">16</a></span></pre></div></td><td class="code"><div><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1"></a>Memory region         Used Size  Region Size  %age Used
+</span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2"></a>           FLASH:       20100 B         2 MB      0.96%
+</span><span id="__span-0-3"><a id="__codelineno-0-3" name="__codelineno-0-3"></a>             RAM:        4608 B       512 KB      0.88%
+</span><span id="__span-0-4"><a id="__codelineno-0-4" name="__codelineno-0-4"></a>          EXTMEM:          0 GB         8 MB      0.00%
+</span><span id="__span-0-5"><a id="__codelineno-0-5" name="__codelineno-0-5"></a>           SRAM0:          0 GB       512 KB      0.00%
+</span><span id="__span-0-6"><a id="__codelineno-0-6" name="__codelineno-0-6"></a>           SRAM1:          0 GB       128 KB      0.00%
+</span><span id="__span-0-7"><a id="__codelineno-0-7" name="__codelineno-0-7"></a>           SRAM2:          0 GB       128 KB      0.00%
+</span><span id="__span-0-8"><a id="__codelineno-0-8" name="__codelineno-0-8"></a>           SRAM4:          0 GB        64 KB      0.00%
+</span><span id="__span-0-9"><a id="__codelineno-0-9" name="__codelineno-0-9"></a>            DTCM:          0 GB       128 KB      0.00%
+</span><span id="__span-0-10"><a id="__codelineno-0-10" name="__codelineno-0-10"></a>            ITCM:          0 GB        64 KB      0.00%
+</span><span id="__span-0-11"><a id="__codelineno-0-11" name="__codelineno-0-11"></a>           SRAM3:         16 KB        32 KB     50.00%
+</span><span id="__span-0-12"><a id="__codelineno-0-12" name="__codelineno-0-12"></a>          SDRAM1:          0 GB         6 MB      0.00%
+</span><span id="__span-0-13"><a id="__codelineno-0-13" name="__codelineno-0-13"></a>        IDT_LIST:          0 GB        32 KB      0.00%
+</span><span id="__span-0-14"><a id="__codelineno-0-14" name="__codelineno-0-14"></a>Generating files from /home/hdj/zephyrproject/art_pi_example/build-1.with_mcuboot/zephyr/zephyr.elf for board: art_pi
+</span><span id="__span-0-15"><a id="__codelineno-0-15" name="__codelineno-0-15"></a>image.py: sign the payload
+</span><span id="__span-0-16"><a id="__codelineno-0-16" name="__codelineno-0-16"></a>image.py: sign the payload
+</span></code></pre></div></td></tr></tbody></table></div>
+</details>
+
+<h2 id="2app-ok">2.app — OK<a class="headerlink" href="#2app-ok" title="Permanent link">¶</a></h2>
+<ul>
+<li><strong>Command</strong>: <code>west build -p always -b art_pi -d /home/hdj/zephyrproject/art_pi_example/build-2.app /home/hdj/zephyrproject/art_pi_example/2.app -- -DCONFIG_BOOTLOADER_MCUBOOT=y -DCONFIG_MCUBOOT_SIGNATURE_KEY_FILE="/home/hdj/zephyrproject/bootloader/mcuboot/root-rsa-2048.pem"</code></li>
+<li><code>[148/148] Linking C executable zephyr/zephyr.elf</code></li>
+<li><strong>Build dir</strong>: <code>/home/hdj/zephyrproject/art_pi_example/build-2.app</code></li>
+<li><strong>Log</strong>: <code>/home/hdj/zephyrproject/art_pi_example/logs/2.app.log</code></li>
+<li><strong>Last change</strong>: 2025-09-23 23:07:26</li>
+<li><strong>Last build</strong>: 2025-10-31 02:21:37</li>
+<li><strong>Elapsed</strong>: 13.8s</li>
+</ul>
+<details><summary>Memory usage table</summary>
+
+<div class="language-text highlight"><table class="highlighttable"><tbody><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-1-1"> 1</a></span>
+<span class="normal"><a href="#__codelineno-1-2"> 2</a></span>
+<span class="normal"><a href="#__codelineno-1-3"> 3</a></span>
+<span class="normal"><a href="#__codelineno-1-4"> 4</a></span>
+<span class="normal"><a href="#__codelineno-1-5"> 5</a></span>
+<span class="normal"><a href="#__codelineno-1-6"> 6</a></span>
+<span class="normal"><a href="#__codelineno-1-7"> 7</a></span>
+<span class="normal"><a href="#__codelineno-1-8"> 8</a></span>
+<span class="normal"><a href="#__codelineno-1-9"> 9</a></span>
+<span class="normal"><a href="#__codelineno-1-10">10</a></span>
+<span class="normal"><a href="#__codelineno-1-11">11</a></span>
+<span class="normal"><a href="#__codelineno-1-12">12</a></span>
+<span class="normal"><a href="#__codelineno-1-13">13</a></span>
+<span class="normal"><a href="#__codelineno-1-14">14</a></span>
+<span class="normal"><a href="#__codelineno-1-15">15</a></span>
+<span class="normal"><a href="#__codelineno-1-16">16</a></span></pre></div></td><td class="code"><div><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1"></a>Memory region         Used Size  Region Size  %age Used
+</span><span id="__span-1-2"><a id="__codelineno-1-2" name="__codelineno-1-2"></a>           FLASH:       21384 B         2 MB      1.02%
+</span><span id="__span-1-3"><a id="__codelineno-1-3" name="__codelineno-1-3"></a>             RAM:        4608 B       512 KB      0.88%
+</span><span id="__span-1-4"><a id="__codelineno-1-4" name="__codelineno-1-4"></a>          EXTMEM:          0 GB         8 MB      0.00%
+</span><span id="__span-1-5"><a id="__codelineno-1-5" name="__codelineno-1-5"></a>           SRAM0:          0 GB       512 KB      0.00%
+</span><span id="__span-1-6"><a id="__codelineno-1-6" name="__codelineno-1-6"></a>           SRAM1:          0 GB       128 KB      0.00%
+</span><span id="__span-1-7"><a id="__codelineno-1-7" name="__codelineno-1-7"></a>           SRAM2:          0 GB       128 KB      0.00%
+</span><span id="__span-1-8"><a id="__codelineno-1-8" name="__codelineno-1-8"></a>           SRAM4:          0 GB        64 KB      0.00%
+</span><span id="__span-1-9"><a id="__codelineno-1-9" name="__codelineno-1-9"></a>            DTCM:          0 GB       128 KB      0.00%
+</span><span id="__span-1-10"><a id="__codelineno-1-10" name="__codelineno-1-10"></a>            ITCM:          0 GB        64 KB      0.00%
+</span><span id="__span-1-11"><a id="__codelineno-1-11" name="__codelineno-1-11"></a>           SRAM3:         16 KB        32 KB     50.00%
+</span><span id="__span-1-12"><a id="__codelineno-1-12" name="__codelineno-1-12"></a>          SDRAM1:          0 GB         6 MB      0.00%
+</span><span id="__span-1-13"><a id="__codelineno-1-13" name="__codelineno-1-13"></a>        IDT_LIST:          0 GB        32 KB      0.00%
+</span><span id="__span-1-14"><a id="__codelineno-1-14" name="__codelineno-1-14"></a>Generating files from /home/hdj/zephyrproject/art_pi_example/build-2.app/zephyr/zephyr.elf for board: art_pi
+</span><span id="__span-1-15"><a id="__codelineno-1-15" name="__codelineno-1-15"></a>image.py: sign the payload
+</span><span id="__span-1-16"><a id="__codelineno-1-16" name="__codelineno-1-16"></a>image.py: sign the payload
+</span></code></pre></div></td></tr></tbody></table></div>
+</details>
+
+<h2 id="3fmc_sdram_speedtest-ok">3.fmc_sdram_speedtest — OK<a class="headerlink" href="#3fmc_sdram_speedtest-ok" title="Permanent link">¶</a></h2>
+<ul>
+<li><strong>Command</strong>: <code>west build -p always -b art_pi -d /home/hdj/zephyrproject/art_pi_example/build-3.fmc_sdram_speedtest /home/hdj/zephyrproject/art_pi_example/3.fmc_sdram_speedtest -- -DCONFIG_BOOTLOADER_MCUBOOT=y -DCONFIG_MCUBOOT_SIGNATURE_KEY_FILE="/home/hdj/zephyrproject/bootloader/mcuboot/root-rsa-2048.pem"</code></li>
+<li><code>[163/163] Linking C executable zephyr/zephyr.elf</code></li>
+<li><strong>Build dir</strong>: <code>/home/hdj/zephyrproject/art_pi_example/build-3.fmc_sdram_speedtest</code></li>
+<li><strong>Log</strong>: <code>/home/hdj/zephyrproject/art_pi_example/logs/3.fmc_sdram_speedtest.log</code></li>
+<li><strong>Last change</strong>: 2025-09-30 02:05:25</li>
+<li><strong>Last build</strong>: 2025-10-31 02:21:52</li>
+<li><strong>Elapsed</strong>: 14.8s</li>
+</ul>
+<details><summary>Memory usage table</summary>
+
+<div class="language-text highlight"><table class="highlighttable"><tbody><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-2-1"> 1</a></span>
+<span class="normal"><a href="#__codelineno-2-2"> 2</a></span>
+<span class="normal"><a href="#__codelineno-2-3"> 3</a></span>
+<span class="normal"><a href="#__codelineno-2-4"> 4</a></span>
+<span class="normal"><a href="#__codelineno-2-5"> 5</a></span>
+<span class="normal"><a href="#__codelineno-2-6"> 6</a></span>
+<span class="normal"><a href="#__codelineno-2-7"> 7</a></span>
+<span class="normal"><a href="#__codelineno-2-8"> 8</a></span>
+<span class="normal"><a href="#__codelineno-2-9"> 9</a></span>
+<span class="normal"><a href="#__codelineno-2-10">10</a></span>
+<span class="normal"><a href="#__codelineno-2-11">11</a></span>
+<span class="normal"><a href="#__codelineno-2-12">12</a></span>
+<span class="normal"><a href="#__codelineno-2-13">13</a></span>
+<span class="normal"><a href="#__codelineno-2-14">14</a></span>
+<span class="normal"><a href="#__codelineno-2-15">15</a></span>
+<span class="normal"><a href="#__codelineno-2-16">16</a></span></pre></div></td><td class="code"><div><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1"></a>Memory region         Used Size  Region Size  %age Used
+</span><span id="__span-2-2"><a id="__codelineno-2-2" name="__codelineno-2-2"></a>           FLASH:       41736 B         2 MB      1.99%
+</span><span id="__span-2-3"><a id="__codelineno-2-3" name="__codelineno-2-3"></a>             RAM:       72384 B       512 KB     13.81%
+</span><span id="__span-2-4"><a id="__codelineno-2-4" name="__codelineno-2-4"></a>          EXTMEM:          0 GB         8 MB      0.00%
+</span><span id="__span-2-5"><a id="__codelineno-2-5" name="__codelineno-2-5"></a>           SRAM0:          0 GB       512 KB      0.00%
+</span><span id="__span-2-6"><a id="__codelineno-2-6" name="__codelineno-2-6"></a>           SRAM1:          0 GB       128 KB      0.00%
+</span><span id="__span-2-7"><a id="__codelineno-2-7" name="__codelineno-2-7"></a>           SRAM2:          0 GB       128 KB      0.00%
+</span><span id="__span-2-8"><a id="__codelineno-2-8" name="__codelineno-2-8"></a>           SRAM4:          0 GB        64 KB      0.00%
+</span><span id="__span-2-9"><a id="__codelineno-2-9" name="__codelineno-2-9"></a>            DTCM:          0 GB       128 KB      0.00%
+</span><span id="__span-2-10"><a id="__codelineno-2-10" name="__codelineno-2-10"></a>            ITCM:          0 GB        64 KB      0.00%
+</span><span id="__span-2-11"><a id="__codelineno-2-11" name="__codelineno-2-11"></a>           SRAM3:         16 KB        32 KB     50.00%
+</span><span id="__span-2-12"><a id="__codelineno-2-12" name="__codelineno-2-12"></a>          SDRAM1:          0 GB         6 MB      0.00%
+</span><span id="__span-2-13"><a id="__codelineno-2-13" name="__codelineno-2-13"></a>        IDT_LIST:          0 GB        32 KB      0.00%
+</span><span id="__span-2-14"><a id="__codelineno-2-14" name="__codelineno-2-14"></a>Generating files from /home/hdj/zephyrproject/art_pi_example/build-3.fmc_sdram_speedtest/zephyr/zephyr.elf for board: art_pi
+</span><span id="__span-2-15"><a id="__codelineno-2-15" name="__codelineno-2-15"></a>image.py: sign the payload
+</span><span id="__span-2-16"><a id="__codelineno-2-16" name="__codelineno-2-16"></a>image.py: sign the payload
+</span></code></pre></div></td></tr></tbody></table></div>
+</details>
+
+<h2 id="4sdmmc_sd_speedtest-ok">4.sdmmc_sd_speedtest — OK<a class="headerlink" href="#4sdmmc_sd_speedtest-ok" title="Permanent link">¶</a></h2>
+<ul>
+<li><strong>Command</strong>: <code>west build -p always -b art_pi -d /home/hdj/zephyrproject/art_pi_example/build-4.sdmmc_sd_speedtest /home/hdj/zephyrproject/art_pi_example/4.sdmmc_sd_speedtest -- -DCONFIG_BOOTLOADER_MCUBOOT=y -DCONFIG_MCUBOOT_SIGNATURE_KEY_FILE="/home/hdj/zephyrproject/bootloader/mcuboot/root-rsa-2048.pem"</code></li>
+<li><code>[170/170] Linking C executable zephyr/zephyr.elf</code></li>
+<li><strong>Build dir</strong>: <code>/home/hdj/zephyrproject/art_pi_example/build-4.sdmmc_sd_speedtest</code></li>
+<li><strong>Log</strong>: <code>/home/hdj/zephyrproject/art_pi_example/logs/4.sdmmc_sd_speedtest.log</code></li>
+<li><strong>Last change</strong>: 2025-09-30 02:05:38</li>
+<li><strong>Last build</strong>: 2025-10-31 02:22:09</li>
+<li><strong>Elapsed</strong>: 16.8s</li>
+</ul>
+<details><summary>Memory usage table</summary>
+
+<div class="language-text highlight"><table class="highlighttable"><tbody><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-3-1"> 1</a></span>
+<span class="normal"><a href="#__codelineno-3-2"> 2</a></span>
+<span class="normal"><a href="#__codelineno-3-3"> 3</a></span>
+<span class="normal"><a href="#__codelineno-3-4"> 4</a></span>
+<span class="normal"><a href="#__codelineno-3-5"> 5</a></span>
+<span class="normal"><a href="#__codelineno-3-6"> 6</a></span>
+<span class="normal"><a href="#__codelineno-3-7"> 7</a></span>
+<span class="normal"><a href="#__codelineno-3-8"> 8</a></span>
+<span class="normal"><a href="#__codelineno-3-9"> 9</a></span>
+<span class="normal"><a href="#__codelineno-3-10">10</a></span>
+<span class="normal"><a href="#__codelineno-3-11">11</a></span>
+<span class="normal"><a href="#__codelineno-3-12">12</a></span>
+<span class="normal"><a href="#__codelineno-3-13">13</a></span>
+<span class="normal"><a href="#__codelineno-3-14">14</a></span>
+<span class="normal"><a href="#__codelineno-3-15">15</a></span>
+<span class="normal"><a href="#__codelineno-3-16">16</a></span></pre></div></td><td class="code"><div><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1"></a>Memory region         Used Size  Region Size  %age Used
+</span><span id="__span-3-2"><a id="__codelineno-3-2" name="__codelineno-3-2"></a>           FLASH:       60496 B         2 MB      2.88%
+</span><span id="__span-3-3"><a id="__codelineno-3-3" name="__codelineno-3-3"></a>             RAM:      291552 B       512 KB     55.61%
+</span><span id="__span-3-4"><a id="__codelineno-3-4" name="__codelineno-3-4"></a>          EXTMEM:          0 GB         8 MB      0.00%
+</span><span id="__span-3-5"><a id="__codelineno-3-5" name="__codelineno-3-5"></a>           SRAM0:          0 GB       512 KB      0.00%
+</span><span id="__span-3-6"><a id="__codelineno-3-6" name="__codelineno-3-6"></a>           SRAM1:          0 GB       128 KB      0.00%
+</span><span id="__span-3-7"><a id="__codelineno-3-7" name="__codelineno-3-7"></a>           SRAM2:          0 GB       128 KB      0.00%
+</span><span id="__span-3-8"><a id="__codelineno-3-8" name="__codelineno-3-8"></a>           SRAM4:          0 GB        64 KB      0.00%
+</span><span id="__span-3-9"><a id="__codelineno-3-9" name="__codelineno-3-9"></a>            DTCM:          0 GB       128 KB      0.00%
+</span><span id="__span-3-10"><a id="__codelineno-3-10" name="__codelineno-3-10"></a>            ITCM:          0 GB        64 KB      0.00%
+</span><span id="__span-3-11"><a id="__codelineno-3-11" name="__codelineno-3-11"></a>           SRAM3:         16 KB        32 KB     50.00%
+</span><span id="__span-3-12"><a id="__codelineno-3-12" name="__codelineno-3-12"></a>          SDRAM1:          0 GB         6 MB      0.00%
+</span><span id="__span-3-13"><a id="__codelineno-3-13" name="__codelineno-3-13"></a>        IDT_LIST:          0 GB        32 KB      0.00%
+</span><span id="__span-3-14"><a id="__codelineno-3-14" name="__codelineno-3-14"></a>Generating files from /home/hdj/zephyrproject/art_pi_example/build-4.sdmmc_sd_speedtest/zephyr/zephyr.elf for board: art_pi
+</span><span id="__span-3-15"><a id="__codelineno-3-15" name="__codelineno-3-15"></a>image.py: sign the payload
+</span><span id="__span-3-16"><a id="__codelineno-3-16" name="__codelineno-3-16"></a>image.py: sign the payload
+</span></code></pre></div></td></tr></tbody></table></div>
+</details>
+
+<h2 id="5beep-ok">5.beep — OK<a class="headerlink" href="#5beep-ok" title="Permanent link">¶</a></h2>
+<ul>
+<li><strong>Command</strong>: <code>west build -p always -b art_pi -d /home/hdj/zephyrproject/art_pi_example/build-5.beep /home/hdj/zephyrproject/art_pi_example/5.beep -- -DCONFIG_BOOTLOADER_MCUBOOT=y -DCONFIG_MCUBOOT_SIGNATURE_KEY_FILE="/home/hdj/zephyrproject/bootloader/mcuboot/root-rsa-2048.pem"</code></li>
+<li><code>[148/148] Linking C executable zephyr/zephyr.elf</code></li>
+<li><strong>Build dir</strong>: <code>/home/hdj/zephyrproject/art_pi_example/build-5.beep</code></li>
+<li><strong>Log</strong>: <code>/home/hdj/zephyrproject/art_pi_example/logs/5.beep.log</code></li>
+<li><strong>Last change</strong>: 2025-09-29 22:38:53</li>
+<li><strong>Last build</strong>: 2025-10-31 02:22:24</li>
+<li><strong>Elapsed</strong>: 15.6s</li>
+</ul>
+<details><summary>Memory usage table</summary>
+
+<div class="language-text highlight"><table class="highlighttable"><tbody><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-4-1"> 1</a></span>
+<span class="normal"><a href="#__codelineno-4-2"> 2</a></span>
+<span class="normal"><a href="#__codelineno-4-3"> 3</a></span>
+<span class="normal"><a href="#__codelineno-4-4"> 4</a></span>
+<span class="normal"><a href="#__codelineno-4-5"> 5</a></span>
+<span class="normal"><a href="#__codelineno-4-6"> 6</a></span>
+<span class="normal"><a href="#__codelineno-4-7"> 7</a></span>
+<span class="normal"><a href="#__codelineno-4-8"> 8</a></span>
+<span class="normal"><a href="#__codelineno-4-9"> 9</a></span>
+<span class="normal"><a href="#__codelineno-4-10">10</a></span>
+<span class="normal"><a href="#__codelineno-4-11">11</a></span>
+<span class="normal"><a href="#__codelineno-4-12">12</a></span>
+<span class="normal"><a href="#__codelineno-4-13">13</a></span>
+<span class="normal"><a href="#__codelineno-4-14">14</a></span>
+<span class="normal"><a href="#__codelineno-4-15">15</a></span>
+<span class="normal"><a href="#__codelineno-4-16">16</a></span></pre></div></td><td class="code"><div><pre><span></span><code><span id="__span-4-1"><a id="__codelineno-4-1" name="__codelineno-4-1"></a>Memory region         Used Size  Region Size  %age Used
+</span><span id="__span-4-2"><a id="__codelineno-4-2" name="__codelineno-4-2"></a>           FLASH:       21364 B         2 MB      1.02%
+</span><span id="__span-4-3"><a id="__codelineno-4-3" name="__codelineno-4-3"></a>             RAM:        4608 B       512 KB      0.88%
+</span><span id="__span-4-4"><a id="__codelineno-4-4" name="__codelineno-4-4"></a>          EXTMEM:          0 GB         8 MB      0.00%
+</span><span id="__span-4-5"><a id="__codelineno-4-5" name="__codelineno-4-5"></a>           SRAM0:          0 GB       512 KB      0.00%
+</span><span id="__span-4-6"><a id="__codelineno-4-6" name="__codelineno-4-6"></a>           SRAM1:          0 GB       128 KB      0.00%
+</span><span id="__span-4-7"><a id="__codelineno-4-7" name="__codelineno-4-7"></a>           SRAM2:          0 GB       128 KB      0.00%
+</span><span id="__span-4-8"><a id="__codelineno-4-8" name="__codelineno-4-8"></a>           SRAM4:          0 GB        64 KB      0.00%
+</span><span id="__span-4-9"><a id="__codelineno-4-9" name="__codelineno-4-9"></a>            DTCM:          0 GB       128 KB      0.00%
+</span><span id="__span-4-10"><a id="__codelineno-4-10" name="__codelineno-4-10"></a>            ITCM:          0 GB        64 KB      0.00%
+</span><span id="__span-4-11"><a id="__codelineno-4-11" name="__codelineno-4-11"></a>           SRAM3:         16 KB        32 KB     50.00%
+</span><span id="__span-4-12"><a id="__codelineno-4-12" name="__codelineno-4-12"></a>          SDRAM1:          0 GB         6 MB      0.00%
+</span><span id="__span-4-13"><a id="__codelineno-4-13" name="__codelineno-4-13"></a>        IDT_LIST:          0 GB        32 KB      0.00%
+</span><span id="__span-4-14"><a id="__codelineno-4-14" name="__codelineno-4-14"></a>Generating files from /home/hdj/zephyrproject/art_pi_example/build-5.beep/zephyr/zephyr.elf for board: art_pi
+</span><span id="__span-4-15"><a id="__codelineno-4-15" name="__codelineno-4-15"></a>image.py: sign the payload
+</span><span id="__span-4-16"><a id="__codelineno-4-16" name="__codelineno-4-16"></a>image.py: sign the payload
+</span></code></pre></div></td></tr></tbody></table></div>
+</details>
+
+<h2 id="6rs232-ok">6.rs232 — OK<a class="headerlink" href="#6rs232-ok" title="Permanent link">¶</a></h2>
+<ul>
+<li><strong>Command</strong>: <code>west build -p always -b art_pi -d /home/hdj/zephyrproject/art_pi_example/build-6.rs232 /home/hdj/zephyrproject/art_pi_example/6.rs232 -- -DCONFIG_BOOTLOADER_MCUBOOT=y -DCONFIG_MCUBOOT_SIGNATURE_KEY_FILE="/home/hdj/zephyrproject/bootloader/mcuboot/root-rsa-2048.pem"</code></li>
+<li><code>[148/148] Linking C executable zephyr/zephyr.elf</code></li>
+<li><strong>Build dir</strong>: <code>/home/hdj/zephyrproject/art_pi_example/build-6.rs232</code></li>
+<li><strong>Log</strong>: <code>/home/hdj/zephyrproject/art_pi_example/logs/6.rs232.log</code></li>
+<li><strong>Last change</strong>: 2025-09-29 22:29:54</li>
+<li><strong>Last build</strong>: 2025-10-31 02:22:38</li>
+<li><strong>Elapsed</strong>: 13.6s</li>
+</ul>
+<details><summary>Memory usage table</summary>
+
+<div class="language-text highlight"><table class="highlighttable"><tbody><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-5-1"> 1</a></span>
+<span class="normal"><a href="#__codelineno-5-2"> 2</a></span>
+<span class="normal"><a href="#__codelineno-5-3"> 3</a></span>
+<span class="normal"><a href="#__codelineno-5-4"> 4</a></span>
+<span class="normal"><a href="#__codelineno-5-5"> 5</a></span>
+<span class="normal"><a href="#__codelineno-5-6"> 6</a></span>
+<span class="normal"><a href="#__codelineno-5-7"> 7</a></span>
+<span class="normal"><a href="#__codelineno-5-8"> 8</a></span>
+<span class="normal"><a href="#__codelineno-5-9"> 9</a></span>
+<span class="normal"><a href="#__codelineno-5-10">10</a></span>
+<span class="normal"><a href="#__codelineno-5-11">11</a></span>
+<span class="normal"><a href="#__codelineno-5-12">12</a></span>
+<span class="normal"><a href="#__codelineno-5-13">13</a></span>
+<span class="normal"><a href="#__codelineno-5-14">14</a></span>
+<span class="normal"><a href="#__codelineno-5-15">15</a></span>
+<span class="normal"><a href="#__codelineno-5-16">16</a></span></pre></div></td><td class="code"><div><pre><span></span><code><span id="__span-5-1"><a id="__codelineno-5-1" name="__codelineno-5-1"></a>Memory region         Used Size  Region Size  %age Used
+</span><span id="__span-5-2"><a id="__codelineno-5-2" name="__codelineno-5-2"></a>           FLASH:       21772 B         2 MB      1.04%
+</span><span id="__span-5-3"><a id="__codelineno-5-3" name="__codelineno-5-3"></a>             RAM:        4608 B       512 KB      0.88%
+</span><span id="__span-5-4"><a id="__codelineno-5-4" name="__codelineno-5-4"></a>          EXTMEM:          0 GB         8 MB      0.00%
+</span><span id="__span-5-5"><a id="__codelineno-5-5" name="__codelineno-5-5"></a>           SRAM0:          0 GB       512 KB      0.00%
+</span><span id="__span-5-6"><a id="__codelineno-5-6" name="__codelineno-5-6"></a>           SRAM1:          0 GB       128 KB      0.00%
+</span><span id="__span-5-7"><a id="__codelineno-5-7" name="__codelineno-5-7"></a>           SRAM2:          0 GB       128 KB      0.00%
+</span><span id="__span-5-8"><a id="__codelineno-5-8" name="__codelineno-5-8"></a>           SRAM4:          0 GB        64 KB      0.00%
+</span><span id="__span-5-9"><a id="__codelineno-5-9" name="__codelineno-5-9"></a>            DTCM:          0 GB       128 KB      0.00%
+</span><span id="__span-5-10"><a id="__codelineno-5-10" name="__codelineno-5-10"></a>            ITCM:          0 GB        64 KB      0.00%
+</span><span id="__span-5-11"><a id="__codelineno-5-11" name="__codelineno-5-11"></a>           SRAM3:         16 KB        32 KB     50.00%
+</span><span id="__span-5-12"><a id="__codelineno-5-12" name="__codelineno-5-12"></a>          SDRAM1:          0 GB         6 MB      0.00%
+</span><span id="__span-5-13"><a id="__codelineno-5-13" name="__codelineno-5-13"></a>        IDT_LIST:          0 GB        32 KB      0.00%
+</span><span id="__span-5-14"><a id="__codelineno-5-14" name="__codelineno-5-14"></a>Generating files from /home/hdj/zephyrproject/art_pi_example/build-6.rs232/zephyr/zephyr.elf for board: art_pi
+</span><span id="__span-5-15"><a id="__codelineno-5-15" name="__codelineno-5-15"></a>image.py: sign the payload
+</span><span id="__span-5-16"><a id="__codelineno-5-16" name="__codelineno-5-16"></a>image.py: sign the payload
+</span></code></pre></div></td></tr></tbody></table></div>
+</details>
+
+<h2 id="7rs485-ok">7.rs485 — OK<a class="headerlink" href="#7rs485-ok" title="Permanent link">¶</a></h2>
+<ul>
+<li><strong>Command</strong>: <code>west build -p always -b art_pi -d /home/hdj/zephyrproject/art_pi_example/build-7.rs485 /home/hdj/zephyrproject/art_pi_example/7.rs485 -- -DCONFIG_BOOTLOADER_MCUBOOT=y -DCONFIG_MCUBOOT_SIGNATURE_KEY_FILE="/home/hdj/zephyrproject/bootloader/mcuboot/root-rsa-2048.pem"</code></li>
+<li><code>[148/148] Linking C executable zephyr/zephyr.elf</code></li>
+<li><strong>Build dir</strong>: <code>/home/hdj/zephyrproject/art_pi_example/build-7.rs485</code></li>
+<li><strong>Log</strong>: <code>/home/hdj/zephyrproject/art_pi_example/logs/7.rs485.log</code></li>
+<li><strong>Last change</strong>: 2025-10-31 00:56:56</li>
+<li><strong>Last build</strong>: 2025-10-31 02:22:51</li>
+<li><strong>Elapsed</strong>: 13.1s</li>
+</ul>
+<details><summary>Memory usage table</summary>
+
+<div class="language-text highlight"><table class="highlighttable"><tbody><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-6-1"> 1</a></span>
+<span class="normal"><a href="#__codelineno-6-2"> 2</a></span>
+<span class="normal"><a href="#__codelineno-6-3"> 3</a></span>
+<span class="normal"><a href="#__codelineno-6-4"> 4</a></span>
+<span class="normal"><a href="#__codelineno-6-5"> 5</a></span>
+<span class="normal"><a href="#__codelineno-6-6"> 6</a></span>
+<span class="normal"><a href="#__codelineno-6-7"> 7</a></span>
+<span class="normal"><a href="#__codelineno-6-8"> 8</a></span>
+<span class="normal"><a href="#__codelineno-6-9"> 9</a></span>
+<span class="normal"><a href="#__codelineno-6-10">10</a></span>
+<span class="normal"><a href="#__codelineno-6-11">11</a></span>
+<span class="normal"><a href="#__codelineno-6-12">12</a></span>
+<span class="normal"><a href="#__codelineno-6-13">13</a></span>
+<span class="normal"><a href="#__codelineno-6-14">14</a></span>
+<span class="normal"><a href="#__codelineno-6-15">15</a></span>
+<span class="normal"><a href="#__codelineno-6-16">16</a></span></pre></div></td><td class="code"><div><pre><span></span><code><span id="__span-6-1"><a id="__codelineno-6-1" name="__codelineno-6-1"></a>Memory region         Used Size  Region Size  %age Used
+</span><span id="__span-6-2"><a id="__codelineno-6-2" name="__codelineno-6-2"></a>           FLASH:       21808 B         2 MB      1.04%
+</span><span id="__span-6-3"><a id="__codelineno-6-3" name="__codelineno-6-3"></a>             RAM:        4608 B       512 KB      0.88%
+</span><span id="__span-6-4"><a id="__codelineno-6-4" name="__codelineno-6-4"></a>          EXTMEM:          0 GB         8 MB      0.00%
+</span><span id="__span-6-5"><a id="__codelineno-6-5" name="__codelineno-6-5"></a>           SRAM0:          0 GB       512 KB      0.00%
+</span><span id="__span-6-6"><a id="__codelineno-6-6" name="__codelineno-6-6"></a>           SRAM1:          0 GB       128 KB      0.00%
+</span><span id="__span-6-7"><a id="__codelineno-6-7" name="__codelineno-6-7"></a>           SRAM2:          0 GB       128 KB      0.00%
+</span><span id="__span-6-8"><a id="__codelineno-6-8" name="__codelineno-6-8"></a>           SRAM4:          0 GB        64 KB      0.00%
+</span><span id="__span-6-9"><a id="__codelineno-6-9" name="__codelineno-6-9"></a>            DTCM:          0 GB       128 KB      0.00%
+</span><span id="__span-6-10"><a id="__codelineno-6-10" name="__codelineno-6-10"></a>            ITCM:          0 GB        64 KB      0.00%
+</span><span id="__span-6-11"><a id="__codelineno-6-11" name="__codelineno-6-11"></a>           SRAM3:         16 KB        32 KB     50.00%
+</span><span id="__span-6-12"><a id="__codelineno-6-12" name="__codelineno-6-12"></a>          SDRAM1:          0 GB         6 MB      0.00%
+</span><span id="__span-6-13"><a id="__codelineno-6-13" name="__codelineno-6-13"></a>        IDT_LIST:          0 GB        32 KB      0.00%
+</span><span id="__span-6-14"><a id="__codelineno-6-14" name="__codelineno-6-14"></a>Generating files from /home/hdj/zephyrproject/art_pi_example/build-7.rs485/zephyr/zephyr.elf for board: art_pi
+</span><span id="__span-6-15"><a id="__codelineno-6-15" name="__codelineno-6-15"></a>image.py: sign the payload
+</span><span id="__span-6-16"><a id="__codelineno-6-16" name="__codelineno-6-16"></a>image.py: sign the payload
+</span></code></pre></div></td></tr></tbody></table></div>
+</details>
+
+<h2 id="8eth-ok">8.eth — OK<a class="headerlink" href="#8eth-ok" title="Permanent link">¶</a></h2>
+<ul>
+<li><strong>Command</strong>: <code>west build -p always -b art_pi -d /home/hdj/zephyrproject/art_pi_example/build-8.eth /home/hdj/zephyrproject/art_pi_example/8.eth -- -DCONFIG_BOOTLOADER_MCUBOOT=y -DCONFIG_MCUBOOT_SIGNATURE_KEY_FILE="/home/hdj/zephyrproject/bootloader/mcuboot/root-rsa-2048.pem"</code></li>
+<li><code>[239/239] Linking C executable zephyr/zephyr.elf</code></li>
+<li><strong>Build dir</strong>: <code>/home/hdj/zephyrproject/art_pi_example/build-8.eth</code></li>
+<li><strong>Log</strong>: <code>/home/hdj/zephyrproject/art_pi_example/logs/8.eth.log</code></li>
+<li><strong>Last change</strong>: 2025-10-31 00:57:25</li>
+<li><strong>Last build</strong>: 2025-10-31 02:23:11</li>
+<li><strong>Elapsed</strong>: 20.0s</li>
+</ul>
+<details><summary>Memory usage table</summary>
+
+<div class="language-text highlight"><table class="highlighttable"><tbody><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-7-1"> 1</a></span>
+<span class="normal"><a href="#__codelineno-7-2"> 2</a></span>
+<span class="normal"><a href="#__codelineno-7-3"> 3</a></span>
+<span class="normal"><a href="#__codelineno-7-4"> 4</a></span>
+<span class="normal"><a href="#__codelineno-7-5"> 5</a></span>
+<span class="normal"><a href="#__codelineno-7-6"> 6</a></span>
+<span class="normal"><a href="#__codelineno-7-7"> 7</a></span>
+<span class="normal"><a href="#__codelineno-7-8"> 8</a></span>
+<span class="normal"><a href="#__codelineno-7-9"> 9</a></span>
+<span class="normal"><a href="#__codelineno-7-10">10</a></span>
+<span class="normal"><a href="#__codelineno-7-11">11</a></span>
+<span class="normal"><a href="#__codelineno-7-12">12</a></span>
+<span class="normal"><a href="#__codelineno-7-13">13</a></span>
+<span class="normal"><a href="#__codelineno-7-14">14</a></span>
+<span class="normal"><a href="#__codelineno-7-15">15</a></span>
+<span class="normal"><a href="#__codelineno-7-16">16</a></span></pre></div></td><td class="code"><div><pre><span></span><code><span id="__span-7-1"><a id="__codelineno-7-1" name="__codelineno-7-1"></a>Memory region         Used Size  Region Size  %age Used
+</span><span id="__span-7-2"><a id="__codelineno-7-2" name="__codelineno-7-2"></a>           FLASH:      124676 B         2 MB      5.95%
+</span><span id="__span-7-3"><a id="__codelineno-7-3" name="__codelineno-7-3"></a>             RAM:       54488 B       512 KB     10.39%
+</span><span id="__span-7-4"><a id="__codelineno-7-4" name="__codelineno-7-4"></a>          EXTMEM:          0 GB         8 MB      0.00%
+</span><span id="__span-7-5"><a id="__codelineno-7-5" name="__codelineno-7-5"></a>           SRAM0:          0 GB       512 KB      0.00%
+</span><span id="__span-7-6"><a id="__codelineno-7-6" name="__codelineno-7-6"></a>           SRAM1:          0 GB       128 KB      0.00%
+</span><span id="__span-7-7"><a id="__codelineno-7-7" name="__codelineno-7-7"></a>           SRAM2:          0 GB       128 KB      0.00%
+</span><span id="__span-7-8"><a id="__codelineno-7-8" name="__codelineno-7-8"></a>           SRAM4:          0 GB        64 KB      0.00%
+</span><span id="__span-7-9"><a id="__codelineno-7-9" name="__codelineno-7-9"></a>            DTCM:          0 GB       128 KB      0.00%
+</span><span id="__span-7-10"><a id="__codelineno-7-10" name="__codelineno-7-10"></a>            ITCM:          0 GB        64 KB      0.00%
+</span><span id="__span-7-11"><a id="__codelineno-7-11" name="__codelineno-7-11"></a>           SRAM3:         16 KB        32 KB     50.00%
+</span><span id="__span-7-12"><a id="__codelineno-7-12" name="__codelineno-7-12"></a>          SDRAM1:          0 GB         6 MB      0.00%
+</span><span id="__span-7-13"><a id="__codelineno-7-13" name="__codelineno-7-13"></a>        IDT_LIST:          0 GB        32 KB      0.00%
+</span><span id="__span-7-14"><a id="__codelineno-7-14" name="__codelineno-7-14"></a>Generating files from /home/hdj/zephyrproject/art_pi_example/build-8.eth/zephyr/zephyr.elf for board: art_pi
+</span><span id="__span-7-15"><a id="__codelineno-7-15" name="__codelineno-7-15"></a>image.py: sign the payload
+</span><span id="__span-7-16"><a id="__codelineno-7-16" name="__codelineno-7-16"></a>image.py: sign the payload
+</span></code></pre></div></td></tr></tbody></table></div>
+</details>
+
+<h2 id="9eth_speed_test-ok">9.eth_speed_test — OK<a class="headerlink" href="#9eth_speed_test-ok" title="Permanent link">¶</a></h2>
+<ul>
+<li><strong>Command</strong>: <code>west build -p always -b art_pi -d /home/hdj/zephyrproject/art_pi_example/build-9.eth_speed_test /home/hdj/zephyrproject/art_pi_example/9.eth_speed_test -- -DCONFIG_BOOTLOADER_MCUBOOT=y -DCONFIG_MCUBOOT_SIGNATURE_KEY_FILE="/home/hdj/zephyrproject/bootloader/mcuboot/root-rsa-2048.pem"</code></li>
+<li><code>[1217/1217] Linking C executable zephyr/zephyr.elf</code></li>
+<li><strong>Build dir</strong>: <code>/home/hdj/zephyrproject/art_pi_example/build-9.eth_speed_test</code></li>
+<li><strong>Log</strong>: <code>/home/hdj/zephyrproject/art_pi_example/logs/9.eth_speed_test.log</code></li>
+<li><strong>Last change</strong>: 2025-10-31 00:58:53</li>
+<li><strong>Last build</strong>: 2025-10-31 02:23:37</li>
+<li><strong>Elapsed</strong>: 25.8s</li>
+</ul>
+<details><summary>Memory usage table</summary>
+
+<div class="language-text highlight"><table class="highlighttable"><tbody><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-8-1"> 1</a></span>
+<span class="normal"><a href="#__codelineno-8-2"> 2</a></span>
+<span class="normal"><a href="#__codelineno-8-3"> 3</a></span>
+<span class="normal"><a href="#__codelineno-8-4"> 4</a></span>
+<span class="normal"><a href="#__codelineno-8-5"> 5</a></span>
+<span class="normal"><a href="#__codelineno-8-6"> 6</a></span>
+<span class="normal"><a href="#__codelineno-8-7"> 7</a></span>
+<span class="normal"><a href="#__codelineno-8-8"> 8</a></span>
+<span class="normal"><a href="#__codelineno-8-9"> 9</a></span>
+<span class="normal"><a href="#__codelineno-8-10">10</a></span>
+<span class="normal"><a href="#__codelineno-8-11">11</a></span>
+<span class="normal"><a href="#__codelineno-8-12">12</a></span>
+<span class="normal"><a href="#__codelineno-8-13">13</a></span>
+<span class="normal"><a href="#__codelineno-8-14">14</a></span>
+<span class="normal"><a href="#__codelineno-8-15">15</a></span>
+<span class="normal"><a href="#__codelineno-8-16">16</a></span></pre></div></td><td class="code"><div><pre><span></span><code><span id="__span-8-1"><a id="__codelineno-8-1" name="__codelineno-8-1"></a>Memory region         Used Size  Region Size  %age Used
+</span><span id="__span-8-2"><a id="__codelineno-8-2" name="__codelineno-8-2"></a>           FLASH:      127988 B         2 MB      6.10%
+</span><span id="__span-8-3"><a id="__codelineno-8-3" name="__codelineno-8-3"></a>             RAM:       61952 B       512 KB     11.82%
+</span><span id="__span-8-4"><a id="__codelineno-8-4" name="__codelineno-8-4"></a>          EXTMEM:          0 GB         8 MB      0.00%
+</span><span id="__span-8-5"><a id="__codelineno-8-5" name="__codelineno-8-5"></a>           SRAM0:          0 GB       512 KB      0.00%
+</span><span id="__span-8-6"><a id="__codelineno-8-6" name="__codelineno-8-6"></a>           SRAM1:          0 GB       128 KB      0.00%
+</span><span id="__span-8-7"><a id="__codelineno-8-7" name="__codelineno-8-7"></a>           SRAM2:          0 GB       128 KB      0.00%
+</span><span id="__span-8-8"><a id="__codelineno-8-8" name="__codelineno-8-8"></a>           SRAM4:          0 GB        64 KB      0.00%
+</span><span id="__span-8-9"><a id="__codelineno-8-9" name="__codelineno-8-9"></a>            DTCM:          0 GB       128 KB      0.00%
+</span><span id="__span-8-10"><a id="__codelineno-8-10" name="__codelineno-8-10"></a>            ITCM:          0 GB        64 KB      0.00%
+</span><span id="__span-8-11"><a id="__codelineno-8-11" name="__codelineno-8-11"></a>           SRAM3:         16 KB        32 KB     50.00%
+</span><span id="__span-8-12"><a id="__codelineno-8-12" name="__codelineno-8-12"></a>          SDRAM1:          0 GB         6 MB      0.00%
+</span><span id="__span-8-13"><a id="__codelineno-8-13" name="__codelineno-8-13"></a>        IDT_LIST:          0 GB        32 KB      0.00%
+</span><span id="__span-8-14"><a id="__codelineno-8-14" name="__codelineno-8-14"></a>Generating files from /home/hdj/zephyrproject/art_pi_example/build-9.eth_speed_test/zephyr/zephyr.elf for board: art_pi
+</span><span id="__span-8-15"><a id="__codelineno-8-15" name="__codelineno-8-15"></a>image.py: sign the payload
+</span><span id="__span-8-16"><a id="__codelineno-8-16" name="__codelineno-8-16"></a>image.py: sign the payload
+</span></code></pre></div></td></tr></tbody></table></div>
+</details>
+
+<h2 id="10touch_gt1151-ok">10.touch_gt1151 — OK<a class="headerlink" href="#10touch_gt1151-ok" title="Permanent link">¶</a></h2>
+<ul>
+<li><strong>Command</strong>: <code>west build -p always -b art_pi -d /home/hdj/zephyrproject/art_pi_example/build-10.touch_gt1151 /home/hdj/zephyrproject/art_pi_example/10.touch_gt1151 -- -DCONFIG_BOOTLOADER_MCUBOOT=y -DCONFIG_MCUBOOT_SIGNATURE_KEY_FILE="/home/hdj/zephyrproject/bootloader/mcuboot/root-rsa-2048.pem"</code></li>
+<li><code>[167/167] Linking C executable zephyr/zephyr.elf</code></li>
+<li><strong>Build dir</strong>: <code>/home/hdj/zephyrproject/art_pi_example/build-10.touch_gt1151</code></li>
+<li><strong>Log</strong>: <code>/home/hdj/zephyrproject/art_pi_example/logs/10.touch_gt1151.log</code></li>
+<li><strong>Last change</strong>: 2025-10-31 01:04:54</li>
+<li><strong>Last build</strong>: 2025-10-31 02:23:52</li>
+<li><strong>Elapsed</strong>: 14.7s</li>
+</ul>
+<details><summary>Memory usage table</summary>
+
+<div class="language-text highlight"><table class="highlighttable"><tbody><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-9-1"> 1</a></span>
+<span class="normal"><a href="#__codelineno-9-2"> 2</a></span>
+<span class="normal"><a href="#__codelineno-9-3"> 3</a></span>
+<span class="normal"><a href="#__codelineno-9-4"> 4</a></span>
+<span class="normal"><a href="#__codelineno-9-5"> 5</a></span>
+<span class="normal"><a href="#__codelineno-9-6"> 6</a></span>
+<span class="normal"><a href="#__codelineno-9-7"> 7</a></span>
+<span class="normal"><a href="#__codelineno-9-8"> 8</a></span>
+<span class="normal"><a href="#__codelineno-9-9"> 9</a></span>
+<span class="normal"><a href="#__codelineno-9-10">10</a></span>
+<span class="normal"><a href="#__codelineno-9-11">11</a></span>
+<span class="normal"><a href="#__codelineno-9-12">12</a></span>
+<span class="normal"><a href="#__codelineno-9-13">13</a></span>
+<span class="normal"><a href="#__codelineno-9-14">14</a></span>
+<span class="normal"><a href="#__codelineno-9-15">15</a></span>
+<span class="normal"><a href="#__codelineno-9-16">16</a></span></pre></div></td><td class="code"><div><pre><span></span><code><span id="__span-9-1"><a id="__codelineno-9-1" name="__codelineno-9-1"></a>Memory region         Used Size  Region Size  %age Used
+</span><span id="__span-9-2"><a id="__codelineno-9-2" name="__codelineno-9-2"></a>           FLASH:       37008 B         2 MB      1.76%
+</span><span id="__span-9-3"><a id="__codelineno-9-3" name="__codelineno-9-3"></a>             RAM:       16832 B       512 KB      3.21%
+</span><span id="__span-9-4"><a id="__codelineno-9-4" name="__codelineno-9-4"></a>          EXTMEM:          0 GB         8 MB      0.00%
+</span><span id="__span-9-5"><a id="__codelineno-9-5" name="__codelineno-9-5"></a>           SRAM0:          0 GB       512 KB      0.00%
+</span><span id="__span-9-6"><a id="__codelineno-9-6" name="__codelineno-9-6"></a>           SRAM1:          0 GB       128 KB      0.00%
+</span><span id="__span-9-7"><a id="__codelineno-9-7" name="__codelineno-9-7"></a>           SRAM2:          0 GB       128 KB      0.00%
+</span><span id="__span-9-8"><a id="__codelineno-9-8" name="__codelineno-9-8"></a>           SRAM4:          0 GB        64 KB      0.00%
+</span><span id="__span-9-9"><a id="__codelineno-9-9" name="__codelineno-9-9"></a>            DTCM:          0 GB       128 KB      0.00%
+</span><span id="__span-9-10"><a id="__codelineno-9-10" name="__codelineno-9-10"></a>            ITCM:          0 GB        64 KB      0.00%
+</span><span id="__span-9-11"><a id="__codelineno-9-11" name="__codelineno-9-11"></a>           SRAM3:         16 KB        32 KB     50.00%
+</span><span id="__span-9-12"><a id="__codelineno-9-12" name="__codelineno-9-12"></a>          SDRAM1:          0 GB         6 MB      0.00%
+</span><span id="__span-9-13"><a id="__codelineno-9-13" name="__codelineno-9-13"></a>        IDT_LIST:          0 GB        32 KB      0.00%
+</span><span id="__span-9-14"><a id="__codelineno-9-14" name="__codelineno-9-14"></a>Generating files from /home/hdj/zephyrproject/art_pi_example/build-10.touch_gt1151/zephyr/zephyr.elf for board: art_pi
+</span><span id="__span-9-15"><a id="__codelineno-9-15" name="__codelineno-9-15"></a>image.py: sign the payload
+</span><span id="__span-9-16"><a id="__codelineno-9-16" name="__codelineno-9-16"></a>image.py: sign the payload
+</span></code></pre></div></td></tr></tbody></table></div>
+</details>
+
+<h2 id="11lvgl-ok">11.lvgl — OK<a class="headerlink" href="#11lvgl-ok" title="Permanent link">¶</a></h2>
+<ul>
+<li><strong>Command</strong>: <code>west build -p always -b art_pi -d /home/hdj/zephyrproject/art_pi_example/build-11.lvgl /home/hdj/zephyrproject/art_pi_example/11.lvgl -- -DCONFIG_BOOTLOADER_MCUBOOT=y -DCONFIG_MCUBOOT_SIGNATURE_KEY_FILE="/home/hdj/zephyrproject/bootloader/mcuboot/root-rsa-2048.pem"</code></li>
+<li><code>[548/548] Linking C executable zephyr/zephyr.elf</code></li>
+<li><strong>Build dir</strong>: <code>/home/hdj/zephyrproject/art_pi_example/build-11.lvgl</code></li>
+<li><strong>Log</strong>: <code>/home/hdj/zephyrproject/art_pi_example/logs/11.lvgl.log</code></li>
+<li><strong>Last change</strong>: 2025-10-31 01:05:56</li>
+<li><strong>Last build</strong>: 2025-10-31 02:24:09</li>
+<li><strong>Elapsed</strong>: 17.5s</li>
+</ul>
+<details><summary>Memory usage table</summary>
+
+<div class="language-text highlight"><table class="highlighttable"><tbody><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-10-1"> 1</a></span>
+<span class="normal"><a href="#__codelineno-10-2"> 2</a></span>
+<span class="normal"><a href="#__codelineno-10-3"> 3</a></span>
+<span class="normal"><a href="#__codelineno-10-4"> 4</a></span>
+<span class="normal"><a href="#__codelineno-10-5"> 5</a></span>
+<span class="normal"><a href="#__codelineno-10-6"> 6</a></span>
+<span class="normal"><a href="#__codelineno-10-7"> 7</a></span>
+<span class="normal"><a href="#__codelineno-10-8"> 8</a></span>
+<span class="normal"><a href="#__codelineno-10-9"> 9</a></span>
+<span class="normal"><a href="#__codelineno-10-10">10</a></span>
+<span class="normal"><a href="#__codelineno-10-11">11</a></span>
+<span class="normal"><a href="#__codelineno-10-12">12</a></span>
+<span class="normal"><a href="#__codelineno-10-13">13</a></span>
+<span class="normal"><a href="#__codelineno-10-14">14</a></span>
+<span class="normal"><a href="#__codelineno-10-15">15</a></span>
+<span class="normal"><a href="#__codelineno-10-16">16</a></span></pre></div></td><td class="code"><div><pre><span></span><code><span id="__span-10-1"><a id="__codelineno-10-1" name="__codelineno-10-1"></a>Memory region         Used Size  Region Size  %age Used
+</span><span id="__span-10-2"><a id="__codelineno-10-2" name="__codelineno-10-2"></a>           FLASH:      313692 B         2 MB     14.96%
+</span><span id="__span-10-3"><a id="__codelineno-10-3" name="__codelineno-10-3"></a>             RAM:      291784 B       512 KB     55.65%
+</span><span id="__span-10-4"><a id="__codelineno-10-4" name="__codelineno-10-4"></a>          EXTMEM:          0 GB         8 MB      0.00%
+</span><span id="__span-10-5"><a id="__codelineno-10-5" name="__codelineno-10-5"></a>           SRAM0:          0 GB       512 KB      0.00%
+</span><span id="__span-10-6"><a id="__codelineno-10-6" name="__codelineno-10-6"></a>           SRAM1:          0 GB       128 KB      0.00%
+</span><span id="__span-10-7"><a id="__codelineno-10-7" name="__codelineno-10-7"></a>           SRAM2:          0 GB       128 KB      0.00%
+</span><span id="__span-10-8"><a id="__codelineno-10-8" name="__codelineno-10-8"></a>           SRAM4:          0 GB        64 KB      0.00%
+</span><span id="__span-10-9"><a id="__codelineno-10-9" name="__codelineno-10-9"></a>            DTCM:          0 GB       128 KB      0.00%
+</span><span id="__span-10-10"><a id="__codelineno-10-10" name="__codelineno-10-10"></a>            ITCM:          0 GB        64 KB      0.00%
+</span><span id="__span-10-11"><a id="__codelineno-10-11" name="__codelineno-10-11"></a>           SRAM3:         16 KB        32 KB     50.00%
+</span><span id="__span-10-12"><a id="__codelineno-10-12" name="__codelineno-10-12"></a>          SDRAM1:        750 KB         6 MB     12.21%
+</span><span id="__span-10-13"><a id="__codelineno-10-13" name="__codelineno-10-13"></a>        IDT_LIST:          0 GB        32 KB      0.00%
+</span><span id="__span-10-14"><a id="__codelineno-10-14" name="__codelineno-10-14"></a>Generating files from /home/hdj/zephyrproject/art_pi_example/build-11.lvgl/zephyr/zephyr.elf for board: art_pi
+</span><span id="__span-10-15"><a id="__codelineno-10-15" name="__codelineno-10-15"></a>image.py: sign the payload
+</span><span id="__span-10-16"><a id="__codelineno-10-16" name="__codelineno-10-16"></a>image.py: sign the payload
+</span></code></pre></div></td></tr></tbody></table></div>
+</details>
+
+<h2 id="12lvgl_demos-ok">12.lvgl_demos — OK<a class="headerlink" href="#12lvgl_demos-ok" title="Permanent link">¶</a></h2>
+<ul>
+<li><strong>Command</strong>: <code>west build -p always -b art_pi -d /home/hdj/zephyrproject/art_pi_example/build-12.lvgl_demos /home/hdj/zephyrproject/art_pi_example/12.lvgl_demos -- -DCONFIG_BOOTLOADER_MCUBOOT=y -DCONFIG_MCUBOOT_SIGNATURE_KEY_FILE="/home/hdj/zephyrproject/bootloader/mcuboot/root-rsa-2048.pem"</code></li>
+<li><code>[595/595] Linking C executable zephyr/zephyr.elf</code></li>
+<li><strong>Build dir</strong>: <code>/home/hdj/zephyrproject/art_pi_example/build-12.lvgl_demos</code></li>
+<li><strong>Log</strong>: <code>/home/hdj/zephyrproject/art_pi_example/logs/12.lvgl_demos.log</code></li>
+<li><strong>Last change</strong>: 2025-09-24 21:57:06</li>
+<li><strong>Last build</strong>: 2025-10-31 02:24:31</li>
+<li><strong>Elapsed</strong>: 22.1s</li>
+</ul>
+<details><summary>Memory usage table</summary>
+
+<div class="language-text highlight"><table class="highlighttable"><tbody><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-11-1"> 1</a></span>
+<span class="normal"><a href="#__codelineno-11-2"> 2</a></span>
+<span class="normal"><a href="#__codelineno-11-3"> 3</a></span>
+<span class="normal"><a href="#__codelineno-11-4"> 4</a></span>
+<span class="normal"><a href="#__codelineno-11-5"> 5</a></span>
+<span class="normal"><a href="#__codelineno-11-6"> 6</a></span>
+<span class="normal"><a href="#__codelineno-11-7"> 7</a></span>
+<span class="normal"><a href="#__codelineno-11-8"> 8</a></span>
+<span class="normal"><a href="#__codelineno-11-9"> 9</a></span>
+<span class="normal"><a href="#__codelineno-11-10">10</a></span>
+<span class="normal"><a href="#__codelineno-11-11">11</a></span>
+<span class="normal"><a href="#__codelineno-11-12">12</a></span>
+<span class="normal"><a href="#__codelineno-11-13">13</a></span>
+<span class="normal"><a href="#__codelineno-11-14">14</a></span>
+<span class="normal"><a href="#__codelineno-11-15">15</a></span>
+<span class="normal"><a href="#__codelineno-11-16">16</a></span></pre></div></td><td class="code"><div><pre><span></span><code><span id="__span-11-1"><a id="__codelineno-11-1" name="__codelineno-11-1"></a>Memory region         Used Size  Region Size  %age Used
+</span><span id="__span-11-2"><a id="__codelineno-11-2" name="__codelineno-11-2"></a>           FLASH:      962352 B         2 MB     45.89%
+</span><span id="__span-11-3"><a id="__codelineno-11-3" name="__codelineno-11-3"></a>             RAM:      334088 B       512 KB     63.72%
+</span><span id="__span-11-4"><a id="__codelineno-11-4" name="__codelineno-11-4"></a>          EXTMEM:          0 GB         8 MB      0.00%
+</span><span id="__span-11-5"><a id="__codelineno-11-5" name="__codelineno-11-5"></a>           SRAM0:          0 GB       512 KB      0.00%
+</span><span id="__span-11-6"><a id="__codelineno-11-6" name="__codelineno-11-6"></a>           SRAM1:          0 GB       128 KB      0.00%
+</span><span id="__span-11-7"><a id="__codelineno-11-7" name="__codelineno-11-7"></a>           SRAM2:          0 GB       128 KB      0.00%
+</span><span id="__span-11-8"><a id="__codelineno-11-8" name="__codelineno-11-8"></a>           SRAM4:          0 GB        64 KB      0.00%
+</span><span id="__span-11-9"><a id="__codelineno-11-9" name="__codelineno-11-9"></a>            DTCM:          0 GB       128 KB      0.00%
+</span><span id="__span-11-10"><a id="__codelineno-11-10" name="__codelineno-11-10"></a>            ITCM:          0 GB        64 KB      0.00%
+</span><span id="__span-11-11"><a id="__codelineno-11-11" name="__codelineno-11-11"></a>           SRAM3:         16 KB        32 KB     50.00%
+</span><span id="__span-11-12"><a id="__codelineno-11-12" name="__codelineno-11-12"></a>          SDRAM1:        750 KB         6 MB     12.21%
+</span><span id="__span-11-13"><a id="__codelineno-11-13" name="__codelineno-11-13"></a>        IDT_LIST:          0 GB        32 KB      0.00%
+</span><span id="__span-11-14"><a id="__codelineno-11-14" name="__codelineno-11-14"></a>Generating files from /home/hdj/zephyrproject/art_pi_example/build-12.lvgl_demos/zephyr/zephyr.elf for board: art_pi
+</span><span id="__span-11-15"><a id="__codelineno-11-15" name="__codelineno-11-15"></a>image.py: sign the payload
+</span><span id="__span-11-16"><a id="__codelineno-11-16" name="__codelineno-11-16"></a>image.py: sign the payload
+</span></code></pre></div></td></tr></tbody></table></div>
+</details>
+
+<h2 id="13usb_mass_ram-ok">13.usb_mass_ram — OK<a class="headerlink" href="#13usb_mass_ram-ok" title="Permanent link">¶</a></h2>
+<ul>
+<li><strong>Command</strong>: <code>west build -p always -b art_pi -d /home/hdj/zephyrproject/art_pi_example/build-13.usb_mass_ram /home/hdj/zephyrproject/art_pi_example/13.usb_mass_ram -- -DCONFIG_BOOTLOADER_MCUBOOT=y -DCONFIG_MCUBOOT_SIGNATURE_KEY_FILE="/home/hdj/zephyrproject/bootloader/mcuboot/root-rsa-2048.pem"</code></li>
+<li><code>[189/189] Linking C executable zephyr/zephyr.elf</code></li>
+<li><strong>Build dir</strong>: <code>/home/hdj/zephyrproject/art_pi_example/build-13.usb_mass_ram</code></li>
+<li><strong>Log</strong>: <code>/home/hdj/zephyrproject/art_pi_example/logs/13.usb_mass_ram.log</code></li>
+<li><strong>Last change</strong>: 2025-09-26 19:54:23</li>
+<li><strong>Last build</strong>: 2025-10-31 02:24:49</li>
+<li><strong>Elapsed</strong>: 17.5s</li>
+</ul>
+<details><summary>Memory usage table</summary>
+
+<div class="language-text highlight"><table class="highlighttable"><tbody><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-12-1"> 1</a></span>
+<span class="normal"><a href="#__codelineno-12-2"> 2</a></span>
+<span class="normal"><a href="#__codelineno-12-3"> 3</a></span>
+<span class="normal"><a href="#__codelineno-12-4"> 4</a></span>
+<span class="normal"><a href="#__codelineno-12-5"> 5</a></span>
+<span class="normal"><a href="#__codelineno-12-6"> 6</a></span>
+<span class="normal"><a href="#__codelineno-12-7"> 7</a></span>
+<span class="normal"><a href="#__codelineno-12-8"> 8</a></span>
+<span class="normal"><a href="#__codelineno-12-9"> 9</a></span>
+<span class="normal"><a href="#__codelineno-12-10">10</a></span>
+<span class="normal"><a href="#__codelineno-12-11">11</a></span>
+<span class="normal"><a href="#__codelineno-12-12">12</a></span>
+<span class="normal"><a href="#__codelineno-12-13">13</a></span>
+<span class="normal"><a href="#__codelineno-12-14">14</a></span>
+<span class="normal"><a href="#__codelineno-12-15">15</a></span>
+<span class="normal"><a href="#__codelineno-12-16">16</a></span></pre></div></td><td class="code"><div><pre><span></span><code><span id="__span-12-1"><a id="__codelineno-12-1" name="__codelineno-12-1"></a>Memory region         Used Size  Region Size  %age Used
+</span><span id="__span-12-2"><a id="__codelineno-12-2" name="__codelineno-12-2"></a>           FLASH:       71768 B         2 MB      3.42%
+</span><span id="__span-12-3"><a id="__codelineno-12-3" name="__codelineno-12-3"></a>             RAM:       66080 B       512 KB     12.60%
+</span><span id="__span-12-4"><a id="__codelineno-12-4" name="__codelineno-12-4"></a>          EXTMEM:          0 GB         8 MB      0.00%
+</span><span id="__span-12-5"><a id="__codelineno-12-5" name="__codelineno-12-5"></a>           SRAM0:          0 GB       512 KB      0.00%
+</span><span id="__span-12-6"><a id="__codelineno-12-6" name="__codelineno-12-6"></a>           SRAM1:          0 GB       128 KB      0.00%
+</span><span id="__span-12-7"><a id="__codelineno-12-7" name="__codelineno-12-7"></a>           SRAM2:          0 GB       128 KB      0.00%
+</span><span id="__span-12-8"><a id="__codelineno-12-8" name="__codelineno-12-8"></a>           SRAM4:          0 GB        64 KB      0.00%
+</span><span id="__span-12-9"><a id="__codelineno-12-9" name="__codelineno-12-9"></a>            DTCM:          0 GB       128 KB      0.00%
+</span><span id="__span-12-10"><a id="__codelineno-12-10" name="__codelineno-12-10"></a>            ITCM:          0 GB        64 KB      0.00%
+</span><span id="__span-12-11"><a id="__codelineno-12-11" name="__codelineno-12-11"></a>           SRAM3:         16 KB        32 KB     50.00%
+</span><span id="__span-12-12"><a id="__codelineno-12-12" name="__codelineno-12-12"></a>          SDRAM1:          0 GB         6 MB      0.00%
+</span><span id="__span-12-13"><a id="__codelineno-12-13" name="__codelineno-12-13"></a>        IDT_LIST:          0 GB        32 KB      0.00%
+</span><span id="__span-12-14"><a id="__codelineno-12-14" name="__codelineno-12-14"></a>Generating files from /home/hdj/zephyrproject/art_pi_example/build-13.usb_mass_ram/zephyr/zephyr.elf for board: art_pi
+</span><span id="__span-12-15"><a id="__codelineno-12-15" name="__codelineno-12-15"></a>image.py: sign the payload
+</span><span id="__span-12-16"><a id="__codelineno-12-16" name="__codelineno-12-16"></a>image.py: sign the payload
+</span></code></pre></div></td></tr></tbody></table></div>
+</details>
+
+<h2 id="15usb_mass_sdmmc-ok">15.usb_mass_sdmmc — OK<a class="headerlink" href="#15usb_mass_sdmmc-ok" title="Permanent link">¶</a></h2>
+<ul>
+<li><strong>Command</strong>: <code>west build -p always -b art_pi -d /home/hdj/zephyrproject/art_pi_example/build-15.usb_mass_sdmmc /home/hdj/zephyrproject/art_pi_example/15.usb_mass_sdmmc -- -DCONFIG_BOOTLOADER_MCUBOOT=y -DCONFIG_MCUBOOT_SIGNATURE_KEY_FILE="/home/hdj/zephyrproject/bootloader/mcuboot/root-rsa-2048.pem"</code></li>
+<li><code>[190/190] Linking C executable zephyr/zephyr.elf</code></li>
+<li><strong>Build dir</strong>: <code>/home/hdj/zephyrproject/art_pi_example/build-15.usb_mass_sdmmc</code></li>
+<li><strong>Log</strong>: <code>/home/hdj/zephyrproject/art_pi_example/logs/15.usb_mass_sdmmc.log</code></li>
+<li><strong>Last change</strong>: 2025-09-27 00:26:44</li>
+<li><strong>Last build</strong>: 2025-10-31 02:25:05</li>
+<li><strong>Elapsed</strong>: 15.9s</li>
+</ul>
+<details><summary>Memory usage table</summary>
+
+<div class="language-text highlight"><table class="highlighttable"><tbody><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-13-1"> 1</a></span>
+<span class="normal"><a href="#__codelineno-13-2"> 2</a></span>
+<span class="normal"><a href="#__codelineno-13-3"> 3</a></span>
+<span class="normal"><a href="#__codelineno-13-4"> 4</a></span>
+<span class="normal"><a href="#__codelineno-13-5"> 5</a></span>
+<span class="normal"><a href="#__codelineno-13-6"> 6</a></span>
+<span class="normal"><a href="#__codelineno-13-7"> 7</a></span>
+<span class="normal"><a href="#__codelineno-13-8"> 8</a></span>
+<span class="normal"><a href="#__codelineno-13-9"> 9</a></span>
+<span class="normal"><a href="#__codelineno-13-10">10</a></span>
+<span class="normal"><a href="#__codelineno-13-11">11</a></span>
+<span class="normal"><a href="#__codelineno-13-12">12</a></span>
+<span class="normal"><a href="#__codelineno-13-13">13</a></span>
+<span class="normal"><a href="#__codelineno-13-14">14</a></span>
+<span class="normal"><a href="#__codelineno-13-15">15</a></span>
+<span class="normal"><a href="#__codelineno-13-16">16</a></span></pre></div></td><td class="code"><div><pre><span></span><code><span id="__span-13-1"><a id="__codelineno-13-1" name="__codelineno-13-1"></a>Memory region         Used Size  Region Size  %age Used
+</span><span id="__span-13-2"><a id="__codelineno-13-2" name="__codelineno-13-2"></a>           FLASH:       88020 B         2 MB      4.20%
+</span><span id="__span-13-3"><a id="__codelineno-13-3" name="__codelineno-13-3"></a>             RAM:       68256 B       512 KB     13.02%
+</span><span id="__span-13-4"><a id="__codelineno-13-4" name="__codelineno-13-4"></a>          EXTMEM:          0 GB         8 MB      0.00%
+</span><span id="__span-13-5"><a id="__codelineno-13-5" name="__codelineno-13-5"></a>           SRAM0:          0 GB       512 KB      0.00%
+</span><span id="__span-13-6"><a id="__codelineno-13-6" name="__codelineno-13-6"></a>           SRAM1:          0 GB       128 KB      0.00%
+</span><span id="__span-13-7"><a id="__codelineno-13-7" name="__codelineno-13-7"></a>           SRAM2:          0 GB       128 KB      0.00%
+</span><span id="__span-13-8"><a id="__codelineno-13-8" name="__codelineno-13-8"></a>           SRAM4:          0 GB        64 KB      0.00%
+</span><span id="__span-13-9"><a id="__codelineno-13-9" name="__codelineno-13-9"></a>            DTCM:          0 GB       128 KB      0.00%
+</span><span id="__span-13-10"><a id="__codelineno-13-10" name="__codelineno-13-10"></a>            ITCM:          0 GB        64 KB      0.00%
+</span><span id="__span-13-11"><a id="__codelineno-13-11" name="__codelineno-13-11"></a>           SRAM3:         16 KB        32 KB     50.00%
+</span><span id="__span-13-12"><a id="__codelineno-13-12" name="__codelineno-13-12"></a>          SDRAM1:          0 GB         6 MB      0.00%
+</span><span id="__span-13-13"><a id="__codelineno-13-13" name="__codelineno-13-13"></a>        IDT_LIST:          0 GB        32 KB      0.00%
+</span><span id="__span-13-14"><a id="__codelineno-13-14" name="__codelineno-13-14"></a>Generating files from /home/hdj/zephyrproject/art_pi_example/build-15.usb_mass_sdmmc/zephyr/zephyr.elf for board: art_pi
+</span><span id="__span-13-15"><a id="__codelineno-13-15" name="__codelineno-13-15"></a>image.py: sign the payload
+</span><span id="__span-13-16"><a id="__codelineno-13-16" name="__codelineno-13-16"></a>image.py: sign the payload
+</span></code></pre></div></td></tr></tbody></table></div>
+</details>
+
+<h2 id="16webusb-ok">16.webusb — OK<a class="headerlink" href="#16webusb-ok" title="Permanent link">¶</a></h2>
+<ul>
+<li><strong>Command</strong>: <code>west build -p always -b art_pi -d /home/hdj/zephyrproject/art_pi_example/build-16.webusb /home/hdj/zephyrproject/art_pi_example/16.webusb -- -DCONFIG_BOOTLOADER_MCUBOOT=y -DCONFIG_MCUBOOT_SIGNATURE_KEY_FILE="/home/hdj/zephyrproject/bootloader/mcuboot/root-rsa-2048.pem"</code></li>
+<li><code>[180/180] Linking C executable zephyr/zephyr.elf</code></li>
+<li><strong>Build dir</strong>: <code>/home/hdj/zephyrproject/art_pi_example/build-16.webusb</code></li>
+<li><strong>Log</strong>: <code>/home/hdj/zephyrproject/art_pi_example/logs/16.webusb.log</code></li>
+<li><strong>Last change</strong>: 2025-09-25 14:00:29</li>
+<li><strong>Last build</strong>: 2025-10-31 02:25:19</li>
+<li><strong>Elapsed</strong>: 14.7s</li>
+</ul>
+<details><summary>Memory usage table</summary>
+
+<div class="language-text highlight"><table class="highlighttable"><tbody><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-14-1"> 1</a></span>
+<span class="normal"><a href="#__codelineno-14-2"> 2</a></span>
+<span class="normal"><a href="#__codelineno-14-3"> 3</a></span>
+<span class="normal"><a href="#__codelineno-14-4"> 4</a></span>
+<span class="normal"><a href="#__codelineno-14-5"> 5</a></span>
+<span class="normal"><a href="#__codelineno-14-6"> 6</a></span>
+<span class="normal"><a href="#__codelineno-14-7"> 7</a></span>
+<span class="normal"><a href="#__codelineno-14-8"> 8</a></span>
+<span class="normal"><a href="#__codelineno-14-9"> 9</a></span>
+<span class="normal"><a href="#__codelineno-14-10">10</a></span>
+<span class="normal"><a href="#__codelineno-14-11">11</a></span>
+<span class="normal"><a href="#__codelineno-14-12">12</a></span>
+<span class="normal"><a href="#__codelineno-14-13">13</a></span>
+<span class="normal"><a href="#__codelineno-14-14">14</a></span>
+<span class="normal"><a href="#__codelineno-14-15">15</a></span>
+<span class="normal"><a href="#__codelineno-14-16">16</a></span></pre></div></td><td class="code"><div><pre><span></span><code><span id="__span-14-1"><a id="__codelineno-14-1" name="__codelineno-14-1"></a>Memory region         Used Size  Region Size  %age Used
+</span><span id="__span-14-2"><a id="__codelineno-14-2" name="__codelineno-14-2"></a>           FLASH:       65892 B         2 MB      3.14%
+</span><span id="__span-14-3"><a id="__codelineno-14-3" name="__codelineno-14-3"></a>             RAM:       15580 B       512 KB      2.97%
+</span><span id="__span-14-4"><a id="__codelineno-14-4" name="__codelineno-14-4"></a>          EXTMEM:          0 GB         8 MB      0.00%
+</span><span id="__span-14-5"><a id="__codelineno-14-5" name="__codelineno-14-5"></a>           SRAM0:          0 GB       512 KB      0.00%
+</span><span id="__span-14-6"><a id="__codelineno-14-6" name="__codelineno-14-6"></a>           SRAM1:          0 GB       128 KB      0.00%
+</span><span id="__span-14-7"><a id="__codelineno-14-7" name="__codelineno-14-7"></a>           SRAM2:          0 GB       128 KB      0.00%
+</span><span id="__span-14-8"><a id="__codelineno-14-8" name="__codelineno-14-8"></a>           SRAM4:          0 GB        64 KB      0.00%
+</span><span id="__span-14-9"><a id="__codelineno-14-9" name="__codelineno-14-9"></a>            DTCM:          0 GB       128 KB      0.00%
+</span><span id="__span-14-10"><a id="__codelineno-14-10" name="__codelineno-14-10"></a>            ITCM:          0 GB        64 KB      0.00%
+</span><span id="__span-14-11"><a id="__codelineno-14-11" name="__codelineno-14-11"></a>           SRAM3:         16 KB        32 KB     50.00%
+</span><span id="__span-14-12"><a id="__codelineno-14-12" name="__codelineno-14-12"></a>          SDRAM1:          0 GB         6 MB      0.00%
+</span><span id="__span-14-13"><a id="__codelineno-14-13" name="__codelineno-14-13"></a>        IDT_LIST:          0 GB        32 KB      0.00%
+</span><span id="__span-14-14"><a id="__codelineno-14-14" name="__codelineno-14-14"></a>Generating files from /home/hdj/zephyrproject/art_pi_example/build-16.webusb/zephyr/zephyr.elf for board: art_pi
+</span><span id="__span-14-15"><a id="__codelineno-14-15" name="__codelineno-14-15"></a>image.py: sign the payload
+</span><span id="__span-14-16"><a id="__codelineno-14-16" name="__codelineno-14-16"></a>image.py: sign the payload
+</span></code></pre></div></td></tr></tbody></table></div>
+</details>
+
+<h2 id="17hid_keyboard-ok">17.hid_keyboard — OK<a class="headerlink" href="#17hid_keyboard-ok" title="Permanent link">¶</a></h2>
+<ul>
+<li><strong>Command</strong>: <code>west build -p always -b art_pi -d /home/hdj/zephyrproject/art_pi_example/build-17.hid_keyboard /home/hdj/zephyrproject/art_pi_example/17.hid_keyboard -- -DCONFIG_BOOTLOADER_MCUBOOT=y -DCONFIG_MCUBOOT_SIGNATURE_KEY_FILE="/home/hdj/zephyrproject/bootloader/mcuboot/root-rsa-2048.pem"</code></li>
+<li><code>[193/193] Linking C executable zephyr/zephyr.elf</code></li>
+<li><strong>Build dir</strong>: <code>/home/hdj/zephyrproject/art_pi_example/build-17.hid_keyboard</code></li>
+<li><strong>Log</strong>: <code>/home/hdj/zephyrproject/art_pi_example/logs/17.hid_keyboard.log</code></li>
+<li><strong>Last change</strong>: 2025-09-27 02:29:08</li>
+<li><strong>Last build</strong>: 2025-10-31 02:25:38</li>
+<li><strong>Elapsed</strong>: 18.2s</li>
+</ul>
+<details><summary>Memory usage table</summary>
+
+<div class="language-text highlight"><table class="highlighttable"><tbody><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-15-1"> 1</a></span>
+<span class="normal"><a href="#__codelineno-15-2"> 2</a></span>
+<span class="normal"><a href="#__codelineno-15-3"> 3</a></span>
+<span class="normal"><a href="#__codelineno-15-4"> 4</a></span>
+<span class="normal"><a href="#__codelineno-15-5"> 5</a></span>
+<span class="normal"><a href="#__codelineno-15-6"> 6</a></span>
+<span class="normal"><a href="#__codelineno-15-7"> 7</a></span>
+<span class="normal"><a href="#__codelineno-15-8"> 8</a></span>
+<span class="normal"><a href="#__codelineno-15-9"> 9</a></span>
+<span class="normal"><a href="#__codelineno-15-10">10</a></span>
+<span class="normal"><a href="#__codelineno-15-11">11</a></span>
+<span class="normal"><a href="#__codelineno-15-12">12</a></span>
+<span class="normal"><a href="#__codelineno-15-13">13</a></span>
+<span class="normal"><a href="#__codelineno-15-14">14</a></span>
+<span class="normal"><a href="#__codelineno-15-15">15</a></span>
+<span class="normal"><a href="#__codelineno-15-16">16</a></span></pre></div></td><td class="code"><div><pre><span></span><code><span id="__span-15-1"><a id="__codelineno-15-1" name="__codelineno-15-1"></a>Memory region         Used Size  Region Size  %age Used
+</span><span id="__span-15-2"><a id="__codelineno-15-2" name="__codelineno-15-2"></a>           FLASH:       72768 B         2 MB      3.47%
+</span><span id="__span-15-3"><a id="__codelineno-15-3" name="__codelineno-15-3"></a>             RAM:       15640 B       512 KB      2.98%
+</span><span id="__span-15-4"><a id="__codelineno-15-4" name="__codelineno-15-4"></a>          EXTMEM:          0 GB         8 MB      0.00%
+</span><span id="__span-15-5"><a id="__codelineno-15-5" name="__codelineno-15-5"></a>           SRAM0:          0 GB       512 KB      0.00%
+</span><span id="__span-15-6"><a id="__codelineno-15-6" name="__codelineno-15-6"></a>           SRAM1:          0 GB       128 KB      0.00%
+</span><span id="__span-15-7"><a id="__codelineno-15-7" name="__codelineno-15-7"></a>           SRAM2:          0 GB       128 KB      0.00%
+</span><span id="__span-15-8"><a id="__codelineno-15-8" name="__codelineno-15-8"></a>           SRAM4:          0 GB        64 KB      0.00%
+</span><span id="__span-15-9"><a id="__codelineno-15-9" name="__codelineno-15-9"></a>            DTCM:          0 GB       128 KB      0.00%
+</span><span id="__span-15-10"><a id="__codelineno-15-10" name="__codelineno-15-10"></a>            ITCM:          0 GB        64 KB      0.00%
+</span><span id="__span-15-11"><a id="__codelineno-15-11" name="__codelineno-15-11"></a>           SRAM3:         16 KB        32 KB     50.00%
+</span><span id="__span-15-12"><a id="__codelineno-15-12" name="__codelineno-15-12"></a>          SDRAM1:          0 GB         6 MB      0.00%
+</span><span id="__span-15-13"><a id="__codelineno-15-13" name="__codelineno-15-13"></a>        IDT_LIST:          0 GB        32 KB      0.00%
+</span><span id="__span-15-14"><a id="__codelineno-15-14" name="__codelineno-15-14"></a>Generating files from /home/hdj/zephyrproject/art_pi_example/build-17.hid_keyboard/zephyr/zephyr.elf for board: art_pi
+</span><span id="__span-15-15"><a id="__codelineno-15-15" name="__codelineno-15-15"></a>image.py: sign the payload
+</span><span id="__span-15-16"><a id="__codelineno-15-16" name="__codelineno-15-16"></a>image.py: sign the payload
+</span></code></pre></div></td></tr></tbody></table></div>
+</details>
+
+<h2 id="18hid_mouse-ok">18.hid_mouse — OK<a class="headerlink" href="#18hid_mouse-ok" title="Permanent link">¶</a></h2>
+<ul>
+<li><strong>Command</strong>: <code>west build -p always -b art_pi -d /home/hdj/zephyrproject/art_pi_example/build-18.hid_mouse /home/hdj/zephyrproject/art_pi_example/18.hid_mouse -- -DCONFIG_BOOTLOADER_MCUBOOT=y -DCONFIG_MCUBOOT_SIGNATURE_KEY_FILE="/home/hdj/zephyrproject/bootloader/mcuboot/root-rsa-2048.pem"</code></li>
+<li><code>[193/193] Linking C executable zephyr/zephyr.elf</code></li>
+<li><strong>Build dir</strong>: <code>/home/hdj/zephyrproject/art_pi_example/build-18.hid_mouse</code></li>
+<li><strong>Log</strong>: <code>/home/hdj/zephyrproject/art_pi_example/logs/18.hid_mouse.log</code></li>
+<li><strong>Last change</strong>: 2025-09-27 02:55:50</li>
+<li><strong>Last build</strong>: 2025-10-31 02:25:56</li>
+<li><strong>Elapsed</strong>: 18.0s</li>
+</ul>
+<details><summary>Memory usage table</summary>
+
+<div class="language-text highlight"><table class="highlighttable"><tbody><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-16-1"> 1</a></span>
+<span class="normal"><a href="#__codelineno-16-2"> 2</a></span>
+<span class="normal"><a href="#__codelineno-16-3"> 3</a></span>
+<span class="normal"><a href="#__codelineno-16-4"> 4</a></span>
+<span class="normal"><a href="#__codelineno-16-5"> 5</a></span>
+<span class="normal"><a href="#__codelineno-16-6"> 6</a></span>
+<span class="normal"><a href="#__codelineno-16-7"> 7</a></span>
+<span class="normal"><a href="#__codelineno-16-8"> 8</a></span>
+<span class="normal"><a href="#__codelineno-16-9"> 9</a></span>
+<span class="normal"><a href="#__codelineno-16-10">10</a></span>
+<span class="normal"><a href="#__codelineno-16-11">11</a></span>
+<span class="normal"><a href="#__codelineno-16-12">12</a></span>
+<span class="normal"><a href="#__codelineno-16-13">13</a></span>
+<span class="normal"><a href="#__codelineno-16-14">14</a></span>
+<span class="normal"><a href="#__codelineno-16-15">15</a></span>
+<span class="normal"><a href="#__codelineno-16-16">16</a></span></pre></div></td><td class="code"><div><pre><span></span><code><span id="__span-16-1"><a id="__codelineno-16-1" name="__codelineno-16-1"></a>Memory region         Used Size  Region Size  %age Used
+</span><span id="__span-16-2"><a id="__codelineno-16-2" name="__codelineno-16-2"></a>           FLASH:       71480 B         2 MB      3.41%
+</span><span id="__span-16-3"><a id="__codelineno-16-3" name="__codelineno-16-3"></a>             RAM:       16712 B       512 KB      3.19%
+</span><span id="__span-16-4"><a id="__codelineno-16-4" name="__codelineno-16-4"></a>          EXTMEM:          0 GB         8 MB      0.00%
+</span><span id="__span-16-5"><a id="__codelineno-16-5" name="__codelineno-16-5"></a>           SRAM0:          0 GB       512 KB      0.00%
+</span><span id="__span-16-6"><a id="__codelineno-16-6" name="__codelineno-16-6"></a>           SRAM1:          0 GB       128 KB      0.00%
+</span><span id="__span-16-7"><a id="__codelineno-16-7" name="__codelineno-16-7"></a>           SRAM2:          0 GB       128 KB      0.00%
+</span><span id="__span-16-8"><a id="__codelineno-16-8" name="__codelineno-16-8"></a>           SRAM4:          0 GB        64 KB      0.00%
+</span><span id="__span-16-9"><a id="__codelineno-16-9" name="__codelineno-16-9"></a>            DTCM:          0 GB       128 KB      0.00%
+</span><span id="__span-16-10"><a id="__codelineno-16-10" name="__codelineno-16-10"></a>            ITCM:          0 GB        64 KB      0.00%
+</span><span id="__span-16-11"><a id="__codelineno-16-11" name="__codelineno-16-11"></a>           SRAM3:         16 KB        32 KB     50.00%
+</span><span id="__span-16-12"><a id="__codelineno-16-12" name="__codelineno-16-12"></a>          SDRAM1:          0 GB         6 MB      0.00%
+</span><span id="__span-16-13"><a id="__codelineno-16-13" name="__codelineno-16-13"></a>        IDT_LIST:          0 GB        32 KB      0.00%
+</span><span id="__span-16-14"><a id="__codelineno-16-14" name="__codelineno-16-14"></a>Generating files from /home/hdj/zephyrproject/art_pi_example/build-18.hid_mouse/zephyr/zephyr.elf for board: art_pi
+</span><span id="__span-16-15"><a id="__codelineno-16-15" name="__codelineno-16-15"></a>image.py: sign the payload
+</span><span id="__span-16-16"><a id="__codelineno-16-16" name="__codelineno-16-16"></a>image.py: sign the payload
+</span></code></pre></div></td></tr></tbody></table></div>
+</details>
+
+<h2 id="19uvc-ok">19.uvc — OK<a class="headerlink" href="#19uvc-ok" title="Permanent link">¶</a></h2>
+<ul>
+<li><strong>Command</strong>: <code>west build -p always -b art_pi -S video-sw-generator -d build /home/hdj/zephyrproject/art_pi_example/19.uvc -- -DCONFIG_BOOTLOADER_MCUBOOT=y -DCONFIG_MCUBOOT_SIGNATURE_KEY_FILE="/home/hdj/zephyrproject/bootloader/mcuboot/root-rsa-2048.pem"</code></li>
+<li><code>[186/186] Linking C executable zephyr/zephyr.elf</code></li>
+<li><strong>Build dir</strong>: <code>build</code></li>
+<li><strong>Log</strong>: <code>/home/hdj/zephyrproject/art_pi_example/logs/19.uvc.log</code></li>
+<li><strong>Last change</strong>: 2025-09-29 19:15:55</li>
+<li><strong>Last build</strong>: 2025-10-31 02:26:12</li>
+<li><strong>Elapsed</strong>: 16.0s</li>
+</ul>
+<details><summary>Memory usage table</summary>
+
+<div class="language-text highlight"><table class="highlighttable"><tbody><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-17-1"> 1</a></span>
+<span class="normal"><a href="#__codelineno-17-2"> 2</a></span>
+<span class="normal"><a href="#__codelineno-17-3"> 3</a></span>
+<span class="normal"><a href="#__codelineno-17-4"> 4</a></span>
+<span class="normal"><a href="#__codelineno-17-5"> 5</a></span>
+<span class="normal"><a href="#__codelineno-17-6"> 6</a></span>
+<span class="normal"><a href="#__codelineno-17-7"> 7</a></span>
+<span class="normal"><a href="#__codelineno-17-8"> 8</a></span>
+<span class="normal"><a href="#__codelineno-17-9"> 9</a></span>
+<span class="normal"><a href="#__codelineno-17-10">10</a></span>
+<span class="normal"><a href="#__codelineno-17-11">11</a></span>
+<span class="normal"><a href="#__codelineno-17-12">12</a></span>
+<span class="normal"><a href="#__codelineno-17-13">13</a></span>
+<span class="normal"><a href="#__codelineno-17-14">14</a></span>
+<span class="normal"><a href="#__codelineno-17-15">15</a></span>
+<span class="normal"><a href="#__codelineno-17-16">16</a></span></pre></div></td><td class="code"><div><pre><span></span><code><span id="__span-17-1"><a id="__codelineno-17-1" name="__codelineno-17-1"></a>Memory region         Used Size  Region Size  %age Used
+</span><span id="__span-17-2"><a id="__codelineno-17-2" name="__codelineno-17-2"></a>           FLASH:       84380 B         2 MB      4.02%
+</span><span id="__span-17-3"><a id="__codelineno-17-3" name="__codelineno-17-3"></a>             RAM:      355256 B       512 KB     67.76%
+</span><span id="__span-17-4"><a id="__codelineno-17-4" name="__codelineno-17-4"></a>          EXTMEM:          0 GB         8 MB      0.00%
+</span><span id="__span-17-5"><a id="__codelineno-17-5" name="__codelineno-17-5"></a>           SRAM0:          0 GB       512 KB      0.00%
+</span><span id="__span-17-6"><a id="__codelineno-17-6" name="__codelineno-17-6"></a>           SRAM1:          0 GB       128 KB      0.00%
+</span><span id="__span-17-7"><a id="__codelineno-17-7" name="__codelineno-17-7"></a>           SRAM2:          0 GB       128 KB      0.00%
+</span><span id="__span-17-8"><a id="__codelineno-17-8" name="__codelineno-17-8"></a>           SRAM4:          0 GB        64 KB      0.00%
+</span><span id="__span-17-9"><a id="__codelineno-17-9" name="__codelineno-17-9"></a>            DTCM:          0 GB       128 KB      0.00%
+</span><span id="__span-17-10"><a id="__codelineno-17-10" name="__codelineno-17-10"></a>            ITCM:          0 GB        64 KB      0.00%
+</span><span id="__span-17-11"><a id="__codelineno-17-11" name="__codelineno-17-11"></a>           SRAM3:         16 KB        32 KB     50.00%
+</span><span id="__span-17-12"><a id="__codelineno-17-12" name="__codelineno-17-12"></a>          SDRAM1:          0 GB         6 MB      0.00%
+</span><span id="__span-17-13"><a id="__codelineno-17-13" name="__codelineno-17-13"></a>        IDT_LIST:          0 GB        32 KB      0.00%
+</span><span id="__span-17-14"><a id="__codelineno-17-14" name="__codelineno-17-14"></a>Generating files from /home/hdj/zephyrproject/art_pi_example/build/zephyr/zephyr.elf for board: art_pi
+</span><span id="__span-17-15"><a id="__codelineno-17-15" name="__codelineno-17-15"></a>image.py: sign the payload
+</span><span id="__span-17-16"><a id="__codelineno-17-16" name="__codelineno-17-16"></a>image.py: sign the payload
+</span></code></pre></div></td></tr></tbody></table></div>
+</details>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      <script id="__config" type="application/json">{"base": "..", "features": ["content.code.copy"], "search": "../assets/javascripts/workers/search.973d3a69.min.js", "tags": null, "translations": {"clipboard.copied": "\u5df2\u590d\u5236", "clipboard.copy": "\u590d\u5236", "search.result.more.one": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.more.other": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 # \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.none": "\u6ca1\u6709\u627e\u5230\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.one": "\u627e\u5230 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.other": "# \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.placeholder": "\u952e\u5165\u4ee5\u5f00\u59cb\u641c\u7d22", "search.result.term.missing": "\u7f3a\u5c11", "select.version": "\u9009\u62e9\u5f53\u524d\u7248\u672c"}, "version": null}</script>
+    
+    
+      <script src="../assets/javascripts/bundle.f55a23d4.min.js"></script>
+      
+    
+  
+<script id="init-glightbox">const lightbox = GLightbox({"touchNavigation": true, "loop": false, "zoomable": true, "draggable": true, "openEffect": "zoom", "closeEffect": "zoom", "slideEffect": "slide"});
+document$.subscribe(()=>{ lightbox.reload(); });
+</script></body></html>

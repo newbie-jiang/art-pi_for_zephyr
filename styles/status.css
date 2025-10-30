@@ -1,0 +1,53 @@
+.md-typeset .status-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: 0.75rem;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.md-typeset .status-grid > li {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 0.75rem 1rem;
+  border-radius: 0.6rem;
+  background: var(--md-surface);
+  box-shadow: var(--md-shadow-z1);
+}
+
+.md-typeset .status-grid .status-icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 2rem;
+  height: 2rem;
+  border-radius: 50%;
+  font-weight: 700;
+  font-size: 1rem;
+}
+
+.md-typeset .status-grid .status-label {
+  font-weight: 600;
+}
+
+.md-typeset .status-grid .done .status-icon {
+  background-color: var(--md-accent-fg-color);
+  color: var(--md-accent-bg-color);
+}
+
+.md-typeset .status-grid .pending .status-icon {
+  background-color: var(--md-default-fg-color--lighter);
+  color: var(--md-default-bg-color);
+}
+
+.md-typeset .status-grid .pending {
+  color: var(--md-default-fg-color--lighter);
+}
+
+@media (max-width: 600px) {
+  .md-typeset .status-grid {
+    grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+  }
+}
