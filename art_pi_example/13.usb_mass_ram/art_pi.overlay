@@ -1,0 +1,42 @@
+/*
+ * Copyright (c) 2025 STMicroelectronics
+ *
+ * SPDX-License-Identifier: Apache-2.0
+ */
+
+/*
+ * Define the device, controller and partition to be the external memory
+ * for running the application in external NOR from MCUboot
+ */
+/ {
+	chosen {
+		zephyr,flash = &w25q64_qspi;
+		zephyr,flash-controller = &w25q64_qspi;
+		zephyr,code-partition = &slot0_partition;
+	};
+
+
+   /* RAM 盘 #0：默认内存（不写 ram-region） */
+//    ramdisk0 {
+//         compatible = "zephyr,ram-disk";
+//         status = "okay";
+//         disk-name = "RAM";
+//         sector-size = <512>;
+//         sector-count = <192>;    /* 192*512 = 96 KiB */
+//     };
+
+    /* RAM 盘 #1：放外部 SDRAM */
+    ramdisk0 {
+        compatible = "zephyr,ram-disk";
+        status = "okay";
+        disk-name = "RAM";
+        sector-size = <512>;
+        sector-count = <10240>;  /* 5 MiB 举例 */
+        ram-region = <&sdram1>;
+    };
+
+
+    
+};
+
+

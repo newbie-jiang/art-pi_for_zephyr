@@ -1,0 +1,49 @@
+/*
+ * Copyright (c) 2025 STMicroelectronics
+ *
+ * SPDX-License-Identifier: Apache-2.0
+ */
+
+/*
+ * Define the device, controller and partition to be the external memory
+ * for running the application in external NOR from MCUboot
+ */
+
+
+/ {
+	chosen {
+		zephyr,flash = &w25q64_qspi;
+		zephyr,flash-controller = &w25q64_qspi;
+		zephyr,code-partition = &slot0_partition;
+        zephyr,udc = &usbotg_fs;
+	};
+};
+
+
+
+zephyr_udc0: &usbotg_fs {
+	pinctrl-0 = <&usb_otg_fs_dm_pa11 &usb_otg_fs_dp_pa12>;
+	pinctrl-names = "default";
+
+	clocks = <&rcc STM32_CLOCK_BUS_AHB1 0x08000000>,
+		 <&rcc STM32_SRC_HSI48 USB_SEL(3)>;
+
+	maximum-speed = "full-speed";
+	ram-size = <1280>;
+	num-bidir-endpoints = <8>;
+
+	status = "okay";
+
+	cdc_acm_uart0: cdc_acm_uart0 {
+		compatible = "zephyr,cdc-acm-uart";
+		label = "CDC_ACM_0";
+        status = "disabled";
+	};
+
+	uvc: uvc {
+		compatible = "zephyr,uvc-device";
+	};
+
+	
+};
+

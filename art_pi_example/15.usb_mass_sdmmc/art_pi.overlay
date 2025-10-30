@@ -1,0 +1,66 @@
+/*
+ * Copyright (c) 2025 STMicroelectronics
+ *
+ * SPDX-License-Identifier: Apache-2.0
+ */
+
+/*
+ * Define the device, controller and partition to be the external memory
+ * for running the application in external NOR from MCUboot
+ */
+/ {
+	chosen {
+		zephyr,flash = &w25q64_qspi;
+		zephyr,flash-controller = &w25q64_qspi;
+		zephyr,code-partition = &slot0_partition;
+        zephyr,udc = &usbotg_fs;
+		zephyr,sdhc = &sdmmc1;
+	};
+};
+
+zephyr_udc0: &usbotg_fs {
+	pinctrl-0 = <&usb_otg_fs_dm_pa11 &usb_otg_fs_dp_pa12>;
+	pinctrl-names = "default";
+
+	clocks = <&rcc STM32_CLOCK_BUS_AHB1 0x08000000>,
+		 <&rcc STM32_SRC_HSI48 USB_SEL(3)>;
+
+	maximum-speed = "full-speed";
+	ram-size = <1280>;
+	num-bidir-endpoints = <8>;
+
+	status = "okay";
+
+	cdc_acm_uart0: cdc_acm_uart0 {
+		compatible = "zephyr,cdc-acm-uart";
+		label = "CDC_ACM_0";
+        status = "disabled";
+	};
+};
+
+
+
+
+&sdmmc1 {
+	status = "okay";
+	pinctrl-names = "default";
+	pinctrl-0 = <
+	&sdmmc1_d0_pc8
+	&sdmmc1_d1_pc9
+	&sdmmc1_d2_pc10
+	&sdmmc1_d3_pc11
+	&sdmmc1_ck_pc12
+	&sdmmc1_cmd_pd2
+	>;
+
+	clocks = <&rcc STM32_CLOCK(AHB3, 16)>,
+	     <&rcc STM32_SRC_PLL2_R SDMMC_SEL(0)>;
+
+	bus-width = <1>;
+	cd-gpios = <&gpiod 5 (GPIO_PULL_UP|GPIO_ACTIVE_HIGH)>;
+	disk-name = "SD";
+	resets;
+	reset-names = "sdmmc1_reset";
+
+	clk-div = <8>;
+};

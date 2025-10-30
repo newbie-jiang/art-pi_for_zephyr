@@ -1,0 +1,57 @@
+site_name: ART-PI  for Zephyr
+site_url: https://newbie-jiang.github.io/blogs_mkdocs/
+
+theme:
+  name: material
+  language: zh
+  features:
+    - content.code.copy
+
+plugins:
+  - search
+  - glightbox
+
+nav:
+  - "ART-PI": "index.md"
+  - 1.with_mcuboot.md
+  - 2.app.md
+  - 3.fmc_sdram_speedtest.md
+  - 4.sdmmc_sd_speedtest.md
+  - 5.beep.md
+  - 6.rs232.md
+  - 7.rs485.md
+  - 8.eth.md
+  - 9.eth_speed_test.md
+  - 10.touch_gt1151.md
+  - 11.lvgl.md
+  - 12.lvgl_demos.md
+  - 13.usb_mass_ram.md
+  - 15.usb_mass_sdmmc.md
+  - 16.webusb.md
+  - 17.hid_keyboard.md
+  - 18.hid_mouse.md
+  - 19.uvc.md
+  - "Linux 下 CubeProgrammer 添加外部下载算法": "linux下cubeprogrammer中添加自己的外部下载算法.md"
+  - "批量构建总结": "summary_build.md"
+  - "Zephyr 增加自定义驱动（官方路径）": "zephyr增加自己的驱动(官方路径).md"
+  - "Zephyr 查找方法参考": "zephyr查找方法作参考.md"
+  - "STM32H750 设备树时钟配置参考": "设备树时钟配置参考.md"
+
+markdown_extensions:
+  - attr_list
+  - admonition
+  - pymdownx.details
+  - toc:
+      permalink: true
+  - pymdownx.superfences
+  - pymdownx.highlight:
+      linenums: true
+      anchor_linenums: true
+      line_spans: __span
+      pygments_lang_class: true
+
+extra:
+  generator: true
+
+extra_css:
+  - styles/status.css

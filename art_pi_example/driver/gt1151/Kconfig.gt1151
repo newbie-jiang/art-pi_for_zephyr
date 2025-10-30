@@ -1,0 +1,34 @@
+# drivers/input/Kconfig.gt1151
+# SPDX-License-Identifier: Apache-2.0
+
+menuconfig INPUT_GT1151
+    bool "Goodix GT1151 touch controller"
+    depends on INPUT && I2C && GPIO
+    help
+      Enable support for Goodix GT1151 series I2C capacitive touch controller.
+      Events are reported via the Zephyr Input subsystem.
+
+if INPUT_GT1151
+
+config INPUT_GT1151_INTERRUPT
+    bool "Use interrupt mode"
+    default y
+    help
+      Use the INT pin to signal new touch data (edge to active).
+      If disabled, polling mode is used.
+
+config INPUT_GT1151_PERIOD_MS
+    int "Polling period (ms)"
+    default 10
+    depends on !INPUT_GT1151_INTERRUPT
+    help
+      Touch scan interval when interrupt mode is disabled.
+
+config INPUT_GT1151_MAX_TOUCH_POINTS
+    int "Max simultaneous touch points"
+    range 1 5
+    default 1
+    help
+      Upper bound on reported contacts. GT1151 supports up to 10 points.
+
+endif # INPUT_GT1151

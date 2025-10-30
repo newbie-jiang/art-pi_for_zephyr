@@ -1,0 +1,611 @@
+-- west build: making build dir /home/hdj/zephyrproject/art_pi_example/build-11.lvgl pristine
+-- west build: generating a build system
+Loading Zephyr default modules (Zephyr base).
+-- Application: /home/hdj/zephyrproject/art_pi_example/11.lvgl
+-- CMake version: 3.22.1
+-- Found Python3: /usr/bin/python3 (found suitable version "3.10.12", minimum required is "3.10") found components: Interpreter 
+-- Cache files will be written to: /home/hdj/.cache/zephyr
+-- Zephyr version: 4.2.99 (/home/hdj/zephyrproject/zephyr)
+-- Found west (found suitable version "1.3.0", minimum required is "0.14.0")
+-- Board: art_pi, qualifiers: stm32h750xx
+-- ZEPHYR_TOOLCHAIN_VARIANT not set, trying to locate Zephyr SDK
+-- Found host-tools: zephyr 0.17.4 (/home/hdj/zephyrproject/zephyr/zephyr-sdk-0.17.4)
+-- Found toolchain: zephyr 0.17.4 (/home/hdj/zephyrproject/zephyr/zephyr-sdk-0.17.4)
+-- Found Dtc: /home/hdj/zephyrproject/zephyr/zephyr-sdk-0.17.4/sysroots/x86_64-pokysdk-linux/usr/bin/dtc (found suitable version "1.7.0", minimum required is "1.4.6") 
+-- Found BOARD.dts: /home/hdj/zephyrproject/zephyr/boards/ruiside/art_pi/art_pi.dts
+-- Found devicetree overlay: /home/hdj/zephyrproject/art_pi_example/11.lvgl/art_pi.overlay
+-- Generated zephyr.dts: /home/hdj/zephyrproject/art_pi_example/build-11.lvgl/zephyr/zephyr.dts
+-- Generated pickled edt: /home/hdj/zephyrproject/art_pi_example/build-11.lvgl/zephyr/edt.pickle
+-- Generated devicetree_generated.h: /home/hdj/zephyrproject/art_pi_example/build-11.lvgl/zephyr/include/generated/zephyr/devicetree_generated.h
+Parsing /home/hdj/zephyrproject/art_pi_example/11.lvgl/Kconfig
+Loaded configuration '/home/hdj/zephyrproject/zephyr/boards/ruiside/art_pi/art_pi_defconfig'
+Merged configuration '/home/hdj/zephyrproject/art_pi_example/11.lvgl/prj.conf'
+Merged configuration '/home/hdj/zephyrproject/art_pi_example/build-11.lvgl/zephyr/misc/generated/extra_kconfig_options.conf'
+Configuration saved to '/home/hdj/zephyrproject/art_pi_example/build-11.lvgl/zephyr/.config'
+Kconfig header saved to '/home/hdj/zephyrproject/art_pi_example/build-11.lvgl/zephyr/include/generated/zephyr/autoconf.h'
+-- Found GnuLd: /home/hdj/zephyrproject/zephyr/zephyr-sdk-0.17.4/arm-zephyr-eabi/arm-zephyr-eabi/bin/ld.bfd (found version "2.38") 
+-- The C compiler identification is GNU 12.2.0
+-- The CXX compiler identification is GNU 12.2.0
+-- The ASM compiler identification is GNU
+-- Found assembler: /home/hdj/zephyrproject/zephyr/zephyr-sdk-0.17.4/arm-zephyr-eabi/bin/arm-zephyr-eabi-gcc
+-- Using ccache: /usr/bin/ccache
+-- Found gen_kobject_list: /home/hdj/zephyrproject/zephyr/scripts/build/gen_kobject_list.py
+-- Including signing script: /home/hdj/zephyrproject/zephyr/cmake/mcuboot.cmake
+CMake Warning at /home/hdj/zephyrproject/zephyr/cmake/mcuboot.cmake:166 (message):
+  slot0_partition write block size devicetree parameter is missing, assuming
+  write block size is 4
+Call Stack (most recent call first):
+  /home/hdj/zephyrproject/zephyr/cmake/mcuboot.cmake:312 (zephyr_mcuboot_tasks)
+  /home/hdj/zephyrproject/zephyr/CMakeLists.txt:2199 (include)
+
+
+-- Configuring done
+-- Generating done
+-- Build files have been written to: /home/hdj/zephyrproject/art_pi_example/build-11.lvgl
+-- west build: building application
+[1/548] Preparing syscall dependency handling
+
+[2/548] Generating include/generated/zephyr/version.h
+-- Zephyr version: 4.2.99 (/home/hdj/zephyrproject/zephyr), build: v4.2.0-5860-ge8b08d32e572
+[3/548] Generating misc/generated/syscalls_subdirs.trigger
+[4/548] Generating misc/generated/syscalls.json, misc/generated/struct_tags.json
+[5/548] Generating include/generated/device-api-sections.ld, include/generated/device-api-sections.cmake
+[6/548] Generating include/generated/zephyr/syscall_dispatch.c, include/generated/zephyr/syscall_exports_llext.c, syscall_weakdefs_llext.c, include/generated/zephyr/syscall_list.h
+[7/548] Generating include/generated/zephyr/driver-validation.h
+[8/548] Generating include/generated/zephyr/kobj-types-enum.h, include/generated/zephyr/otype-to-str.h, include/generated/zephyr/otype-to-size.h
+[9/548] Building C object zephyr/CMakeFiles/offsets.dir/arch/arm/core/offsets/offsets.c.obj
+[10/548] Generating include/generated/zephyr/offsets.h
+[11/548] Building C object zephyr/CMakeFiles/zephyr.dir/lib/os/thread_entry.c.obj
+[12/548] Building C object zephyr/CMakeFiles/zephyr.dir/lib/utils/hex.c.obj
+[13/548] Building C object zephyr/CMakeFiles/zephyr.dir/lib/utils/dec.c.obj
+[14/548] Building C object zephyr/CMakeFiles/zephyr.dir/lib/heap/heap_info.c.obj
+[15/548] Building C object zephyr/CMakeFiles/zephyr.dir/lib/os/printk.c.obj
+[16/548] Building C object zephyr/CMakeFiles/zephyr.dir/lib/utils/timeutil.c.obj
+[17/548] Building C object zephyr/CMakeFiles/zephyr.dir/lib/os/cbprintf_packaged.c.obj
+[18/548] Building C object zephyr/CMakeFiles/zephyr.dir/lib/utils/bitmask.c.obj
+[19/548] Building C object zephyr/CMakeFiles/zephyr.dir/lib/utils/ring_buffer.c.obj
+[20/548] Building C object zephyr/CMakeFiles/zephyr.dir/lib/os/sem.c.obj
+[21/548] Building C object zephyr/CMakeFiles/zephyr.dir/misc/generated/configs.c.obj
+[22/548] Building C object zephyr/CMakeFiles/zephyr.dir/lib/os/assert.c.obj
+[23/548] Building C object zephyr/CMakeFiles/zephyr.dir/lib/utils/last_section_id.c.obj
+[24/548] Building C object zephyr/CMakeFiles/zephyr.dir/lib/libc/validate_libc.c.obj
+[25/548] Building C object zephyr/CMakeFiles/zephyr.dir/soc/st/stm32/common/stm32_cache.c.obj
+[26/548] Building C object zephyr/CMakeFiles/zephyr.dir/lib/os/cbprintf_complete.c.obj
+[27/548] Building C object zephyr/CMakeFiles/zephyr.dir/lib/os/clock.c.obj
+[28/548] Building C object zephyr/CMakeFiles/zephyr.dir/lib/os/mpsc_pbuf.c.obj
+[29/548] Building C object zephyr/CMakeFiles/zephyr.dir/lib/heap/heap.c.obj
+[30/548] Building C object zephyr/CMakeFiles/zephyr.dir/subsys/logging/log_cache.c.obj
+[31/548] Building C object zephyr/CMakeFiles/zephyr.dir/lib/utils/bitarray.c.obj
+[32/548] Building C object zephyr/CMakeFiles/zephyr.dir/soc/st/stm32/common/soc_config.c.obj
+[33/548] Building C object zephyr/CMakeFiles/zephyr.dir/lib/utils/rb.c.obj
+[34/548] Building C object zephyr/CMakeFiles/zephyr.dir/soc/st/stm32/common/stm32_backup_domain.c.obj
+[35/548] Building C object zephyr/CMakeFiles/zephyr.dir/soc/st/stm32/stm32h7x/mpu_regions.c.obj
+[36/548] Building C object zephyr/CMakeFiles/zephyr.dir/soc/st/stm32/common/stm32cube_hal.c.obj
+[37/548] Building C object zephyr/CMakeFiles/zephyr.dir/soc/st/stm32/stm32h7x/soc_m7.c.obj
+[38/548] Building C object zephyr/CMakeFiles/zephyr.dir/subsys/logging/log_core.c.obj
+[39/548] Building C object zephyr/CMakeFiles/zephyr.dir/subsys/logging/log_mgmt.c.obj
+[40/548] Building C object CMakeFiles/app.dir/src/main.c.obj
+[41/548] Building C object zephyr/CMakeFiles/zephyr.dir/subsys/logging/log_msg.c.obj
+[42/548] Linking C static library app/libapp.a
+[43/548] Building C object zephyr/CMakeFiles/zephyr.dir/subsys/logging/log_output.c.obj
+[44/548] Building C object zephyr/CMakeFiles/zephyr.dir/subsys/tracing/tracing_none.c.obj
+[45/548] Building C object zephyr/CMakeFiles/zephyr.dir/subsys/mem_mgmt/mem_attr.c.obj
+[46/548] Building C object zephyr/CMakeFiles/zephyr.dir/subsys/shell/modules/kernel_service/kernel_shell.c.obj
+[47/548] Building C object zephyr/CMakeFiles/zephyr.dir/subsys/shell/modules/kernel_service/cycles.c.obj
+[48/548] Building C object zephyr/CMakeFiles/zephyr.dir/subsys/shell/modules/kernel_service/uptime.c.obj
+[49/548] Building C object zephyr/CMakeFiles/zephyr.dir/subsys/shell/modules/kernel_service/sleep.c.obj
+[50/548] Building C object zephyr/CMakeFiles/zephyr.dir/subsys/shell/modules/kernel_service/version.c.obj
+[51/548] Building C object zephyr/CMakeFiles/zephyr.dir/subsys/shell/modules/kernel_service/thread/thread.c.obj
+[52/548] Building C object zephyr/CMakeFiles/zephyr.dir/subsys/shell/modules/kernel_service/log-level.c.obj
+[53/548] Building C object zephyr/CMakeFiles/zephyr.dir/subsys/shell/modules/kernel_service/thread/stacks.c.obj
+[54/548] Building C object zephyr/CMakeFiles/zephyr.dir/subsys/shell/modules/kernel_service/thread/list.c.obj
+[55/548] Building C object zephyr/CMakeFiles/zephyr.dir/subsys/shell/modules/kernel_service/thread/suspend.c.obj
+[56/548] Building C object zephyr/CMakeFiles/zephyr.dir/subsys/shell/modules/device_service.c.obj
+[57/548] Building C object zephyr/CMakeFiles/zephyr.dir/subsys/shell/modules/date_service.c.obj
+[58/548] Building C object zephyr/CMakeFiles/zephyr.dir/subsys/shell/modules/kernel_service/thread/resume.c.obj
+[59/548] Building C object zephyr/CMakeFiles/zephyr.dir/subsys/shell/modules/kernel_service/thread/kill.c.obj
+[60/548] Building C object zephyr/arch/common/CMakeFiles/arch__common.dir/init.c.obj
+[61/548] Building C object zephyr/CMakeFiles/zephyr.dir/subsys/shell/modules/devmem_service.c.obj
+[62/548] Building C object zephyr/CMakeFiles/zephyr.dir/subsys/shell/backends/shell_uart.c.obj
+[63/548] Building C object zephyr/CMakeFiles/zephyr.dir/subsys/shell/shell.c.obj
+[64/548] Building C object zephyr/CMakeFiles/zephyr.dir/subsys/shell/shell_ops.c.obj
+[65/548] Building C object zephyr/CMakeFiles/zephyr.dir/subsys/shell/shell_fprintf.c.obj
+[66/548] Building ASM object zephyr/arch/arch/arm/core/CMakeFiles/arch__arm__core.dir/nmi_on_reset.S.obj
+[67/548] Generating linker_zephyr_pre0.cmd
+[68/548] Building C object zephyr/CMakeFiles/zephyr_pre0.dir/misc/empty_file.c.obj
+[69/548] Building C object zephyr/CMakeFiles/zephyr.dir/subsys/shell/shell_utils.c.obj
+[70/548] Building C object zephyr/CMakeFiles/zephyr.dir/subsys/shell/shell_help.c.obj
+[71/548] Building C object zephyr/CMakeFiles/zephyr.dir/subsys/shell/shell_log_backend.c.obj
+[72/548] Building C object zephyr/CMakeFiles/zephyr.dir/subsys/shell/shell_cmds.c.obj
+[73/548] Building ASM object zephyr/arch/arch/arm/core/cortex_m/CMakeFiles/arch__arm__core__cortex_m.dir/fault_s.S.obj
+[74/548] Building C object zephyr/CMakeFiles/zephyr.dir/subsys/shell/shell_history.c.obj
+[75/548] Building ASM object zephyr/arch/arch/arm/core/cortex_m/CMakeFiles/arch__arm__core__cortex_m.dir/reset.S.obj
+[76/548] Building C object zephyr/CMakeFiles/zephyr.dir/subsys/shell/shell_wildcard.c.obj
+[77/548] Building C object zephyr/arch/common/CMakeFiles/isr_tables.dir/isr_tables.c.obj
+[78/548] Building C object zephyr/arch/common/CMakeFiles/arch__common.dir/xip.c.obj
+[79/548] Building ASM object zephyr/arch/arch/arm/core/cortex_m/CMakeFiles/arch__arm__core__cortex_m.dir/vector_table.S.obj
+[80/548] Building ASM object zephyr/arch/arch/arm/core/cortex_m/CMakeFiles/arch__arm__core__cortex_m.dir/swap_helper.S.obj
+[81/548] Building C object zephyr/arch/common/CMakeFiles/arch__common.dir/sw_isr_common.c.obj
+[82/548] Linking C static library zephyr/arch/common/libisr_tables.a
+[83/548] Linking C static library zephyr/libzephyr.a
+[84/548] Linking C static library zephyr/arch/common/libarch__common.a
+[85/548] Building C object zephyr/arch/arch/arm/core/CMakeFiles/arch__arm__core.dir/tls.c.obj
+[86/548] Building C object zephyr/arch/arch/arm/core/cortex_m/CMakeFiles/arch__arm__core__cortex_m.dir/exc_exit.c.obj
+[87/548] Building C object zephyr/arch/arch/arm/core/CMakeFiles/arch__arm__core.dir/nmi.c.obj
+[88/548] Building ASM object zephyr/arch/arch/arm/core/cortex_m/CMakeFiles/arch__arm__core__cortex_m.dir/__aeabi_read_tp.S.obj
+[89/548] Building C object zephyr/arch/arch/arm/core/cortex_m/CMakeFiles/arch__arm__core__cortex_m.dir/fpu.c.obj
+[90/548] Building C object zephyr/arch/arch/arm/core/CMakeFiles/arch__arm__core.dir/fatal.c.obj
+[91/548] Building C object zephyr/arch/arch/arm/core/cortex_m/CMakeFiles/arch__arm__core__cortex_m.dir/scb.c.obj
+[92/548] Linking C static library zephyr/arch/arch/arm/core/libarch__arm__core.a
+[93/548] Building C object zephyr/arch/arch/arm/core/cortex_m/CMakeFiles/arch__arm__core__cortex_m.dir/thread_abort.c.obj
+[94/548] Building C object zephyr/arch/arch/arm/core/cortex_m/CMakeFiles/arch__arm__core__cortex_m.dir/prep_c.c.obj
+[95/548] Building C object zephyr/arch/arch/arm/core/cortex_m/CMakeFiles/arch__arm__core__cortex_m.dir/irq_manage.c.obj
+[96/548] Building C object zephyr/arch/arch/arm/core/cortex_m/CMakeFiles/arch__arm__core__cortex_m.dir/irq_init.c.obj
+[97/548] Building C object zephyr/arch/arch/arm/core/cortex_m/CMakeFiles/arch__arm__core__cortex_m.dir/isr_wrapper.c.obj
+[98/548] Building C object zephyr/arch/arch/arm/core/cortex_m/CMakeFiles/arch__arm__core__cortex_m.dir/cpu_idle.c.obj
+[99/548] Building C object zephyr/arch/arch/arm/core/cortex_m/CMakeFiles/arch__arm__core__cortex_m.dir/thread.c.obj
+[100/548] Building C object zephyr/arch/arch/arm/core/cortex_m/CMakeFiles/arch__arm__core__cortex_m.dir/fault.c.obj
+[101/548] Building C object zephyr/lib/libc/common/CMakeFiles/lib__libc__common.dir/source/time/time.c.obj
+[102/548] Building C object zephyr/arch/arch/arm/core/cortex_m/CMakeFiles/arch__arm__core__cortex_m.dir/cache.c.obj
+[103/548] Building C object zephyr/arch/arch/arm/core/mpu/CMakeFiles/arch__arm__core__mpu.dir/arm_core_mpu.c.obj
+[104/548] Building C object zephyr/lib/posix/options/CMakeFiles/lib__posix__options.dir/fnmatch.c.obj
+[105/548] Linking C static library zephyr/arch/arch/arm/core/cortex_m/libarch__arm__core__cortex_m.a
+[106/548] Building C object zephyr/lib/libc/picolibc/CMakeFiles/lib__libc__picolibc.dir/cbprintf.c.obj
+[107/548] Building C object zephyr/lib/libc/picolibc/CMakeFiles/lib__libc__picolibc.dir/assert.c.obj
+[108/548] Building C object zephyr/lib/libc/picolibc/CMakeFiles/lib__libc__picolibc.dir/locks.c.obj
+[109/548] Building C object zephyr/lib/libc/picolibc/CMakeFiles/lib__libc__picolibc.dir/chk_fail.c.obj
+[110/548] Building C object zephyr/arch/arch/arm/core/mpu/CMakeFiles/arch__arm__core__mpu.dir/arm_mpu.c.obj
+[111/548] Linking C static library zephyr/arch/arch/arm/core/mpu/libarch__arm__core__mpu.a
+[112/548] Building C object zephyr/lib/libc/picolibc/CMakeFiles/lib__libc__picolibc.dir/stdio.c.obj
+[113/548] Building C object zephyr/lib/libc/picolibc/CMakeFiles/lib__libc__picolibc.dir/exit.c.obj
+[114/548] Building C object zephyr/subsys/input/CMakeFiles/subsys__input.dir/input_hid.c.obj
+[115/548] Building C object zephyr/lib/libc/common/CMakeFiles/lib__libc__common.dir/source/stdlib/abort.c.obj
+[116/548] Building C object zephyr/lib/libc/common/CMakeFiles/lib__libc__common.dir/source/stdlib/malloc.c.obj
+[117/548] Building C object zephyr/lib/libc/picolibc/CMakeFiles/lib__libc__picolibc.dir/errno_wrap.c.obj
+[118/548] Linking C static library zephyr/lib/libc/common/liblib__libc__common.a
+[119/548] Linking C static library zephyr/lib/libc/picolibc/liblib__libc__picolibc.a
+[120/548] Building C object zephyr/lib/posix/options/CMakeFiles/lib__posix__options.dir/getentropy.c.obj
+[121/548] Building C object zephyr/kernel/CMakeFiles/kernel.dir/condvar.c.obj
+[122/548] Building C object zephyr/kernel/CMakeFiles/kernel.dir/sem.c.obj
+[123/548] Building C object zephyr/lib/posix/options/CMakeFiles/lib__posix__options.dir/getopt/getopt.c.obj
+[124/548] Building C object modules/lvgl/CMakeFiles/modules__lvgl.dir/home/hdj/zephyrproject/modules/lib/gui/lvgl/src/libs/tjpgd/tjpgd.c.obj
+[125/548] Building C object zephyr/kernel/CMakeFiles/kernel.dir/stack.c.obj
+[126/548] Building C object modules/lvgl/CMakeFiles/modules__lvgl.dir/home/hdj/zephyrproject/modules/lib/gui/lvgl/src/libs/tjpgd/lv_tjpgd.c.obj
+[127/548] Building C object zephyr/lib/posix/options/CMakeFiles/lib__posix__options.dir/getopt/getopt_common.c.obj
+[128/548] Building C object zephyr/kernel/CMakeFiles/kernel.dir/work.c.obj
+[129/548] Linking C static library zephyr/lib/posix/options/liblib__posix__options.a
+[130/548] Building C object zephyr/subsys/input/CMakeFiles/subsys__input.dir/input_utils.c.obj
+[131/548] Building C object zephyr/subsys/input/CMakeFiles/subsys__input.dir/input.c.obj
+[132/548] Building C object zephyr/drivers/clock_control/CMakeFiles/drivers__clock_control.dir/clock_stm32_ll_h7.c.obj
+[133/548] Building C object zephyr/drivers/interrupt_controller/CMakeFiles/drivers__interrupt_controller.dir/intc_gpio_stm32.c.obj
+[134/548] Linking C static library zephyr/subsys/input/libsubsys__input.a
+[135/548] Linking C static library zephyr/drivers/clock_control/libdrivers__clock_control.a
+[136/548] Building C object zephyr/drivers/console/CMakeFiles/drivers__console.dir/uart_console.c.obj
+[137/548] Linking C static library zephyr/drivers/console/libdrivers__console.a
+[138/548] Building C object zephyr/drivers/gpio/CMakeFiles/drivers__gpio.dir/gpio_stm32.c.obj
+[139/548] Building C object zephyr/drivers/i2c/CMakeFiles/drivers__i2c.dir/i2c_ll_stm32_common.c.obj
+[140/548] Building C object zephyr/drivers/interrupt_controller/CMakeFiles/drivers__interrupt_controller.dir/intc_exti_stm32.c.obj
+[141/548] Building C object zephyr/drivers/display/CMakeFiles/drivers__display.dir/display_stm32_ltdc.c.obj
+[142/548] Building C object zephyr/drivers/pinctrl/CMakeFiles/drivers__pinctrl.dir/common.c.obj
+[143/548] Building C object zephyr/drivers/i2c/CMakeFiles/drivers__i2c.dir/i2c_common.c.obj
+[144/548] Linking C static library zephyr/drivers/gpio/libdrivers__gpio.a
+[145/548] Linking C static library zephyr/drivers/interrupt_controller/libdrivers__interrupt_controller.a
+[146/548] Building C object zephyr/drivers/i2c/CMakeFiles/drivers__i2c.dir/i2c_ll_stm32.c.obj
+[147/548] Linking C static library zephyr/drivers/display/libdrivers__display.a
+[148/548] Building C object zephyr/drivers/i2c/CMakeFiles/drivers__i2c.dir/i2c_ll_stm32_v2.c.obj
+[149/548] Building C object zephyr/drivers/input/CMakeFiles/drivers__input.dir/input_gpio_keys.c.obj
+[150/548] Building C object zephyr/drivers/memc/CMakeFiles/drivers__memc.dir/memc_stm32.c.obj
+[151/548] Linking C static library zephyr/drivers/i2c/libdrivers__i2c.a
+[152/548] Building C object modules/hal_stm32/stm32cube/CMakeFiles/..__modules__hal__stm32__stm32cube.dir/stm32h7xx/soc/system_stm32h7xx.c.obj
+[153/548] Building C object zephyr/drivers/memc/CMakeFiles/drivers__memc.dir/memc_stm32_sdram.c.obj
+[154/548] Linking C static library zephyr/drivers/memc/libdrivers__memc.a
+[155/548] Building C object zephyr/drivers/input/CMakeFiles/drivers__input.dir/input_gt1151.c.obj
+[156/548] Building C object zephyr/drivers/input/CMakeFiles/drivers__input.dir/input_gt911.c.obj
+[157/548] Linking C static library zephyr/drivers/input/libdrivers__input.a
+[158/548] Building C object modules/hal_stm32/stm32cube/CMakeFiles/..__modules__hal__stm32__stm32cube.dir/stm32h7xx/drivers/src/stm32h7xx_hal.c.obj
+[159/548] Building C object modules/hal_stm32/stm32cube/CMakeFiles/..__modules__hal__stm32__stm32cube.dir/stm32h7xx/drivers/src/stm32h7xx_hal_rcc.c.obj
+[160/548] Building C object modules/hal_stm32/stm32cube/CMakeFiles/..__modules__hal__stm32__stm32cube.dir/stm32h7xx/drivers/src/stm32h7xx_hal_cortex.c.obj
+[161/548] Building C object modules/hal_stm32/stm32cube/CMakeFiles/..__modules__hal__stm32__stm32cube.dir/stm32h7xx/drivers/src/stm32h7xx_hal_rcc_ex.c.obj
+[162/548] Building C object modules/lvgl/CMakeFiles/modules__lvgl.dir/home/hdj/zephyrproject/modules/lib/gui/lvgl/src/core/lv_group.c.obj
+[163/548] Building C object zephyr/drivers/reset/CMakeFiles/drivers__reset.dir/reset_stm32.c.obj
+[164/548] Building C object modules/lvgl/CMakeFiles/modules__lvgl.dir/home/hdj/zephyrproject/modules/lib/gui/lvgl/src/core/lv_obj.c.obj
+[165/548] Building C object modules/lvgl/CMakeFiles/modules__lvgl.dir/home/hdj/zephyrproject/modules/lib/gui/lvgl/src/core/lv_obj_class.c.obj
+[166/548] Building C object modules/lvgl/CMakeFiles/modules__lvgl.dir/home/hdj/zephyrproject/modules/lib/gui/lvgl/src/core/lv_obj_draw.c.obj
+[167/548] Building C object modules/lvgl/CMakeFiles/modules__lvgl.dir/home/hdj/zephyrproject/modules/lib/gui/lvgl/src/core/lv_obj_event.c.obj
+[168/548] Building C object zephyr/drivers/pinctrl/CMakeFiles/drivers__pinctrl.dir/pinctrl_stm32.c.obj
+[169/548] Building C object zephyr/drivers/timer/CMakeFiles/drivers__timer.dir/cortex_m_systick.c.obj
+[170/548] Building C object modules/lvgl/CMakeFiles/modules__lvgl.dir/home/hdj/zephyrproject/modules/lib/gui/lvgl/src/core/lv_obj_id_builtin.c.obj
+[171/548] Building C object modules/lvgl/CMakeFiles/modules__lvgl.dir/home/hdj/zephyrproject/modules/lib/gui/lvgl/src/core/lv_obj_pos.c.obj
+[172/548] Linking C static library zephyr/drivers/reset/libdrivers__reset.a
+[173/548] Building C object modules/lvgl/CMakeFiles/modules__lvgl.dir/home/hdj/zephyrproject/modules/lib/gui/lvgl/src/core/lv_obj_scroll.c.obj
+[174/548] Building C object modules/lvgl/CMakeFiles/modules__lvgl.dir/home/hdj/zephyrproject/modules/lib/gui/lvgl/src/core/lv_obj_property.c.obj
+[175/548] Building C object modules/lvgl/CMakeFiles/modules__lvgl.dir/home/hdj/zephyrproject/modules/lib/gui/lvgl/src/core/lv_obj_style.c.obj
+[176/548] Building C object zephyr/drivers/timer/CMakeFiles/drivers__timer.dir/sys_clock_init.c.obj
+[177/548] Building C object modules/lvgl/CMakeFiles/modules__lvgl.dir/home/hdj/zephyrproject/modules/lib/gui/lvgl/src/core/lv_obj_style_gen.c.obj
+[178/548] Building C object modules/lvgl/CMakeFiles/modules__lvgl.dir/home/hdj/zephyrproject/modules/lib/gui/lvgl/src/core/lv_obj_tree.c.obj
+[179/548] Building C object modules/lvgl/CMakeFiles/modules__lvgl.dir/home/hdj/zephyrproject/modules/lib/gui/lvgl/src/core/lv_refr.c.obj
+[180/548] Building C object modules/hal_stm32/stm32cube/CMakeFiles/..__modules__hal__stm32__stm32cube.dir/stm32h7xx/drivers/src/stm32h7xx_hal_sdram.c.obj
+[181/548] Linking C static library zephyr/drivers/pinctrl/libdrivers__pinctrl.a
+[182/548] Building C object modules/lvgl/CMakeFiles/modules__lvgl.dir/home/hdj/zephyrproject/modules/lib/gui/lvgl/src/draw/dma2d/lv_draw_dma2d.c.obj
+[183/548] Building C object modules/lvgl/CMakeFiles/modules__lvgl.dir/home/hdj/zephyrproject/modules/lib/gui/lvgl/src/draw/dma2d/lv_draw_dma2d_img.c.obj
+[184/548] Building C object modules/lvgl/CMakeFiles/modules__lvgl.dir/home/hdj/zephyrproject/modules/lib/gui/lvgl/src/draw/dma2d/lv_draw_dma2d_fill.c.obj
+[185/548] Building C object modules/hal_stm32/stm32cube/CMakeFiles/..__modules__hal__stm32__stm32cube.dir/stm32h7xx/drivers/src/stm32h7xx_hal_ltdc.c.obj
+[186/548] Building C object modules/lvgl/CMakeFiles/modules__lvgl.dir/home/hdj/zephyrproject/modules/lib/gui/lvgl/src/display/lv_display.c.obj
+[187/548] Building C object modules/lvgl/CMakeFiles/modules__lvgl.dir/home/hdj/zephyrproject/modules/lib/gui/lvgl/src/draw/lv_draw_3d.c.obj
+[188/548] Building C object modules/lvgl/CMakeFiles/modules__lvgl.dir/home/hdj/zephyrproject/modules/lib/gui/lvgl/src/draw/lv_draw_arc.c.obj
+[189/548] Building C object modules/lvgl/CMakeFiles/modules__lvgl.dir/home/hdj/zephyrproject/modules/lib/gui/lvgl/src/draw/lv_draw.c.obj
+[190/548] Building C object modules/lvgl/CMakeFiles/modules__lvgl.dir/home/hdj/zephyrproject/modules/lib/gui/lvgl/src/draw/lv_draw_image.c.obj
+[191/548] Building C object modules/lvgl/CMakeFiles/modules__lvgl.dir/home/hdj/zephyrproject/modules/lib/gui/lvgl/src/draw/lv_draw_mask.c.obj
+[192/548] Linking C static library zephyr/drivers/timer/libdrivers__timer.a
+[193/548] Building C object modules/lvgl/CMakeFiles/modules__lvgl.dir/home/hdj/zephyrproject/modules/lib/gui/lvgl/src/draw/lv_draw_line.c.obj
+[194/548] Building C object modules/hal_stm32/stm32cube/CMakeFiles/..__modules__hal__stm32__stm32cube.dir/stm32h7xx/drivers/src/stm32h7xx_ll_fmc.c.obj
+[195/548] Building C object modules/lvgl/CMakeFiles/modules__lvgl.dir/home/hdj/zephyrproject/modules/lib/gui/lvgl/src/draw/lv_draw_label.c.obj
+[196/548] Building C object modules/lvgl/CMakeFiles/modules__lvgl.dir/home/hdj/zephyrproject/modules/lib/gui/lvgl/src/draw/lv_draw_rect.c.obj
+[197/548] Building C object modules/lvgl/CMakeFiles/modules__lvgl.dir/home/hdj/zephyrproject/modules/lib/gui/lvgl/src/draw/lv_draw_buf.c.obj
+[198/548] Building C object modules/lvgl/CMakeFiles/modules__lvgl.dir/home/hdj/zephyrproject/modules/lib/gui/lvgl/src/draw/lv_draw_triangle.c.obj
+[199/548] Building C object modules/lvgl/CMakeFiles/modules__lvgl.dir/home/hdj/zephyrproject/modules/lib/gui/lvgl/src/draw/lv_draw_vector.c.obj
+[200/548] Building C object modules/lvgl/CMakeFiles/modules__lvgl.dir/home/hdj/zephyrproject/modules/lib/gui/lvgl/src/draw/nxp/pxp/lv_draw_buf_pxp.c.obj
+[201/548] Building C object modules/lvgl/CMakeFiles/modules__lvgl.dir/home/hdj/zephyrproject/modules/lib/gui/lvgl/src/draw/nxp/pxp/lv_draw_pxp.c.obj
+[202/548] Building C object modules/lvgl/CMakeFiles/modules__lvgl.dir/home/hdj/zephyrproject/modules/lib/gui/lvgl/src/draw/nxp/pxp/lv_draw_pxp_img.c.obj
+[203/548] Building C object modules/lvgl/CMakeFiles/modules__lvgl.dir/home/hdj/zephyrproject/modules/lib/gui/lvgl/src/draw/nxp/pxp/lv_draw_pxp_fill.c.obj
+[204/548] Building C object modules/lvgl/CMakeFiles/modules__lvgl.dir/home/hdj/zephyrproject/modules/lib/gui/lvgl/src/draw/nxp/pxp/lv_draw_pxp_layer.c.obj
+[205/548] Building C object modules/lvgl/CMakeFiles/modules__lvgl.dir/home/hdj/zephyrproject/modules/lib/gui/lvgl/src/draw/nxp/pxp/lv_pxp_cfg.c.obj
+[206/548] Building C object modules/lvgl/CMakeFiles/modules__lvgl.dir/home/hdj/zephyrproject/modules/lib/gui/lvgl/src/draw/lv_image_decoder.c.obj
+[207/548] Building C object modules/lvgl/CMakeFiles/modules__lvgl.dir/home/hdj/zephyrproject/modules/lib/gui/lvgl/src/draw/nxp/pxp/lv_pxp_osa.c.obj
+[208/548] Building C object modules/lvgl/CMakeFiles/modules__lvgl.dir/home/hdj/zephyrproject/modules/lib/gui/lvgl/src/draw/nxp/pxp/lv_pxp_utils.c.obj
+[209/548] Building C object modules/lvgl/CMakeFiles/modules__lvgl.dir/home/hdj/zephyrproject/modules/lib/gui/lvgl/src/draw/nxp/g2d/lv_draw_g2d_img.c.obj
+[210/548] Building C object modules/lvgl/CMakeFiles/modules__lvgl.dir/home/hdj/zephyrproject/modules/lib/gui/lvgl/src/draw/nxp/g2d/lv_draw_buf_g2d.c.obj
+[211/548] Building C object modules/lvgl/CMakeFiles/modules__lvgl.dir/home/hdj/zephyrproject/modules/lib/gui/lvgl/src/draw/nxp/g2d/lv_g2d_buf_map.c.obj
+[212/548] Building C object modules/lvgl/CMakeFiles/modules__lvgl.dir/home/hdj/zephyrproject/modules/lib/gui/lvgl/src/draw/nxp/g2d/lv_draw_g2d_fill.c.obj
+[213/548] Building C object modules/lvgl/CMakeFiles/modules__lvgl.dir/home/hdj/zephyrproject/modules/lib/gui/lvgl/src/draw/nxp/g2d/lv_g2d_utils.c.obj
+[214/548] Building C object modules/lvgl/CMakeFiles/modules__lvgl.dir/home/hdj/zephyrproject/modules/lib/gui/lvgl/src/draw/nxp/g2d/lv_draw_g2d.c.obj
+[215/548] Building C object modules/lvgl/CMakeFiles/modules__lvgl.dir/home/hdj/zephyrproject/modules/lib/gui/lvgl/src/draw/nxp/vglite/lv_draw_buf_vglite.c.obj
+[216/548] Building C object modules/lvgl/CMakeFiles/modules__lvgl.dir/home/hdj/zephyrproject/modules/lib/gui/lvgl/src/draw/nxp/vglite/lv_draw_vglite_arc.c.obj
+[217/548] Building C object modules/lvgl/CMakeFiles/modules__lvgl.dir/home/hdj/zephyrproject/modules/lib/gui/lvgl/src/draw/nxp/vglite/lv_draw_vglite_border.c.obj
+[218/548] Building C object modules/lvgl/CMakeFiles/modules__lvgl.dir/home/hdj/zephyrproject/modules/lib/gui/lvgl/src/draw/nxp/vglite/lv_draw_vglite.c.obj
+[219/548] Building C object modules/lvgl/CMakeFiles/modules__lvgl.dir/home/hdj/zephyrproject/modules/lib/gui/lvgl/src/draw/nxp/vglite/lv_draw_vglite_fill.c.obj
+[220/548] Building C object modules/lvgl/CMakeFiles/modules__lvgl.dir/home/hdj/zephyrproject/modules/lib/gui/lvgl/src/draw/nxp/vglite/lv_draw_vglite_label.c.obj
+[221/548] Building C object modules/lvgl/CMakeFiles/modules__lvgl.dir/home/hdj/zephyrproject/modules/lib/gui/lvgl/src/draw/nxp/vglite/lv_draw_vglite_img.c.obj
+[222/548] Building C object modules/lvgl/CMakeFiles/modules__lvgl.dir/home/hdj/zephyrproject/modules/lib/gui/lvgl/src/draw/nxp/vglite/lv_draw_vglite_layer.c.obj
+[223/548] Building C object modules/lvgl/CMakeFiles/modules__lvgl.dir/home/hdj/zephyrproject/modules/lib/gui/lvgl/src/draw/nxp/vglite/lv_draw_vglite_line.c.obj
+[224/548] Building C object modules/lvgl/CMakeFiles/modules__lvgl.dir/home/hdj/zephyrproject/modules/lib/gui/lvgl/src/draw/nxp/vglite/lv_draw_vglite_triangle.c.obj
+[225/548] Building C object modules/lvgl/CMakeFiles/modules__lvgl.dir/home/hdj/zephyrproject/modules/lib/gui/lvgl/src/draw/nxp/vglite/lv_vglite_buf.c.obj
+[226/548] Building C object modules/lvgl/CMakeFiles/modules__lvgl.dir/home/hdj/zephyrproject/modules/lib/gui/lvgl/src/draw/nxp/vglite/lv_vglite_matrix.c.obj
+[227/548] Building C object modules/lvgl/CMakeFiles/modules__lvgl.dir/home/hdj/zephyrproject/modules/lib/gui/lvgl/src/draw/nxp/vglite/lv_vglite_path.c.obj
+[228/548] Building C object modules/lvgl/CMakeFiles/modules__lvgl.dir/home/hdj/zephyrproject/modules/lib/gui/lvgl/src/draw/nxp/vglite/lv_vglite_utils.c.obj
+[229/548] Building C object modules/lvgl/CMakeFiles/modules__lvgl.dir/home/hdj/zephyrproject/modules/lib/gui/lvgl/src/draw/renesas/dave2d/lv_draw_dave2d_arc.c.obj
+[230/548] Building C object modules/lvgl/CMakeFiles/modules__lvgl.dir/home/hdj/zephyrproject/modules/lib/gui/lvgl/src/draw/renesas/dave2d/lv_draw_dave2d_border.c.obj
+[231/548] Building C object modules/lvgl/CMakeFiles/modules__lvgl.dir/home/hdj/zephyrproject/modules/lib/gui/lvgl/src/draw/renesas/dave2d/lv_draw_dave2d.c.obj
+[232/548] Building C object modules/lvgl/CMakeFiles/modules__lvgl.dir/home/hdj/zephyrproject/modules/lib/gui/lvgl/src/draw/renesas/dave2d/lv_draw_dave2d_fill.c.obj
+[233/548] Building C object modules/lvgl/CMakeFiles/modules__lvgl.dir/home/hdj/zephyrproject/modules/lib/gui/lvgl/src/draw/renesas/dave2d/lv_draw_dave2d_image.c.obj
+[234/548] Building C object modules/lvgl/CMakeFiles/modules__lvgl.dir/home/hdj/zephyrproject/modules/lib/gui/lvgl/src/draw/renesas/dave2d/lv_draw_dave2d_label.c.obj
+[235/548] Building C object modules/lvgl/CMakeFiles/modules__lvgl.dir/home/hdj/zephyrproject/modules/lib/gui/lvgl/src/draw/renesas/dave2d/lv_draw_dave2d_mask_rectangle.c.obj
+[236/548] Building C object modules/lvgl/CMakeFiles/modules__lvgl.dir/home/hdj/zephyrproject/modules/lib/gui/lvgl/src/draw/renesas/dave2d/lv_draw_dave2d_line.c.obj
+[237/548] Building C object modules/lvgl/CMakeFiles/modules__lvgl.dir/home/hdj/zephyrproject/modules/lib/gui/lvgl/src/draw/renesas/dave2d/lv_draw_dave2d_triangle.c.obj
+[238/548] Building C object modules/lvgl/CMakeFiles/modules__lvgl.dir/home/hdj/zephyrproject/modules/lib/gui/lvgl/src/draw/renesas/dave2d/lv_draw_dave2d_utils.c.obj
+[239/548] Building C object modules/lvgl/CMakeFiles/modules__lvgl.dir/home/hdj/zephyrproject/modules/lib/gui/lvgl/src/draw/sw/blend/lv_draw_sw_blend_to_al88.c.obj
+[240/548] Building C object modules/lvgl/CMakeFiles/modules__lvgl.dir/home/hdj/zephyrproject/modules/lib/gui/lvgl/src/draw/sw/blend/lv_draw_sw_blend_to_argb8888_premultiplied.c.obj
+[241/548] Building C object modules/lvgl/CMakeFiles/modules__lvgl.dir/home/hdj/zephyrproject/modules/lib/gui/lvgl/src/draw/sw/blend/lv_draw_sw_blend.c.obj
+[242/548] Building C object modules/lvgl/CMakeFiles/modules__lvgl.dir/home/hdj/zephyrproject/modules/lib/gui/lvgl/src/draw/sw/blend/lv_draw_sw_blend_to_argb8888.c.obj
+[243/548] Building C object modules/lvgl/CMakeFiles/modules__lvgl.dir/home/hdj/zephyrproject/modules/lib/gui/lvgl/src/draw/sw/blend/lv_draw_sw_blend_to_i1.c.obj
+[244/548] Building C object modules/lvgl/CMakeFiles/modules__lvgl.dir/home/hdj/zephyrproject/modules/lib/gui/lvgl/src/draw/sw/blend/lv_draw_sw_blend_to_rgb565.c.obj
+[245/548] Building C object modules/lvgl/CMakeFiles/modules__lvgl.dir/home/hdj/zephyrproject/modules/lib/gui/lvgl/src/draw/sw/blend/lv_draw_sw_blend_to_l8.c.obj
+[246/548] Building C object modules/lvgl/CMakeFiles/modules__lvgl.dir/home/hdj/zephyrproject/modules/lib/gui/lvgl/src/draw/sw/blend/lv_draw_sw_blend_to_rgb565_swapped.c.obj
+[247/548] Building C object modules/lvgl/CMakeFiles/modules__lvgl.dir/home/hdj/zephyrproject/modules/lib/gui/lvgl/src/draw/sw/blend/lv_draw_sw_blend_to_rgb888.c.obj
+[248/548] Building C object modules/hal_stm32/stm32cube/CMakeFiles/..__modules__hal__stm32__stm32cube.dir/stm32h7xx/drivers/src/stm32h7xx_ll_utils.c.obj
+[249/548] Building C object modules/lvgl/CMakeFiles/modules__lvgl.dir/home/hdj/zephyrproject/modules/lib/gui/lvgl/src/draw/sw/lv_draw_sw_arc.c.obj
+[250/548] Building C object modules/lvgl/CMakeFiles/modules__lvgl.dir/home/hdj/zephyrproject/modules/lib/gui/lvgl/src/draw/sw/lv_draw_sw_grad.c.obj
+[251/548] Building C object modules/lvgl/CMakeFiles/modules__lvgl.dir/home/hdj/zephyrproject/modules/lib/gui/lvgl/src/draw/sw/lv_draw_sw_border.c.obj
+[252/548] Building C object modules/lvgl/CMakeFiles/modules__lvgl.dir/home/hdj/zephyrproject/modules/lib/gui/lvgl/src/draw/sw/lv_draw_sw_box_shadow.c.obj
+[253/548] Building C object modules/lvgl/CMakeFiles/modules__lvgl.dir/home/hdj/zephyrproject/modules/lib/gui/lvgl/src/draw/sw/lv_draw_sw.c.obj
+[254/548] Building C object modules/lvgl/CMakeFiles/modules__lvgl.dir/home/hdj/zephyrproject/modules/lib/gui/lvgl/src/draw/sw/lv_draw_sw_fill.c.obj
+[255/548] Building C object modules/lvgl/CMakeFiles/modules__lvgl.dir/home/hdj/zephyrproject/modules/lib/gui/lvgl/src/draw/sw/lv_draw_sw_line.c.obj
+[256/548] Building C object modules/hal_stm32/stm32cube/CMakeFiles/..__modules__hal__stm32__stm32cube.dir/stm32h7xx/drivers/src/stm32h7xx_ll_rcc.c.obj
+[257/548] Building C object modules/lvgl/CMakeFiles/modules__lvgl.dir/home/hdj/zephyrproject/modules/lib/gui/lvgl/src/draw/sw/lv_draw_sw_letter.c.obj
+[258/548] Building C object modules/lvgl/CMakeFiles/modules__lvgl.dir/home/hdj/zephyrproject/modules/lib/gui/lvgl/src/draw/sw/lv_draw_sw_img.c.obj
+[259/548] Building C object modules/lvgl/CMakeFiles/modules__lvgl.dir/home/hdj/zephyrproject/modules/lib/gui/lvgl/src/draw/sw/lv_draw_sw_mask_rect.c.obj
+[260/548] Building C object modules/lvgl/CMakeFiles/modules__lvgl.dir/home/hdj/zephyrproject/modules/lib/gui/lvgl/src/draw/sw/lv_draw_sw_mask.c.obj
+[261/548] Building C object modules/lvgl/CMakeFiles/modules__lvgl.dir/home/hdj/zephyrproject/modules/lib/gui/lvgl/src/draw/sw/lv_draw_sw_utils.c.obj
+[262/548] Building C object modules/lvgl/CMakeFiles/modules__lvgl.dir/home/hdj/zephyrproject/modules/lib/gui/lvgl/src/draw/vg_lite/lv_draw_buf_vg_lite.c.obj
+[263/548] Building C object modules/lvgl/CMakeFiles/modules__lvgl.dir/home/hdj/zephyrproject/modules/lib/gui/lvgl/src/draw/sw/lv_draw_sw_transform.c.obj
+[264/548] Building C object modules/lvgl/CMakeFiles/modules__lvgl.dir/home/hdj/zephyrproject/modules/lib/gui/lvgl/src/draw/sw/lv_draw_sw_vector.c.obj
+[265/548] Building C object modules/lvgl/CMakeFiles/modules__lvgl.dir/home/hdj/zephyrproject/modules/lib/gui/lvgl/src/draw/sw/lv_draw_sw_triangle.c.obj
+[266/548] Building C object modules/lvgl/CMakeFiles/modules__lvgl.dir/home/hdj/zephyrproject/modules/lib/gui/lvgl/src/draw/vg_lite/lv_draw_vg_lite_arc.c.obj
+[267/548] Building C object modules/lvgl/CMakeFiles/modules__lvgl.dir/home/hdj/zephyrproject/modules/lib/gui/lvgl/src/draw/vg_lite/lv_draw_vg_lite_border.c.obj
+[268/548] Building C object modules/lvgl/CMakeFiles/modules__lvgl.dir/home/hdj/zephyrproject/modules/lib/gui/lvgl/src/draw/vg_lite/lv_draw_vg_lite_box_shadow.c.obj
+[269/548] Building C object modules/lvgl/CMakeFiles/modules__lvgl.dir/home/hdj/zephyrproject/modules/lib/gui/lvgl/src/draw/vg_lite/lv_draw_vg_lite.c.obj
+[270/548] Building C object modules/lvgl/CMakeFiles/modules__lvgl.dir/home/hdj/zephyrproject/modules/lib/gui/lvgl/src/draw/vg_lite/lv_draw_vg_lite_fill.c.obj
+[271/548] Building C object modules/lvgl/CMakeFiles/modules__lvgl.dir/home/hdj/zephyrproject/modules/lib/gui/lvgl/src/draw/vg_lite/lv_draw_vg_lite_layer.c.obj
+[272/548] Building C object modules/lvgl/CMakeFiles/modules__lvgl.dir/home/hdj/zephyrproject/modules/lib/gui/lvgl/src/draw/vg_lite/lv_draw_vg_lite_line.c.obj
+[273/548] Building C object modules/lvgl/CMakeFiles/modules__lvgl.dir/home/hdj/zephyrproject/modules/lib/gui/lvgl/src/draw/vg_lite/lv_draw_vg_lite_img.c.obj
+[274/548] Building C object modules/lvgl/CMakeFiles/modules__lvgl.dir/home/hdj/zephyrproject/modules/lib/gui/lvgl/src/draw/vg_lite/lv_draw_vg_lite_triangle.c.obj
+[275/548] Building C object modules/lvgl/CMakeFiles/modules__lvgl.dir/home/hdj/zephyrproject/modules/lib/gui/lvgl/src/draw/vg_lite/lv_draw_vg_lite_mask_rect.c.obj
+[276/548] Building C object modules/lvgl/CMakeFiles/modules__lvgl.dir/home/hdj/zephyrproject/modules/lib/gui/lvgl/src/draw/vg_lite/lv_draw_vg_lite_vector.c.obj
+[277/548] Building C object modules/lvgl/CMakeFiles/modules__lvgl.dir/home/hdj/zephyrproject/modules/lib/gui/lvgl/src/draw/vg_lite/lv_vg_lite_decoder.c.obj
+[278/548] Building C object modules/lvgl/CMakeFiles/modules__lvgl.dir/home/hdj/zephyrproject/modules/lib/gui/lvgl/src/draw/vg_lite/lv_vg_lite_math.c.obj
+[279/548] Building C object modules/lvgl/CMakeFiles/modules__lvgl.dir/home/hdj/zephyrproject/modules/lib/gui/lvgl/src/draw/vg_lite/lv_draw_vg_lite_label.c.obj
+[280/548] Building C object modules/lvgl/CMakeFiles/modules__lvgl.dir/home/hdj/zephyrproject/modules/lib/gui/lvgl/src/font/lv_font.c.obj
+[281/548] Building C object zephyr/drivers/serial/CMakeFiles/drivers__serial.dir/uart_stm32.c.obj
+[282/548] Building C object modules/lvgl/CMakeFiles/modules__lvgl.dir/home/hdj/zephyrproject/modules/lib/gui/lvgl/src/draw/vg_lite/lv_vg_lite_grad.c.obj
+[283/548] Building C object modules/lvgl/CMakeFiles/modules__lvgl.dir/home/hdj/zephyrproject/modules/lib/gui/lvgl/src/draw/vg_lite/lv_vg_lite_pending.c.obj
+[284/548] Building C object modules/lvgl/CMakeFiles/modules__lvgl.dir/home/hdj/zephyrproject/modules/lib/gui/lvgl/src/draw/vg_lite/lv_vg_lite_path.c.obj
+[285/548] Building C object modules/lvgl/CMakeFiles/modules__lvgl.dir/home/hdj/zephyrproject/modules/lib/gui/lvgl/src/draw/vg_lite/lv_vg_lite_stroke.c.obj
+[286/548] Linking C static library modules/hal_stm32/stm32cube/lib..__modules__hal__stm32__stm32cube.a
+[287/548] Building C object modules/lvgl/CMakeFiles/modules__lvgl.dir/home/hdj/zephyrproject/modules/lib/gui/lvgl/src/draw/vg_lite/lv_vg_lite_utils.c.obj
+[288/548] Building C object modules/lvgl/CMakeFiles/modules__lvgl.dir/home/hdj/zephyrproject/modules/lib/gui/lvgl/src/font/lv_binfont_loader.c.obj
+[289/548] Building C object modules/lvgl/CMakeFiles/modules__lvgl.dir/home/hdj/zephyrproject/modules/lib/gui/lvgl/src/font/lv_font_montserrat_10.c.obj
+[290/548] Building C object modules/lvgl/CMakeFiles/modules__lvgl.dir/home/hdj/zephyrproject/modules/lib/gui/lvgl/src/font/lv_font_fmt_txt.c.obj
+[291/548] Building C object modules/lvgl/CMakeFiles/modules__lvgl.dir/home/hdj/zephyrproject/modules/lib/gui/lvgl/src/font/lv_font_dejavu_16_persian_hebrew.c.obj
+[292/548] Building C object modules/lvgl/CMakeFiles/modules__lvgl.dir/home/hdj/zephyrproject/modules/lib/gui/lvgl/src/font/lv_font_montserrat_12.c.obj
+[293/548] Building C object modules/lvgl/CMakeFiles/modules__lvgl.dir/home/hdj/zephyrproject/modules/lib/gui/lvgl/src/font/lv_font_montserrat_16.c.obj
+[294/548] Building C object modules/lvgl/CMakeFiles/modules__lvgl.dir/home/hdj/zephyrproject/modules/lib/gui/lvgl/src/font/lv_font_montserrat_22.c.obj
+[295/548] Building C object modules/lvgl/CMakeFiles/modules__lvgl.dir/home/hdj/zephyrproject/modules/lib/gui/lvgl/src/font/lv_font_montserrat_14_aligned.c.obj
+[296/548] Building C object modules/lvgl/CMakeFiles/modules__lvgl.dir/home/hdj/zephyrproject/modules/lib/gui/lvgl/src/font/lv_font_montserrat_18.c.obj
+[297/548] Building C object modules/lvgl/CMakeFiles/modules__lvgl.dir/home/hdj/zephyrproject/modules/lib/gui/lvgl/src/font/lv_font_montserrat_20.c.obj
+[298/548] Building C object modules/lvgl/CMakeFiles/modules__lvgl.dir/home/hdj/zephyrproject/modules/lib/gui/lvgl/src/font/lv_font_montserrat_14.c.obj
+[299/548] Building C object modules/lvgl/CMakeFiles/modules__lvgl.dir/home/hdj/zephyrproject/modules/lib/gui/lvgl/src/font/lv_font_montserrat_24.c.obj
+[300/548] Building C object modules/lvgl/CMakeFiles/modules__lvgl.dir/home/hdj/zephyrproject/modules/lib/gui/lvgl/src/font/lv_font_montserrat_26.c.obj
+[301/548] Building C object modules/lvgl/CMakeFiles/modules__lvgl.dir/home/hdj/zephyrproject/modules/lib/gui/lvgl/src/font/lv_font_montserrat_28.c.obj
+[302/548] Building C object modules/lvgl/CMakeFiles/modules__lvgl.dir/home/hdj/zephyrproject/modules/lib/gui/lvgl/src/font/lv_font_montserrat_28_compressed.c.obj
+[303/548] Linking C static library zephyr/drivers/serial/libdrivers__serial.a
+[304/548] Building C object modules/lvgl/CMakeFiles/modules__lvgl.dir/home/hdj/zephyrproject/modules/lib/gui/lvgl/src/font/lv_font_montserrat_30.c.obj
+[305/548] Building C object modules/lvgl/CMakeFiles/modules__lvgl.dir/home/hdj/zephyrproject/modules/lib/gui/lvgl/src/font/lv_font_montserrat_32.c.obj
+[306/548] Building C object modules/lvgl/CMakeFiles/modules__lvgl.dir/home/hdj/zephyrproject/modules/lib/gui/lvgl/src/font/lv_font_montserrat_34.c.obj
+[307/548] Building C object modules/lvgl/CMakeFiles/modules__lvgl.dir/home/hdj/zephyrproject/modules/lib/gui/lvgl/src/font/lv_font_montserrat_36.c.obj
+[308/548] Building C object modules/lvgl/CMakeFiles/modules__lvgl.dir/home/hdj/zephyrproject/modules/lib/gui/lvgl/src/font/lv_font_montserrat_38.c.obj
+[309/548] Building C object modules/lvgl/CMakeFiles/modules__lvgl.dir/home/hdj/zephyrproject/modules/lib/gui/lvgl/src/font/lv_font_montserrat_42.c.obj
+[310/548] Building C object modules/lvgl/CMakeFiles/modules__lvgl.dir/home/hdj/zephyrproject/modules/lib/gui/lvgl/src/font/lv_font_montserrat_40.c.obj
+[311/548] Building C object modules/lvgl/CMakeFiles/modules__lvgl.dir/home/hdj/zephyrproject/modules/lib/gui/lvgl/src/font/lv_font_montserrat_44.c.obj
+[312/548] Building C object modules/lvgl/CMakeFiles/modules__lvgl.dir/home/hdj/zephyrproject/modules/lib/gui/lvgl/src/font/lv_font_montserrat_46.c.obj
+[313/548] Building C object modules/lvgl/CMakeFiles/modules__lvgl.dir/home/hdj/zephyrproject/modules/lib/gui/lvgl/src/font/lv_font_montserrat_48.c.obj
+[314/548] Building C object modules/lvgl/CMakeFiles/modules__lvgl.dir/home/hdj/zephyrproject/modules/lib/gui/lvgl/src/indev/lv_indev_gesture.c.obj
+[315/548] Building C object modules/lvgl/CMakeFiles/modules__lvgl.dir/home/hdj/zephyrproject/modules/lib/gui/lvgl/src/indev/lv_indev_scroll.c.obj
+[316/548] Building C object modules/lvgl/CMakeFiles/modules__lvgl.dir/home/hdj/zephyrproject/modules/lib/gui/lvgl/src/font/lv_font_montserrat_8.c.obj
+[317/548] Building C object modules/lvgl/CMakeFiles/modules__lvgl.dir/home/hdj/zephyrproject/modules/lib/gui/lvgl/src/indev/lv_indev.c.obj
+[318/548] Building C object modules/lvgl/CMakeFiles/modules__lvgl.dir/home/hdj/zephyrproject/modules/lib/gui/lvgl/src/font/lv_font_simsun_14_cjk.c.obj
+[319/548] Building C object modules/lvgl/CMakeFiles/modules__lvgl.dir/home/hdj/zephyrproject/modules/lib/gui/lvgl/src/font/lv_font_simsun_16_cjk.c.obj
+[320/548] Building C object modules/lvgl/CMakeFiles/modules__lvgl.dir/home/hdj/zephyrproject/modules/lib/gui/lvgl/src/font/lv_font_source_han_sans_sc_16_cjk.c.obj
+[321/548] Building C object modules/lvgl/CMakeFiles/modules__lvgl.dir/home/hdj/zephyrproject/modules/lib/gui/lvgl/src/font/lv_font_source_han_sans_sc_14_cjk.c.obj
+[322/548] Building C object modules/lvgl/CMakeFiles/modules__lvgl.dir/home/hdj/zephyrproject/modules/lib/gui/lvgl/src/font/lv_font_unscii_8.c.obj
+[323/548] Building C object modules/lvgl/CMakeFiles/modules__lvgl.dir/home/hdj/zephyrproject/modules/lib/gui/lvgl/src/layouts/flex/lv_flex.c.obj
+[324/548] Building C object modules/lvgl/CMakeFiles/modules__lvgl.dir/home/hdj/zephyrproject/modules/lib/gui/lvgl/src/font/lv_font_unscii_16.c.obj
+[325/548] Building C object modules/lvgl/CMakeFiles/modules__lvgl.dir/home/hdj/zephyrproject/modules/lib/gui/lvgl/src/layouts/grid/lv_grid.c.obj
+[326/548] Building C object modules/lvgl/CMakeFiles/modules__lvgl.dir/home/hdj/zephyrproject/modules/lib/gui/lvgl/src/layouts/lv_layout.c.obj
+[327/548] Building C object modules/lvgl/CMakeFiles/modules__lvgl.dir/home/hdj/zephyrproject/modules/lib/gui/lvgl/src/libs/expat/xmlparse.c.obj
+[328/548] Building C object modules/lvgl/CMakeFiles/modules__lvgl.dir/home/hdj/zephyrproject/modules/lib/gui/lvgl/src/libs/expat/xmlrole.c.obj
+[329/548] Building C object modules/lvgl/CMakeFiles/modules__lvgl.dir/home/hdj/zephyrproject/modules/lib/gui/lvgl/src/libs/expat/xmltok.c.obj
+[330/548] Building C object modules/lvgl/CMakeFiles/modules__lvgl.dir/home/hdj/zephyrproject/modules/lib/gui/lvgl/src/libs/bin_decoder/lv_bin_decoder.c.obj
+[331/548] Building C object modules/lvgl/CMakeFiles/modules__lvgl.dir/home/hdj/zephyrproject/modules/lib/gui/lvgl/src/libs/expat/xmltok_impl.c.obj
+[332/548] Building C object modules/lvgl/CMakeFiles/modules__lvgl.dir/home/hdj/zephyrproject/modules/lib/gui/lvgl/src/libs/expat/xmltok_ns.c.obj
+[333/548] Building C object modules/lvgl/CMakeFiles/modules__lvgl.dir/home/hdj/zephyrproject/modules/lib/gui/lvgl/src/libs/ffmpeg/lv_ffmpeg.c.obj
+[334/548] Building C object modules/lvgl/CMakeFiles/modules__lvgl.dir/home/hdj/zephyrproject/modules/lib/gui/lvgl/src/libs/freetype/lv_freetype.c.obj
+[335/548] Building C object modules/lvgl/CMakeFiles/modules__lvgl.dir/home/hdj/zephyrproject/modules/lib/gui/lvgl/src/libs/fsdrv/lv_fs_cbfs.c.obj
+[336/548] Building C object modules/lvgl/CMakeFiles/modules__lvgl.dir/home/hdj/zephyrproject/modules/lib/gui/lvgl/src/libs/barcode/code128.c.obj
+[337/548] Building C object modules/lvgl/CMakeFiles/modules__lvgl.dir/home/hdj/zephyrproject/modules/lib/gui/lvgl/src/libs/barcode/lv_barcode.c.obj
+[338/548] Building C object modules/lvgl/CMakeFiles/modules__lvgl.dir/home/hdj/zephyrproject/modules/lib/gui/lvgl/src/libs/fsdrv/lv_fs_fatfs.c.obj
+[339/548] Building C object modules/lvgl/CMakeFiles/modules__lvgl.dir/home/hdj/zephyrproject/modules/lib/gui/lvgl/src/libs/freetype/lv_freetype_glyph.c.obj
+[340/548] Building C object modules/lvgl/CMakeFiles/modules__lvgl.dir/home/hdj/zephyrproject/modules/lib/gui/lvgl/src/libs/freetype/lv_freetype_outline.c.obj
+[341/548] Building C object modules/lvgl/CMakeFiles/modules__lvgl.dir/home/hdj/zephyrproject/modules/lib/gui/lvgl/src/libs/freetype/lv_ftsystem.c.obj
+[342/548] Building C object modules/lvgl/CMakeFiles/modules__lvgl.dir/home/hdj/zephyrproject/modules/lib/gui/lvgl/src/libs/bmp/lv_bmp.c.obj
+[343/548] Building C object modules/lvgl/CMakeFiles/modules__lvgl.dir/home/hdj/zephyrproject/modules/lib/gui/lvgl/src/libs/freetype/lv_freetype_image.c.obj
+[344/548] Building C object modules/lvgl/CMakeFiles/modules__lvgl.dir/home/hdj/zephyrproject/modules/lib/gui/lvgl/src/libs/fsdrv/lv_fs_stdio.c.obj
+[345/548] Building C object modules/lvgl/CMakeFiles/modules__lvgl.dir/home/hdj/zephyrproject/modules/lib/gui/lvgl/src/libs/fsdrv/lv_fs_littlefs.c.obj
+[346/548] Building C object modules/lvgl/CMakeFiles/modules__lvgl.dir/home/hdj/zephyrproject/modules/lib/gui/lvgl/src/libs/fsdrv/lv_fs_posix.c.obj
+[347/548] Building C object modules/lvgl/CMakeFiles/modules__lvgl.dir/home/hdj/zephyrproject/modules/lib/gui/lvgl/src/libs/fsdrv/lv_fs_uefi.c.obj
+[348/548] Building C object modules/lvgl/CMakeFiles/modules__lvgl.dir/home/hdj/zephyrproject/modules/lib/gui/lvgl/src/libs/gif/gifdec.c.obj
+[349/548] Building C object modules/lvgl/CMakeFiles/modules__lvgl.dir/home/hdj/zephyrproject/modules/lib/gui/lvgl/src/libs/fsdrv/lv_fs_memfs.c.obj
+[350/548] Building C object modules/lvgl/CMakeFiles/modules__lvgl.dir/home/hdj/zephyrproject/modules/lib/gui/lvgl/src/libs/fsdrv/lv_fs_win32.c.obj
+[351/548] Building C object modules/lvgl/CMakeFiles/modules__lvgl.dir/home/hdj/zephyrproject/modules/lib/gui/lvgl/src/libs/gif/lv_gif.c.obj
+[352/548] Building C object modules/lvgl/CMakeFiles/modules__lvgl.dir/home/hdj/zephyrproject/modules/lib/gui/lvgl/src/libs/lz4/lz4.c.obj
+[353/548] Building C object modules/lvgl/CMakeFiles/modules__lvgl.dir/home/hdj/zephyrproject/modules/lib/gui/lvgl/src/libs/rle/lv_rle.c.obj
+[354/548] Building C object modules/lvgl/CMakeFiles/modules__lvgl.dir/home/hdj/zephyrproject/modules/lib/gui/lvgl/src/libs/qrcode/lv_qrcode.c.obj
+[355/548] Building C object modules/lvgl/CMakeFiles/modules__lvgl.dir/home/hdj/zephyrproject/modules/lib/gui/lvgl/src/libs/svg/lv_svg.c.obj
+[356/548] Building C object modules/lvgl/CMakeFiles/modules__lvgl.dir/home/hdj/zephyrproject/modules/lib/gui/lvgl/src/libs/svg/lv_svg_parser.c.obj
+[357/548] Building C object modules/lvgl/CMakeFiles/modules__lvgl.dir/home/hdj/zephyrproject/modules/lib/gui/lvgl/src/libs/libpng/lv_libpng.c.obj
+[358/548] Building C object modules/lvgl/CMakeFiles/modules__lvgl.dir/home/hdj/zephyrproject/modules/lib/gui/lvgl/src/libs/svg/lv_svg_token.c.obj
+[359/548] Building C object modules/lvgl/CMakeFiles/modules__lvgl.dir/home/hdj/zephyrproject/modules/lib/gui/lvgl/src/libs/libjpeg_turbo/lv_libjpeg_turbo.c.obj
+[360/548] Building C object modules/lvgl/CMakeFiles/modules__lvgl.dir/home/hdj/zephyrproject/modules/lib/gui/lvgl/src/libs/lodepng/lodepng.c.obj
+[361/548] Building C object modules/lvgl/CMakeFiles/modules__lvgl.dir/home/hdj/zephyrproject/modules/lib/gui/lvgl/src/libs/rlottie/lv_rlottie.c.obj
+[362/548] Building C object modules/lvgl/CMakeFiles/modules__lvgl.dir/home/hdj/zephyrproject/modules/lib/gui/lvgl/src/libs/lodepng/lv_lodepng.c.obj
+[363/548] Building C object modules/lvgl/CMakeFiles/modules__lvgl.dir/home/hdj/zephyrproject/modules/lib/gui/lvgl/src/libs/qrcode/qrcodegen.c.obj
+[364/548] Building C object modules/lvgl/CMakeFiles/modules__lvgl.dir/home/hdj/zephyrproject/modules/lib/gui/lvgl/src/misc/cache/lv_cache.c.obj
+[365/548] Building C object modules/lvgl/CMakeFiles/modules__lvgl.dir/home/hdj/zephyrproject/modules/lib/gui/lvgl/src/misc/cache/class/lv_cache_lru_rb.c.obj
+[366/548] Building C object modules/lvgl/CMakeFiles/modules__lvgl.dir/home/hdj/zephyrproject/modules/lib/gui/lvgl/src/misc/cache/lv_cache_entry.c.obj
+[367/548] Building C object modules/lvgl/CMakeFiles/modules__lvgl.dir/home/hdj/zephyrproject/modules/lib/gui/lvgl/src/misc/cache/class/lv_cache_lru_ll.c.obj
+[368/548] Building C object modules/lvgl/CMakeFiles/modules__lvgl.dir/home/hdj/zephyrproject/modules/lib/gui/lvgl/src/lv_init.c.obj
+[369/548] Building C object modules/lvgl/CMakeFiles/modules__lvgl.dir/home/hdj/zephyrproject/modules/lib/gui/lvgl/src/libs/svg/lv_svg_decoder.c.obj
+[370/548] Building C object modules/lvgl/CMakeFiles/modules__lvgl.dir/home/hdj/zephyrproject/modules/lib/gui/lvgl/src/libs/svg/lv_svg_render.c.obj
+[371/548] Building C object modules/lvgl/CMakeFiles/modules__lvgl.dir/home/hdj/zephyrproject/modules/lib/gui/lvgl/src/misc/lv_anim_timeline.c.obj
+[372/548] Building C object modules/lvgl/CMakeFiles/modules__lvgl.dir/home/hdj/zephyrproject/modules/lib/gui/lvgl/src/misc/cache/instance/lv_image_cache.c.obj
+[373/548] Building C object modules/lvgl/CMakeFiles/modules__lvgl.dir/home/hdj/zephyrproject/modules/lib/gui/lvgl/src/misc/cache/instance/lv_image_header_cache.c.obj
+[374/548] Building C object modules/lvgl/CMakeFiles/modules__lvgl.dir/home/hdj/zephyrproject/modules/lib/gui/lvgl/src/misc/lv_array.c.obj
+[375/548] Building C object modules/lvgl/CMakeFiles/modules__lvgl.dir/home/hdj/zephyrproject/modules/lib/gui/lvgl/src/misc/lv_async.c.obj
+[376/548] Building C object modules/lvgl/CMakeFiles/modules__lvgl.dir/home/hdj/zephyrproject/modules/lib/gui/lvgl/src/misc/lv_color.c.obj
+[377/548] Building C object modules/lvgl/CMakeFiles/modules__lvgl.dir/home/hdj/zephyrproject/modules/lib/gui/lvgl/src/libs/tiny_ttf/lv_tiny_ttf.c.obj
+[378/548] Building C object modules/lvgl/CMakeFiles/modules__lvgl.dir/home/hdj/zephyrproject/modules/lib/gui/lvgl/src/misc/lv_anim.c.obj
+[379/548] Building C object modules/lvgl/CMakeFiles/modules__lvgl.dir/home/hdj/zephyrproject/modules/lib/gui/lvgl/src/misc/lv_bidi.c.obj
+[380/548] Building C object modules/lvgl/CMakeFiles/modules__lvgl.dir/home/hdj/zephyrproject/modules/lib/gui/lvgl/src/misc/lv_area.c.obj
+[381/548] Building C object modules/lvgl/CMakeFiles/modules__lvgl.dir/home/hdj/zephyrproject/modules/lib/gui/lvgl/src/misc/lv_color_op.c.obj
+[382/548] Building C object modules/lvgl/CMakeFiles/modules__lvgl.dir/home/hdj/zephyrproject/modules/lib/gui/lvgl/src/misc/lv_circle_buf.c.obj
+[383/548] Building C object modules/lvgl/CMakeFiles/modules__lvgl.dir/home/hdj/zephyrproject/modules/lib/gui/lvgl/src/misc/lv_grad.c.obj
+[384/548] Building C object modules/lvgl/CMakeFiles/modules__lvgl.dir/home/hdj/zephyrproject/modules/lib/gui/lvgl/src/misc/lv_iter.c.obj
+[385/548] Building C object modules/lvgl/CMakeFiles/modules__lvgl.dir/home/hdj/zephyrproject/modules/lib/gui/lvgl/src/misc/lv_ll.c.obj
+[386/548] Building C object modules/lvgl/CMakeFiles/modules__lvgl.dir/home/hdj/zephyrproject/modules/lib/gui/lvgl/src/misc/lv_matrix.c.obj
+[387/548] Building C object modules/lvgl/CMakeFiles/modules__lvgl.dir/home/hdj/zephyrproject/modules/lib/gui/lvgl/src/misc/lv_event.c.obj
+[388/548] Building C object modules/lvgl/CMakeFiles/modules__lvgl.dir/home/hdj/zephyrproject/modules/lib/gui/lvgl/src/misc/lv_fs.c.obj
+[389/548] Building C object modules/lvgl/CMakeFiles/modules__lvgl.dir/home/hdj/zephyrproject/modules/lib/gui/lvgl/src/misc/lv_lru.c.obj
+[390/548] Building C object modules/lvgl/CMakeFiles/modules__lvgl.dir/home/hdj/zephyrproject/modules/lib/gui/lvgl/src/misc/lv_palette.c.obj
+[391/548] Building C object modules/lvgl/CMakeFiles/modules__lvgl.dir/home/hdj/zephyrproject/modules/lib/gui/lvgl/src/misc/lv_rb.c.obj
+[392/548] Building C object modules/lvgl/CMakeFiles/modules__lvgl.dir/home/hdj/zephyrproject/modules/lib/gui/lvgl/src/misc/lv_log.c.obj
+[393/548] Building C object modules/lvgl/CMakeFiles/modules__lvgl.dir/home/hdj/zephyrproject/modules/lib/gui/lvgl/src/misc/lv_math.c.obj
+[394/548] Building C object modules/lvgl/CMakeFiles/modules__lvgl.dir/home/hdj/zephyrproject/modules/lib/gui/lvgl/src/misc/lv_style_gen.c.obj
+[395/548] Building C object modules/lvgl/CMakeFiles/modules__lvgl.dir/home/hdj/zephyrproject/modules/lib/gui/lvgl/src/misc/lv_templ.c.obj
+[396/548] Building C object modules/lvgl/CMakeFiles/modules__lvgl.dir/home/hdj/zephyrproject/modules/lib/gui/lvgl/src/misc/lv_style.c.obj
+[397/548] Building C object modules/lvgl/CMakeFiles/modules__lvgl.dir/home/hdj/zephyrproject/modules/lib/gui/lvgl/src/misc/lv_text_ap.c.obj
+[398/548] Building C object modules/lvgl/CMakeFiles/modules__lvgl.dir/home/hdj/zephyrproject/modules/lib/gui/lvgl/src/misc/lv_tree.c.obj
+[399/548] Building C object modules/lvgl/CMakeFiles/modules__lvgl.dir/home/hdj/zephyrproject/modules/lib/gui/lvgl/src/misc/lv_text.c.obj
+[400/548] Building C object modules/lvgl/CMakeFiles/modules__lvgl.dir/home/hdj/zephyrproject/modules/lib/gui/lvgl/src/misc/lv_utils.c.obj
+[401/548] Building C object modules/lvgl/CMakeFiles/modules__lvgl.dir/home/hdj/zephyrproject/modules/lib/gui/lvgl/src/others/font_manager/lv_font_manager.c.obj
+[402/548] Building C object modules/lvgl/CMakeFiles/modules__lvgl.dir/home/hdj/zephyrproject/modules/lib/gui/lvgl/src/others/font_manager/lv_font_manager_recycle.c.obj
+[403/548] Building C object modules/lvgl/CMakeFiles/modules__lvgl.dir/home/hdj/zephyrproject/modules/lib/gui/lvgl/src/others/file_explorer/lv_file_explorer.c.obj
+[404/548] Building C object modules/lvgl/CMakeFiles/modules__lvgl.dir/home/hdj/zephyrproject/modules/lib/gui/lvgl/src/misc/lv_profiler_builtin.c.obj
+[405/548] Building C object modules/lvgl/CMakeFiles/modules__lvgl.dir/home/hdj/zephyrproject/modules/lib/gui/lvgl/src/misc/lv_timer.c.obj
+[406/548] Building C object modules/lvgl/CMakeFiles/modules__lvgl.dir/home/hdj/zephyrproject/modules/lib/gui/lvgl/src/others/fragment/lv_fragment.c.obj
+[407/548] Building C object modules/lvgl/CMakeFiles/modules__lvgl.dir/home/hdj/zephyrproject/modules/lib/gui/lvgl/src/osal/lv_os.c.obj
+[408/548] Building C object modules/lvgl/CMakeFiles/modules__lvgl.dir/home/hdj/zephyrproject/modules/lib/gui/lvgl/src/others/fragment/lv_fragment_manager.c.obj
+[409/548] Building C object modules/lvgl/CMakeFiles/modules__lvgl.dir/home/hdj/zephyrproject/modules/lib/gui/lvgl/src/others/gridnav/lv_gridnav.c.obj
+[410/548] Building C object modules/lvgl/CMakeFiles/modules__lvgl.dir/home/hdj/zephyrproject/modules/lib/gui/lvgl/src/others/ime/lv_ime_pinyin.c.obj
+[411/548] Building C object modules/lvgl/CMakeFiles/modules__lvgl.dir/home/hdj/zephyrproject/modules/lib/gui/lvgl/src/others/monkey/lv_monkey.c.obj
+[412/548] Building C object modules/lvgl/CMakeFiles/modules__lvgl.dir/home/hdj/zephyrproject/modules/lib/gui/lvgl/src/others/sysmon/lv_sysmon.c.obj
+[413/548] Building C object modules/lvgl/CMakeFiles/modules__lvgl.dir/home/hdj/zephyrproject/modules/lib/gui/lvgl/src/others/snapshot/lv_snapshot.c.obj
+[414/548] Building C object modules/lvgl/CMakeFiles/modules__lvgl.dir/home/hdj/zephyrproject/modules/lib/gui/lvgl/src/others/vg_lite_tvg/vg_lite_matrix.c.obj
+[415/548] Building C object modules/lvgl/CMakeFiles/modules__lvgl.dir/home/hdj/zephyrproject/modules/lib/gui/lvgl/src/others/xml/lv_xml_component.c.obj
+[416/548] Building C object modules/lvgl/CMakeFiles/modules__lvgl.dir/home/hdj/zephyrproject/modules/lib/gui/lvgl/src/others/xml/lv_xml_update.c.obj
+[417/548] Building C object modules/lvgl/CMakeFiles/modules__lvgl.dir/home/hdj/zephyrproject/modules/lib/gui/lvgl/src/others/xml/lv_xml.c.obj
+[418/548] Building C object modules/lvgl/CMakeFiles/modules__lvgl.dir/home/hdj/zephyrproject/modules/lib/gui/lvgl/src/others/xml/lv_xml_parser.c.obj
+[419/548] Building C object modules/lvgl/CMakeFiles/modules__lvgl.dir/home/hdj/zephyrproject/modules/lib/gui/lvgl/src/others/xml/lv_xml_utils.c.obj
+[420/548] Building C object modules/lvgl/CMakeFiles/modules__lvgl.dir/home/hdj/zephyrproject/modules/lib/gui/lvgl/src/others/xml/lv_xml_widget.c.obj
+[421/548] Building C object modules/lvgl/CMakeFiles/modules__lvgl.dir/home/hdj/zephyrproject/modules/lib/gui/lvgl/src/others/imgfont/lv_imgfont.c.obj
+[422/548] Building C object modules/lvgl/CMakeFiles/modules__lvgl.dir/home/hdj/zephyrproject/modules/lib/gui/lvgl/src/others/observer/lv_observer.c.obj
+[423/548] Building C object modules/lvgl/CMakeFiles/modules__lvgl.dir/home/hdj/zephyrproject/modules/lib/gui/lvgl/src/others/xml/parsers/lv_xml_arc_parser.c.obj
+[424/548] Building C object modules/lvgl/CMakeFiles/modules__lvgl.dir/home/hdj/zephyrproject/modules/lib/gui/lvgl/src/others/xml/parsers/lv_xml_bar_parser.c.obj
+[425/548] Building C object modules/lvgl/CMakeFiles/modules__lvgl.dir/home/hdj/zephyrproject/modules/lib/gui/lvgl/src/others/xml/lv_xml_base_types.c.obj
+[426/548] Building C object modules/lvgl/CMakeFiles/modules__lvgl.dir/home/hdj/zephyrproject/modules/lib/gui/lvgl/src/others/xml/parsers/lv_xml_buttonmatrix_parser.c.obj
+[427/548] Building C object modules/lvgl/CMakeFiles/modules__lvgl.dir/home/hdj/zephyrproject/modules/lib/gui/lvgl/src/others/xml/parsers/lv_xml_button_parser.c.obj
+[428/548] Building C object modules/lvgl/CMakeFiles/modules__lvgl.dir/home/hdj/zephyrproject/modules/lib/gui/lvgl/src/others/xml/parsers/lv_xml_canvas_parser.c.obj
+[429/548] Building C object modules/lvgl/CMakeFiles/modules__lvgl.dir/home/hdj/zephyrproject/modules/lib/gui/lvgl/src/others/xml/parsers/lv_xml_chart_parser.c.obj
+[430/548] Building C object modules/lvgl/CMakeFiles/modules__lvgl.dir/home/hdj/zephyrproject/modules/lib/gui/lvgl/src/others/xml/lv_xml_style.c.obj
+[431/548] Building C object modules/lvgl/CMakeFiles/modules__lvgl.dir/home/hdj/zephyrproject/modules/lib/gui/lvgl/src/others/xml/parsers/lv_xml_calendar_parser.c.obj
+[432/548] Building C object modules/lvgl/CMakeFiles/modules__lvgl.dir/home/hdj/zephyrproject/modules/lib/gui/lvgl/src/others/xml/parsers/lv_xml_checkbox_parser.c.obj
+[433/548] Building C object modules/lvgl/CMakeFiles/modules__lvgl.dir/home/hdj/zephyrproject/modules/lib/gui/lvgl/src/others/xml/parsers/lv_xml_dropdown_parser.c.obj
+[434/548] Building C object modules/lvgl/CMakeFiles/modules__lvgl.dir/home/hdj/zephyrproject/modules/lib/gui/lvgl/src/others/xml/parsers/lv_xml_event_parser.c.obj
+[435/548] Building C object modules/lvgl/CMakeFiles/modules__lvgl.dir/home/hdj/zephyrproject/modules/lib/gui/lvgl/src/others/xml/parsers/lv_xml_image_parser.c.obj
+[436/548] Building C object modules/lvgl/CMakeFiles/modules__lvgl.dir/home/hdj/zephyrproject/modules/lib/gui/lvgl/src/others/xml/parsers/lv_xml_keyboard_parser.c.obj
+[437/548] Building C object modules/lvgl/CMakeFiles/modules__lvgl.dir/home/hdj/zephyrproject/modules/lib/gui/lvgl/src/others/xml/parsers/lv_xml_label_parser.c.obj
+[438/548] Building C object modules/lvgl/CMakeFiles/modules__lvgl.dir/home/hdj/zephyrproject/modules/lib/gui/lvgl/src/others/xml/parsers/lv_xml_obj_parser.c.obj
+[439/548] Building C object modules/lvgl/CMakeFiles/modules__lvgl.dir/home/hdj/zephyrproject/modules/lib/gui/lvgl/src/others/xml/parsers/lv_xml_roller_parser.c.obj
+[440/548] Building C object modules/lvgl/CMakeFiles/modules__lvgl.dir/home/hdj/zephyrproject/modules/lib/gui/lvgl/src/others/xml/parsers/lv_xml_slider_parser.c.obj
+[441/548] Building C object modules/lvgl/CMakeFiles/modules__lvgl.dir/home/hdj/zephyrproject/modules/lib/gui/lvgl/src/others/xml/parsers/lv_xml_scale_parser.c.obj
+[442/548] Building C object modules/lvgl/CMakeFiles/modules__lvgl.dir/home/hdj/zephyrproject/modules/lib/gui/lvgl/src/stdlib/builtin/lv_tlsf.c.obj
+[443/548] Building C object modules/lvgl/CMakeFiles/modules__lvgl.dir/home/hdj/zephyrproject/modules/lib/gui/lvgl/src/others/xml/parsers/lv_xml_spangroup_parser.c.obj
+[444/548] Building C object modules/lvgl/CMakeFiles/modules__lvgl.dir/home/hdj/zephyrproject/modules/lib/gui/lvgl/src/others/xml/parsers/lv_xml_table_parser.c.obj
+[445/548] Building C object modules/lvgl/CMakeFiles/modules__lvgl.dir/home/hdj/zephyrproject/modules/lib/gui/lvgl/src/others/xml/parsers/lv_xml_tabview_parser.c.obj
+[446/548] Building C object modules/lvgl/CMakeFiles/modules__lvgl.dir/home/hdj/zephyrproject/modules/lib/gui/lvgl/src/others/xml/parsers/lv_xml_textarea_parser.c.obj
+[447/548] Building C object modules/lvgl/CMakeFiles/modules__lvgl.dir/home/hdj/zephyrproject/modules/lib/gui/lvgl/src/stdlib/clib/lv_string_clib.c.obj
+[448/548] Building C object modules/lvgl/CMakeFiles/modules__lvgl.dir/home/hdj/zephyrproject/modules/lib/gui/lvgl/src/stdlib/clib/lv_sprintf_clib.c.obj
+[449/548] Building C object modules/lvgl/CMakeFiles/modules__lvgl.dir/home/hdj/zephyrproject/modules/lib/gui/lvgl/src/widgets/3dtexture/lv_3dtexture.c.obj
+[450/548] Building C object modules/lvgl/CMakeFiles/modules__lvgl.dir/home/hdj/zephyrproject/modules/lib/gui/lvgl/src/stdlib/lv_mem.c.obj
+[451/548] Building C object modules/lvgl/CMakeFiles/modules__lvgl.dir/home/hdj/zephyrproject/modules/lib/gui/lvgl/src/tick/lv_tick.c.obj
+[452/548] Building C object modules/lvgl/CMakeFiles/modules__lvgl.dir/home/hdj/zephyrproject/modules/lib/gui/lvgl/src/widgets/animimage/lv_animimage.c.obj
+[453/548] Building C object modules/lvgl/CMakeFiles/modules__lvgl.dir/home/hdj/zephyrproject/modules/lib/gui/lvgl/src/widgets/arc/lv_arc.c.obj
+[454/548] Building C object modules/lvgl/CMakeFiles/modules__lvgl.dir/home/hdj/zephyrproject/modules/lib/gui/lvgl/src/widgets/bar/lv_bar.c.obj
+[455/548] Building C object modules/lvgl/CMakeFiles/modules__lvgl.dir/home/hdj/zephyrproject/modules/lib/gui/lvgl/src/widgets/button/lv_button.c.obj
+[456/548] Building C object modules/lvgl/CMakeFiles/modules__lvgl.dir/home/hdj/zephyrproject/modules/lib/gui/lvgl/src/themes/mono/lv_theme_mono.c.obj
+[457/548] Building C object modules/lvgl/CMakeFiles/modules__lvgl.dir/home/hdj/zephyrproject/modules/lib/gui/lvgl/src/widgets/buttonmatrix/lv_buttonmatrix.c.obj
+[458/548] Building C object modules/lvgl/CMakeFiles/modules__lvgl.dir/home/hdj/zephyrproject/modules/lib/gui/lvgl/src/themes/lv_theme.c.obj
+[459/548] Building C object modules/lvgl/CMakeFiles/modules__lvgl.dir/home/hdj/zephyrproject/modules/lib/gui/lvgl/src/themes/simple/lv_theme_simple.c.obj
+[460/548] Building C object modules/lvgl/CMakeFiles/modules__lvgl.dir/home/hdj/zephyrproject/modules/lib/gui/lvgl/src/widgets/calendar/lv_calendar_chinese.c.obj
+[461/548] Building C object modules/lvgl/CMakeFiles/modules__lvgl.dir/home/hdj/zephyrproject/modules/lib/gui/lvgl/src/themes/default/lv_theme_default.c.obj
+[462/548] Building C object modules/lvgl/CMakeFiles/modules__lvgl.dir/home/hdj/zephyrproject/modules/lib/gui/lvgl/src/widgets/calendar/lv_calendar_header_arrow.c.obj
+[463/548] Building C object modules/lvgl/CMakeFiles/modules__lvgl.dir/home/hdj/zephyrproject/modules/lib/gui/lvgl/src/widgets/calendar/lv_calendar_header_dropdown.c.obj
+[464/548] Building C object modules/lvgl/CMakeFiles/modules__lvgl.dir/home/hdj/zephyrproject/modules/lib/gui/lvgl/src/widgets/checkbox/lv_checkbox.c.obj
+[465/548] Building C object modules/lvgl/CMakeFiles/modules__lvgl.dir/home/hdj/zephyrproject/modules/lib/gui/lvgl/src/widgets/canvas/lv_canvas.c.obj
+[466/548] Building C object modules/lvgl/CMakeFiles/modules__lvgl.dir/home/hdj/zephyrproject/modules/lib/gui/lvgl/src/widgets/chart/lv_chart.c.obj
+[467/548] Building C object modules/lvgl/CMakeFiles/modules__lvgl.dir/home/hdj/zephyrproject/modules/lib/gui/lvgl/src/widgets/dropdown/lv_dropdown.c.obj
+[468/548] Building C object modules/lvgl/CMakeFiles/modules__lvgl.dir/home/hdj/zephyrproject/modules/lib/gui/lvgl/src/widgets/image/lv_image.c.obj
+[469/548] Building C object modules/lvgl/CMakeFiles/modules__lvgl.dir/home/hdj/zephyrproject/modules/lib/gui/lvgl/src/widgets/calendar/lv_calendar.c.obj
+[470/548] Building C object modules/lvgl/CMakeFiles/modules__lvgl.dir/home/hdj/zephyrproject/modules/lib/gui/lvgl/src/widgets/imagebutton/lv_imagebutton.c.obj
+[471/548] Building C object modules/lvgl/CMakeFiles/modules__lvgl.dir/home/hdj/zephyrproject/modules/lib/gui/lvgl/src/widgets/keyboard/lv_keyboard.c.obj
+[472/548] Building C object modules/lvgl/CMakeFiles/modules__lvgl.dir/home/hdj/zephyrproject/modules/lib/gui/lvgl/src/widgets/lottie/lv_lottie.c.obj
+[473/548] Building C object modules/lvgl/CMakeFiles/modules__lvgl.dir/home/hdj/zephyrproject/modules/lib/gui/lvgl/src/widgets/label/lv_label.c.obj
+[474/548] Building C object modules/lvgl/CMakeFiles/modules__lvgl.dir/home/hdj/zephyrproject/modules/lib/gui/lvgl/src/widgets/line/lv_line.c.obj
+[475/548] Building C object modules/lvgl/CMakeFiles/modules__lvgl.dir/home/hdj/zephyrproject/modules/lib/gui/lvgl/src/widgets/led/lv_led.c.obj
+[476/548] Building C object modules/lvgl/CMakeFiles/modules__lvgl.dir/home/hdj/zephyrproject/modules/lib/gui/lvgl/src/widgets/list/lv_list.c.obj
+[477/548] Building C object modules/lvgl/CMakeFiles/modules__lvgl.dir/home/hdj/zephyrproject/modules/lib/gui/lvgl/src/widgets/menu/lv_menu.c.obj
+[478/548] Building C object modules/lvgl/CMakeFiles/modules__lvgl.dir/home/hdj/zephyrproject/modules/lib/gui/lvgl/src/widgets/msgbox/lv_msgbox.c.obj
+[479/548] Building C object modules/lvgl/CMakeFiles/modules__lvgl.dir/home/hdj/zephyrproject/modules/lib/gui/lvgl/src/widgets/objx_templ/lv_objx_templ.c.obj
+[480/548] Building C object modules/lvgl/CMakeFiles/modules__lvgl.dir/home/hdj/zephyrproject/modules/lib/gui/lvgl/src/widgets/property/lv_animimage_properties.c.obj
+[481/548] Building C object modules/lvgl/CMakeFiles/modules__lvgl.dir/home/hdj/zephyrproject/modules/lib/gui/lvgl/src/widgets/property/lv_dropdown_properties.c.obj
+[482/548] Building C object modules/lvgl/CMakeFiles/modules__lvgl.dir/home/hdj/zephyrproject/modules/lib/gui/lvgl/src/widgets/property/lv_label_properties.c.obj
+[483/548] Building C object modules/lvgl/CMakeFiles/modules__lvgl.dir/home/hdj/zephyrproject/modules/lib/gui/lvgl/src/widgets/property/lv_image_properties.c.obj
+[484/548] Building C object modules/lvgl/CMakeFiles/modules__lvgl.dir/home/hdj/zephyrproject/modules/lib/gui/lvgl/src/widgets/property/lv_keyboard_properties.c.obj
+[485/548] Building C object modules/lvgl/CMakeFiles/modules__lvgl.dir/home/hdj/zephyrproject/modules/lib/gui/lvgl/src/widgets/property/lv_obj_properties.c.obj
+[486/548] Building C object modules/lvgl/CMakeFiles/modules__lvgl.dir/home/hdj/zephyrproject/modules/lib/gui/lvgl/src/widgets/property/lv_roller_properties.c.obj
+[487/548] Building C object modules/lvgl/CMakeFiles/modules__lvgl.dir/home/hdj/zephyrproject/modules/lib/gui/lvgl/src/widgets/property/lv_style_properties.c.obj
+[488/548] Building C object modules/lvgl/CMakeFiles/modules__lvgl.dir/home/hdj/zephyrproject/modules/lib/gui/lvgl/src/widgets/property/lv_slider_properties.c.obj
+[489/548] Building C object modules/lvgl/CMakeFiles/modules__lvgl.dir/home/hdj/zephyrproject/modules/lib/gui/lvgl/src/widgets/property/lv_textarea_properties.c.obj
+[490/548] Building C object modules/lvgl/CMakeFiles/modules__lvgl.dir/home/hdj/zephyrproject/modules/lib/gui/lvgl/src/widgets/roller/lv_roller.c.obj
+[491/548] Building C object modules/lvgl/CMakeFiles/modules__lvgl.dir/home/hdj/zephyrproject/modules/lib/gui/lvgl/src/widgets/slider/lv_slider.c.obj
+[492/548] Building C object modules/lvgl/CMakeFiles/modules__lvgl.dir/home/hdj/zephyrproject/modules/lib/gui/lvgl/src/widgets/scale/lv_scale.c.obj
+[493/548] Building C object modules/lvgl/CMakeFiles/modules__lvgl.dir/home/hdj/zephyrproject/modules/lib/gui/lvgl/src/widgets/span/lv_span.c.obj
+[494/548] Building C object modules/lvgl/CMakeFiles/modules__lvgl.dir/home/hdj/zephyrproject/modules/lib/gui/lvgl/src/widgets/spinbox/lv_spinbox.c.obj
+[495/548] Building C object modules/lvgl/CMakeFiles/modules__lvgl.dir/home/hdj/zephyrproject/modules/lib/gui/lvgl/src/widgets/switch/lv_switch.c.obj
+[496/548] Building C object modules/lvgl/CMakeFiles/modules__lvgl.dir/home/hdj/zephyrproject/modules/lib/gui/lvgl/src/widgets/table/lv_table.c.obj
+[497/548] Building C object modules/lvgl/CMakeFiles/modules__lvgl.dir/home/hdj/zephyrproject/modules/lib/gui/lvgl/src/widgets/tileview/lv_tileview.c.obj
+[498/548] Building C object modules/lvgl/CMakeFiles/modules__lvgl.dir/home/hdj/zephyrproject/modules/lib/gui/lvgl/src/widgets/textarea/lv_textarea.c.obj
+[499/548] Building C object modules/lvgl/CMakeFiles/modules__lvgl.dir/home/hdj/zephyrproject/modules/lib/gui/lvgl/src/widgets/spinner/lv_spinner.c.obj
+[500/548] Building C object modules/lvgl/CMakeFiles/modules__lvgl.dir/home/hdj/zephyrproject/modules/lib/gui/lvgl/src/widgets/tabview/lv_tabview.c.obj
+[501/548] Building C object modules/lvgl/CMakeFiles/modules__lvgl.dir/home/hdj/zephyrproject/modules/lib/gui/lvgl/src/widgets/win/lv_win.c.obj
+[502/548] Building C object modules/lvgl/CMakeFiles/modules__lvgl.dir/lvgl_mem.c.obj
+[503/548] Building C object zephyr/kernel/CMakeFiles/kernel.dir/device.c.obj
+[504/548] Building C object modules/lvgl/CMakeFiles/modules__lvgl.dir/lvgl_display_8bit.c.obj
+[505/548] Building C object modules/lvgl/CMakeFiles/modules__lvgl.dir/lvgl_display.c.obj
+[506/548] Building C object modules/lvgl/CMakeFiles/modules__lvgl.dir/lvgl_display_16bit.c.obj
+[507/548] Building C object modules/lvgl/CMakeFiles/modules__lvgl.dir/lvgl_shell.c.obj
+[508/548] Building C object modules/lvgl/CMakeFiles/modules__lvgl.dir/lvgl_display_mono.c.obj
+[509/548] Building C object modules/lvgl/CMakeFiles/modules__lvgl.dir/lvgl_display_24bit.c.obj
+[510/548] Building C object modules/lvgl/CMakeFiles/modules__lvgl.dir/lvgl_display_32bit.c.obj
+[511/548] Building C object modules/lvgl/CMakeFiles/modules__lvgl.dir/lvgl.c.obj
+[512/548] Building C object modules/lvgl/CMakeFiles/modules__lvgl.dir/lvgl_zephyr_osal.c.obj
+[513/548] Building C object modules/lvgl/CMakeFiles/modules__lvgl.dir/input/lvgl_pointer_input.c.obj
+[514/548] Building C object zephyr/kernel/CMakeFiles/kernel.dir/version.c.obj
+[515/548] Building C object modules/lvgl/CMakeFiles/modules__lvgl.dir/input/lvgl_common_input.c.obj
+[516/548] Building C object zephyr/kernel/CMakeFiles/kernel.dir/banner.c.obj
+[517/548] Building C object zephyr/kernel/CMakeFiles/kernel.dir/busy_wait.c.obj
+[518/548] Building C object zephyr/kernel/CMakeFiles/kernel.dir/errno.c.obj
+[519/548] Building C object zephyr/kernel/CMakeFiles/kernel.dir/main_weak.c.obj
+[520/548] Building C object zephyr/kernel/CMakeFiles/kernel.dir/system_work_q.c.obj
+[521/548] Building C object zephyr/kernel/CMakeFiles/kernel.dir/kheap.c.obj
+[522/548] Building C object zephyr/kernel/CMakeFiles/kernel.dir/fatal.c.obj
+[523/548] Building C object zephyr/kernel/CMakeFiles/kernel.dir/init.c.obj
+[524/548] Building C object zephyr/kernel/CMakeFiles/kernel.dir/float.c.obj
+[525/548] Building C object zephyr/kernel/CMakeFiles/kernel.dir/mem_slab.c.obj
+[526/548] Building C object zephyr/kernel/CMakeFiles/kernel.dir/idle.c.obj
+[527/548] Linking C static library modules/lvgl/libmodules__lvgl.a
+[528/548] Building C object zephyr/kernel/CMakeFiles/kernel.dir/mailbox.c.obj
+[529/548] Building C object zephyr/kernel/CMakeFiles/kernel.dir/msg_q.c.obj
+[530/548] Building C object zephyr/kernel/CMakeFiles/kernel.dir/queue.c.obj
+[531/548] Building C object zephyr/kernel/CMakeFiles/kernel.dir/thread.c.obj
+[532/548] Building C object zephyr/kernel/CMakeFiles/kernel.dir/timeslicing.c.obj
+[533/548] Building C object zephyr/kernel/CMakeFiles/kernel.dir/pipe.c.obj
+[534/548] Building C object zephyr/kernel/CMakeFiles/kernel.dir/thread_monitor.c.obj
+[535/548] Building C object zephyr/kernel/CMakeFiles/kernel.dir/sched.c.obj
+[536/548] Building C object zephyr/kernel/CMakeFiles/kernel.dir/timer.c.obj
+[537/548] Building C object zephyr/kernel/CMakeFiles/kernel.dir/timeout.c.obj
+[538/548] Building C object zephyr/kernel/CMakeFiles/kernel.dir/events.c.obj
+[539/548] Building C object zephyr/kernel/CMakeFiles/kernel.dir/mutex.c.obj
+[540/548] Building C object zephyr/kernel/CMakeFiles/kernel.dir/mempool.c.obj
+[541/548] Building C object zephyr/kernel/CMakeFiles/kernel.dir/dynamic_disabled.c.obj
+[542/548] Linking C static library zephyr/kernel/libkernel.a
+[543/548] Linking C executable zephyr/zephyr_pre0.elf
+[544/548] Generating linker.cmd
+[545/548] Generating isr_tables.c, isr_tables_vt.ld, isr_tables_swi.ld
+[546/548] Building C object zephyr/CMakeFiles/zephyr_final.dir/misc/empty_file.c.obj
+[547/548] Building C object zephyr/CMakeFiles/zephyr_final.dir/isr_tables.c.obj
+[548/548] Linking C executable zephyr/zephyr.elf
+Memory region         Used Size  Region Size  %age Used
+           FLASH:      313692 B         2 MB     14.96%
+             RAM:      291784 B       512 KB     55.65%
+          EXTMEM:          0 GB         8 MB      0.00%
+           SRAM0:          0 GB       512 KB      0.00%
+           SRAM1:          0 GB       128 KB      0.00%
+           SRAM2:          0 GB       128 KB      0.00%
+           SRAM4:          0 GB        64 KB      0.00%
+            DTCM:          0 GB       128 KB      0.00%
+            ITCM:          0 GB        64 KB      0.00%
+           SRAM3:         16 KB        32 KB     50.00%
+          SDRAM1:        750 KB         6 MB     12.21%
+        IDT_LIST:          0 GB        32 KB      0.00%
+Generating files from /home/hdj/zephyrproject/art_pi_example/build-11.lvgl/zephyr/zephyr.elf for board: art_pi
+image.py: sign the payload
+image.py: sign the payload

@@ -1,0 +1,4 @@
+west build -p always -b art_pi --sysbuild 1.with_mcuboot
+
+19.uvc: west build -p always -b art_pi -S video-sw-generator -d build $APP -- -DCONFIG_BOOTLOADER_MCUBOOT=y -DCONFIG_MCUBOOT_SIGNATURE_KEY_FILE="\"$KEY\""
+

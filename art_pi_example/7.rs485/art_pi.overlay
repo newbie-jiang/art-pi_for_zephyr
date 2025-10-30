@@ -1,0 +1,36 @@
+/*
+ * Copyright (c) 2025 STMicroelectronics
+ *
+ * SPDX-License-Identifier: Apache-2.0
+ */
+
+/*
+ * Define the device, controller and partition to be the external memory
+ * for running the application in external NOR from MCUboot
+ */
+/ {
+	chosen {
+		zephyr,flash = &w25q64_qspi;
+		zephyr,flash-controller = &w25q64_qspi;
+		zephyr,code-partition = &slot0_partition;
+	};			
+};
+
+
+/ {
+    leds {
+        compatible = "gpio-leds";
+        status = "okay";
+
+        rs485de: dir {
+            gpios = <&gpioi 4 GPIO_ACTIVE_HIGH>; 
+            label = "RS485_DIR";
+        };
+    };
+
+    aliases {
+		rs485de = &rs485de;   
+		rs485 = &uart5;
+	};
+};
+

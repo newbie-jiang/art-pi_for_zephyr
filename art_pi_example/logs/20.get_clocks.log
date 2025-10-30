@@ -1,0 +1,113 @@
+-- west build: making build dir /home/hdj/zephyrproject/art_pi_example/build-20.get_clocks pristine
+-- west build: generating a build system
+Loading Zephyr default modules (Zephyr base).
+-- Application: /home/hdj/zephyrproject/art_pi_example/20.get_clocks
+-- CMake version: 3.22.1
+-- Found Python3: /usr/bin/python3 (found suitable version "3.10.12", minimum required is "3.10") found components: Interpreter 
+-- Cache files will be written to: /home/hdj/.cache/zephyr
+-- Zephyr version: 4.2.99 (/home/hdj/zephyrproject/zephyr)
+-- Found west (found suitable version "1.3.0", minimum required is "0.14.0")
+-- Board: art_pi, qualifiers: stm32h750xx
+-- ZEPHYR_TOOLCHAIN_VARIANT not set, trying to locate Zephyr SDK
+-- Found host-tools: zephyr 0.17.4 (/home/hdj/zephyrproject/zephyr/zephyr-sdk-0.17.4)
+-- Found toolchain: zephyr 0.17.4 (/home/hdj/zephyrproject/zephyr/zephyr-sdk-0.17.4)
+-- Found Dtc: /home/hdj/zephyrproject/zephyr/zephyr-sdk-0.17.4/sysroots/x86_64-pokysdk-linux/usr/bin/dtc (found suitable version "1.7.0", minimum required is "1.4.6") 
+-- Found BOARD.dts: /home/hdj/zephyrproject/zephyr/boards/ruiside/art_pi/art_pi.dts
+-- Found devicetree overlay: /home/hdj/zephyrproject/art_pi_example/20.get_clocks/art_pi.overlay
+-- Generated zephyr.dts: /home/hdj/zephyrproject/art_pi_example/build-20.get_clocks/zephyr/zephyr.dts
+-- Generated pickled edt: /home/hdj/zephyrproject/art_pi_example/build-20.get_clocks/zephyr/edt.pickle
+-- Generated devicetree_generated.h: /home/hdj/zephyrproject/art_pi_example/build-20.get_clocks/zephyr/include/generated/zephyr/devicetree_generated.h
+Parsing /home/hdj/zephyrproject/zephyr/Kconfig
+Loaded configuration '/home/hdj/zephyrproject/zephyr/boards/ruiside/art_pi/art_pi_defconfig'
+Merged configuration '/home/hdj/zephyrproject/art_pi_example/20.get_clocks/prj.conf'
+Merged configuration '/home/hdj/zephyrproject/art_pi_example/build-20.get_clocks/zephyr/misc/generated/extra_kconfig_options.conf'
+Configuration saved to '/home/hdj/zephyrproject/art_pi_example/build-20.get_clocks/zephyr/.config'
+Kconfig header saved to '/home/hdj/zephyrproject/art_pi_example/build-20.get_clocks/zephyr/include/generated/zephyr/autoconf.h'
+-- Found GnuLd: /home/hdj/zephyrproject/zephyr/zephyr-sdk-0.17.4/arm-zephyr-eabi/arm-zephyr-eabi/bin/ld.bfd (found version "2.38") 
+-- The C compiler identification is GNU 12.2.0
+-- The CXX compiler identification is GNU 12.2.0
+-- The ASM compiler identification is GNU
+-- Found assembler: /home/hdj/zephyrproject/zephyr/zephyr-sdk-0.17.4/arm-zephyr-eabi/bin/arm-zephyr-eabi-gcc
+-- Using ccache: /usr/bin/ccache
+-- Found gen_kobject_list: /home/hdj/zephyrproject/zephyr/scripts/build/gen_kobject_list.py
+-- Including signing script: /home/hdj/zephyrproject/zephyr/cmake/mcuboot.cmake
+CMake Warning at /home/hdj/zephyrproject/zephyr/cmake/mcuboot.cmake:166 (message):
+  slot0_partition write block size devicetree parameter is missing, assuming
+  write block size is 4
+Call Stack (most recent call first):
+  /home/hdj/zephyrproject/zephyr/cmake/mcuboot.cmake:312 (zephyr_mcuboot_tasks)
+  /home/hdj/zephyrproject/zephyr/CMakeLists.txt:2199 (include)
+
+
+-- Configuring done
+-- Generating done
+-- Build files have been written to: /home/hdj/zephyrproject/art_pi_example/build-20.get_clocks
+-- west build: building application
+[1/148] Preparing syscall dependency handling
+
+[2/148] Generating include/generated/zephyr/version.h
+-- Zephyr version: 4.2.99 (/home/hdj/zephyrproject/zephyr), build: v4.2.0-5860-ge8b08d32e572
+[3/148] Generating misc/generated/syscalls_subdirs.trigger
+[4/148] Generating misc/generated/syscalls.json, misc/generated/struct_tags.json
+[5/148] Generating include/generated/device-api-sections.ld, include/generated/device-api-sections.cmake
+[6/148] Generating include/generated/zephyr/syscall_dispatch.c, include/generated/zephyr/syscall_exports_llext.c, syscall_weakdefs_llext.c, include/generated/zephyr/syscall_list.h
+[7/148] Generating include/generated/zephyr/driver-validation.h
+[8/148] Generating include/generated/zephyr/kobj-types-enum.h, include/generated/zephyr/otype-to-str.h, include/generated/zephyr/otype-to-size.h
+[9/148] Building C object zephyr/CMakeFiles/offsets.dir/arch/arm/core/offsets/offsets.c.obj
+[10/148] Generating include/generated/zephyr/offsets.h
+[11/148] Building C object zephyr/CMakeFiles/zephyr.dir/lib/utils/dec.c.obj
+[12/148] Building C object zephyr/CMakeFiles/zephyr.dir/lib/heap/heap.c.obj
+[13/148] Building C object zephyr/CMakeFiles/zephyr.dir/lib/utils/hex.c.obj
+[14/148] Building C object zephyr/CMakeFiles/zephyr.dir/lib/os/clock.c.obj
+[15/148] Building C object zephyr/CMakeFiles/zephyr.dir/lib/utils/timeutil.c.obj
+[16/148] Building C object zephyr/CMakeFiles/zephyr.dir/lib/os/cbprintf_packaged.c.obj
+[17/148] Building C object zephyr/CMakeFiles/zephyr.dir/lib/utils/bitmask.c.obj
+[18/148] Building C object zephyr/CMakeFiles/zephyr.dir/lib/utils/ring_buffer.c.obj
+[19/148] Building C object zephyr/CMakeFiles/zephyr.dir/lib/utils/last_section_id.c.obj
+[20/148] Building C object zephyr/CMakeFiles/zephyr.dir/misc/generated/configs.c.obj
+[21/148] Building C object zephyr/CMakeFiles/zephyr.dir/lib/os/printk.c.obj
+[22/148] Building C object zephyr/CMakeFiles/zephyr.dir/lib/os/cbprintf_complete.c.obj
+[23/148] Building C object zephyr/CMakeFiles/zephyr.dir/lib/libc/validate_libc.c.obj
+[24/148] Building C object zephyr/CMakeFiles/zephyr.dir/soc/st/stm32/common/stm32_cache.c.obj
+[25/148] Building C object zephyr/CMakeFiles/zephyr.dir/lib/os/sem.c.obj
+[26/148] Building C object zephyr/CMakeFiles/zephyr.dir/lib/os/thread_entry.c.obj
+[27/148] Building C object zephyr/arch/common/CMakeFiles/arch__common.dir/init.c.obj
+[28/148] Building C object zephyr/CMakeFiles/zephyr.dir/lib/os/assert.c.obj
+[29/148] Generating linker_zephyr_pre0.cmd
+[30/148] Building C object zephyr/CMakeFiles/zephyr_pre0.dir/misc/empty_file.c.obj
+[31/148] Building C object zephyr/CMakeFiles/zephyr.dir/lib/utils/rb.c.obj
+[32/148] Building C object zephyr/CMakeFiles/zephyr.dir/lib/utils/bitarray.c.obj
+[33/148] Building ASM object zephyr/arch/arch/arm/core/CMakeFiles/arch__arm__core.dir/nmi_on_reset.S.obj
+[34/148] Building C object zephyr/CMakeFiles/zephyr.dir/soc/st/stm32/stm32h7x/mpu_regions.c.obj
+[35/148] Building C object zephyr/CMakeFiles/zephyr.dir/soc/st/stm32/common/stm32_backup_domain.c.obj
+[36/148] Building C object zephyr/CMakeFiles/zephyr.dir/soc/st/stm32/common/stm32cube_hal.c.obj
+[37/148] Building C object zephyr/CMakeFiles/zephyr.dir/soc/st/stm32/common/soc_config.c.obj
+[38/148] Building C object zephyr/CMakeFiles/zephyr.dir/subsys/tracing/tracing_none.c.obj
+[39/148] Building ASM object zephyr/arch/arch/arm/core/cortex_m/CMakeFiles/arch__arm__core__cortex_m.dir/fault_s.S.obj
+[40/148] Building C object zephyr/CMakeFiles/zephyr.dir/soc/st/stm32/stm32h7x/soc_m7.c.obj
+[41/148] Building ASM object zephyr/arch/arch/arm/core/cortex_m/CMakeFiles/arch__arm__core__cortex_m.dir/reset.S.obj
+[42/148] Building C object zephyr/arch/common/CMakeFiles/isr_tables.dir/isr_tables.c.obj
+[43/148] Building C object zephyr/CMakeFiles/zephyr.dir/subsys/mem_mgmt/mem_attr.c.obj
+[44/148] Linking C static library zephyr/arch/common/libisr_tables.a
+[45/148] Building C object CMakeFiles/app.dir/src/main.c.obj
+FAILED: CMakeFiles/app.dir/src/main.c.obj 
+ccache /home/hdj/zephyrproject/zephyr/zephyr-sdk-0.17.4/arm-zephyr-eabi/bin/arm-zephyr-eabi-gcc -DCORE_CM7 -DHSE_VALUE=25000000 -DKERNEL -DK_HEAP_MEM_POOL_SIZE=0 -DPICOLIBC_LONG_LONG_PRINTF_SCANF -DSTM32H750xx -DUSE_FULL_LL_DRIVER -DUSE_HAL_DRIVER -D_POSIX_C_SOURCE=200809L -D__LINUX_ERRNO_EXTENSIONS__ -D__PROGRAM_START -D__ZEPHYR__=1 -I/home/hdj/zephyrproject/art_pi_example/build-20.get_clocks/zephyr/include/generated/zephyr -I/home/hdj/zephyrproject/zephyr/include -I/home/hdj/zephyrproject/art_pi_example/build-20.get_clocks/zephyr/include/generated -I/home/hdj/zephyrproject/zephyr/soc/st/stm32 -I/home/hdj/zephyrproject/zephyr/lib/libc/picolibc/include -I/home/hdj/zephyrproject/zephyr/lib/midi2/. -I/home/hdj/zephyrproject/zephyr/soc/st/stm32/common/. -I/home/hdj/zephyrproject/zephyr/drivers -I/home/hdj/zephyrproject/zephyr/soc/st/stm32/stm32h7x/. -I/home/hdj/zephyrproject/modules/hal/cmsis_6/CMSIS/Core/Include -I/home/hdj/zephyrproject/zephyr/modules/cmsis_6/. -I/home/hdj/zephyrproject/modules/hal/stm32/stm32cube/stm32h7xx/soc -I/home/hdj/zephyrproject/modules/hal/stm32/stm32cube/stm32h7xx/drivers/include -I/home/hdj/zephyrproject/modules/hal/stm32/stm32cube/common_ll/include -I/home/hdj/zephyrproject/modules/hal/ti/mspm0/source/ti/devices/msp/. -I/home/hdj/zephyrproject/modules/hal/ti/mspm0/source/ti/devices/msp/m0p -I/home/hdj/zephyrproject/modules/hal/ti/mspm0/source/ti/devices/msp/peripherals -I/home/hdj/zephyrproject/modules/hal/ti/mspm0/source/ti/devices/msp/peripherals/m0p -I/home/hdj/zephyrproject/modules/hal/ti/mspm0/source/ti/devices/msp/peripherals/m0p/sysctl -isystem /home/hdj/zephyrproject/zephyr/lib/libc/common/include -fno-strict-aliasing -Os -imacros /home/hdj/zephyrproject/art_pi_example/build-20.get_clocks/zephyr/include/generated/zephyr/autoconf.h -fno-printf-return-value -fno-common -g -gdwarf-4 -fdiagnostics-color=always -mcpu=cortex-m7 -mthumb -mabi=aapcs -mfp16-format=ieee -mtp=soft --sysroot=/home/hdj/zephyrproject/zephyr/zephyr-sdk-0.17.4/arm-zephyr-eabi/arm-zephyr-eabi -imacros /home/hdj/zephyrproject/zephyr/include/zephyr/toolchain/zephyr_stdint.h -Wall -Wformat -Wformat-security -Wno-format-zero-length -Wdouble-promotion -Wno-pointer-sign -Wpointer-arith -Wexpansion-to-defined -Wno-unused-but-set-variable -Werror=implicit-int -fno-pic -fno-pie -fno-asynchronous-unwind-tables -ftls-model=local-exec -fno-reorder-functions --param=min-pagesize=0 -fno-defer-pop -fmacro-prefix-map=/home/hdj/zephyrproject/art_pi_example/20.get_clocks=CMAKE_SOURCE_DIR -fmacro-prefix-map=/home/hdj/zephyrproject/zephyr=ZEPHYR_BASE -fmacro-prefix-map=/home/hdj/zephyrproject=WEST_TOPDIR -ffunction-sections -fdata-sections -specs=picolibc.specs -std=c99 -MD -MT CMakeFiles/app.dir/src/main.c.obj -MF CMakeFiles/app.dir/src/main.c.obj.d -o CMakeFiles/app.dir/src/main.c.obj -c /home/hdj/zephyrproject/art_pi_example/20.get_clocks/src/main.c
+/home/hdj/zephyrproject/art_pi_example/20.get_clocks/src/main.c: In function 'main':
+/home/hdj/zephyrproject/art_pi_example/20.get_clocks/src/main.c:104:32: error: 'SDMMC_CLKCR_BYPASS' undeclared (first use in this function); did you mean 'SDMMC_CLKCR_WIDBUS'?
+  104 |     bool     bypass = (clkcr & SDMMC_CLKCR_BYPASS) != 0u;
+      |                                ^~~~~~~~~~~~~~~~~~
+      |                                SDMMC_CLKCR_WIDBUS
+/home/hdj/zephyrproject/art_pi_example/20.get_clocks/src/main.c:104:32: note: each undeclared identifier is reported only once for each function it appears in
+[46/148] Linking C static library zephyr/libzephyr.a
+[47/148] Building C object zephyr/arch/common/CMakeFiles/arch__common.dir/sw_isr_common.c.obj
+[48/148] Building C object zephyr/arch/common/CMakeFiles/arch__common.dir/xip.c.obj
+[49/148] Building C object zephyr/arch/arch/arm/core/CMakeFiles/arch__arm__core.dir/fatal.c.obj
+[50/148] Building C object zephyr/arch/arch/arm/core/CMakeFiles/arch__arm__core.dir/nmi.c.obj
+[51/148] Building C object zephyr/arch/arch/arm/core/CMakeFiles/arch__arm__core.dir/tls.c.obj
+[52/148] Building C object zephyr/arch/arch/arm/core/cortex_m/CMakeFiles/arch__arm__core__cortex_m.dir/exc_exit.c.obj
+[53/148] Building C object zephyr/arch/arch/arm/core/cortex_m/CMakeFiles/arch__arm__core__cortex_m.dir/fault.c.obj
+[54/148] Building C object zephyr/arch/arch/arm/core/cortex_m/CMakeFiles/arch__arm__core__cortex_m.dir/fpu.c.obj
+[55/148] Building C object zephyr/arch/arch/arm/core/cortex_m/CMakeFiles/arch__arm__core__cortex_m.dir/thread_abort.c.obj
+[56/148] Building C object zephyr/arch/arch/arm/core/cortex_m/CMakeFiles/arch__arm__core__cortex_m.dir/scb.c.obj
+ninja: build stopped: subcommand failed.
+FATAL ERROR: command exited with status 1: /usr/bin/cmake --build /home/hdj/zephyrproject/art_pi_example/build-20.get_clocks

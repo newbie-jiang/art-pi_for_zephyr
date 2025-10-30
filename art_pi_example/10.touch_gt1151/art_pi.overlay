@@ -1,0 +1,48 @@
+/*
+ * Copyright (c) 2025 STMicroelectronics
+ *
+ * SPDX-License-Identifier: Apache-2.0
+ */
+
+/*
+ * Define the device, controller and partition to be the external memory
+ * for running the application in external NOR from MCUboot
+ */
+/ {
+	chosen {
+		zephyr,flash = &w25q64_qspi;
+		zephyr,flash-controller = &w25q64_qspi;
+		zephyr,code-partition = &slot0_partition;
+	};
+
+
+
+     aliases { touch = &gt1151; };   // 可选，给网络接口起别名
+};
+
+
+&i2c1 {
+    status = "okay";
+    clock-frequency = <100000>;            
+    pinctrl-names = "default";
+    pinctrl-0 = <&i2c1_scl_pb6 &i2c1_sda_pb7>;
+
+
+    // gt911: touchscreen@5d {
+    //     compatible = "goodix,gt911";
+    //     reg = <0x5d>;                 
+    //     alt-addr = <0x14>;            
+    //     irq-gpios   = <&gpiog 12 GPIO_ACTIVE_HIGH>; 
+    //     reset-gpios = <&gpiod 3  GPIO_ACTIVE_LOW>; 
+    //     status = "okay";
+    // };
+
+	gt1151: touchscreen@14 {
+        compatible = "goodix,gt1151";
+        reg = <0x14>;
+        irq-gpios   = <&gpiog 12 (GPIO_ACTIVE_LOW | GPIO_PULL_UP)>;
+        reset-gpios = <&gpiod 3  GPIO_ACTIVE_LOW>;
+        status = "okay";
+    };
+
+};

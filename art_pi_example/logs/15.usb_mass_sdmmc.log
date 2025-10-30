@@ -1,0 +1,823 @@
+-- west build: making build dir /home/hdj/zephyrproject/art_pi_example/build-15.usb_mass_sdmmc pristine
+-- west build: generating a build system
+Loading Zephyr default modules (Zephyr base).
+-- Application: /home/hdj/zephyrproject/art_pi_example/15.usb_mass_sdmmc
+-- CMake version: 3.22.1
+-- Found Python3: /usr/bin/python3 (found suitable version "3.10.12", minimum required is "3.10") found components: Interpreter 
+-- Cache files will be written to: /home/hdj/.cache/zephyr
+-- Zephyr version: 4.2.99 (/home/hdj/zephyrproject/zephyr)
+-- Found west (found suitable version "1.3.0", minimum required is "0.14.0")
+-- Board: art_pi, qualifiers: stm32h750xx
+-- ZEPHYR_TOOLCHAIN_VARIANT not set, trying to locate Zephyr SDK
+-- Found host-tools: zephyr 0.17.4 (/home/hdj/zephyrproject/zephyr/zephyr-sdk-0.17.4)
+-- Found toolchain: zephyr 0.17.4 (/home/hdj/zephyrproject/zephyr/zephyr-sdk-0.17.4)
+-- Found Dtc: /home/hdj/zephyrproject/zephyr/zephyr-sdk-0.17.4/sysroots/x86_64-pokysdk-linux/usr/bin/dtc (found suitable version "1.7.0", minimum required is "1.4.6") 
+-- Found BOARD.dts: /home/hdj/zephyrproject/zephyr/boards/ruiside/art_pi/art_pi.dts
+-- Found devicetree overlay: /home/hdj/zephyrproject/art_pi_example/15.usb_mass_sdmmc/art_pi.overlay
+-- Generated zephyr.dts: /home/hdj/zephyrproject/art_pi_example/build-15.usb_mass_sdmmc/zephyr/zephyr.dts
+-- Generated pickled edt: /home/hdj/zephyrproject/art_pi_example/build-15.usb_mass_sdmmc/zephyr/edt.pickle
+-- Generated devicetree_generated.h: /home/hdj/zephyrproject/art_pi_example/build-15.usb_mass_sdmmc/zephyr/include/generated/zephyr/devicetree_generated.h
+
+warning: Deprecated symbol USB_DEVICE_DRIVER is enabled.
+
+
+warning: Deprecated symbol USB_DEVICE_STACK is enabled.
+
+Parsing /home/hdj/zephyrproject/art_pi_example/15.usb_mass_sdmmc/Kconfig
+Loaded configuration '/home/hdj/zephyrproject/zephyr/boards/ruiside/art_pi/art_pi_defconfig'
+Merged configuration '/home/hdj/zephyrproject/art_pi_example/15.usb_mass_sdmmc/prj.conf'
+Merged configuration '/home/hdj/zephyrproject/art_pi_example/build-15.usb_mass_sdmmc/zephyr/misc/generated/extra_kconfig_options.conf'
+Configuration saved to '/home/hdj/zephyrproject/art_pi_example/build-15.usb_mass_sdmmc/zephyr/.config'
+Kconfig header saved to '/home/hdj/zephyrproject/art_pi_example/build-15.usb_mass_sdmmc/zephyr/include/generated/zephyr/autoconf.h'
+-- Found GnuLd: /home/hdj/zephyrproject/zephyr/zephyr-sdk-0.17.4/arm-zephyr-eabi/arm-zephyr-eabi/bin/ld.bfd (found version "2.38") 
+-- The C compiler identification is GNU 12.2.0
+-- The CXX compiler identification is GNU 12.2.0
+-- The ASM compiler identification is GNU
+-- Found assembler: /home/hdj/zephyrproject/zephyr/zephyr-sdk-0.17.4/arm-zephyr-eabi/bin/arm-zephyr-eabi-gcc
+CMake Warning at /home/hdj/zephyrproject/zephyr/subsys/random/CMakeLists.txt:12 (message):
+  
+
+      Warning: CONFIG_TIMER_RANDOM_GENERATOR and CONFIG_TEST_CSPRNG_GENERATOR are
+      not truly random generators. This capability is not secure and it is
+      provided for testing purposes only. Use it carefully.
+
+
+CMake Warning at /home/hdj/zephyrproject/zephyr/subsys/usb/device/CMakeLists.txt:22 (message):
+  CONFIG_USB_DEVICE_VID has default value 0x2FE3.
+
+  This value is only for testing and MUST be configured for USB products.
+
+
+CMake Warning at /home/hdj/zephyrproject/zephyr/subsys/usb/device/CMakeLists.txt:28 (message):
+  CONFIG_USB_DEVICE_PID has default value 0x100.
+
+  This value is only for testing and MUST be configured for USB products.
+
+
+-- Using ccache: /usr/bin/ccache
+-- Found gen_kobject_list: /home/hdj/zephyrproject/zephyr/scripts/build/gen_kobject_list.py
+-- Including signing script: /home/hdj/zephyrproject/zephyr/cmake/mcuboot.cmake
+CMake Warning at /home/hdj/zephyrproject/zephyr/cmake/mcuboot.cmake:166 (message):
+  slot0_partition write block size devicetree parameter is missing, assuming
+  write block size is 4
+Call Stack (most recent call first):
+  /home/hdj/zephyrproject/zephyr/cmake/mcuboot.cmake:312 (zephyr_mcuboot_tasks)
+  /home/hdj/zephyrproject/zephyr/CMakeLists.txt:2199 (include)
+
+
+-- Configuring done
+-- Generating done
+-- Build files have been written to: /home/hdj/zephyrproject/art_pi_example/build-15.usb_mass_sdmmc
+-- west build: building application
+[1/190] Preparing syscall dependency handling
+
+[2/190] Generating include/generated/zephyr/version.h
+-- Zephyr version: 4.2.99 (/home/hdj/zephyrproject/zephyr), build: v4.2.0-5860-ge8b08d32e572
+[3/190] Generating misc/generated/syscalls_subdirs.trigger
+[4/190] Generating misc/generated/syscalls.json, misc/generated/struct_tags.json
+[5/190] Generating include/generated/device-api-sections.ld, include/generated/device-api-sections.cmake
+[6/190] Generating include/generated/zephyr/syscall_dispatch.c, include/generated/zephyr/syscall_exports_llext.c, syscall_weakdefs_llext.c, include/generated/zephyr/syscall_list.h
+[7/190] Generating include/generated/zephyr/driver-validation.h
+[8/190] Generating include/generated/zephyr/kobj-types-enum.h, include/generated/zephyr/otype-to-str.h, include/generated/zephyr/otype-to-size.h
+[9/190] Building C object zephyr/CMakeFiles/offsets.dir/arch/arm/core/offsets/offsets.c.obj
+[10/190] Generating include/generated/zephyr/offsets.h
+[11/190] Building C object zephyr/CMakeFiles/zephyr.dir/lib/utils/dec.c.obj
+[12/190] Building C object zephyr/CMakeFiles/zephyr.dir/lib/utils/hex.c.obj
+[13/190] Building C object zephyr/CMakeFiles/zephyr.dir/lib/os/printk.c.obj
+[14/190] Building C object zephyr/CMakeFiles/zephyr.dir/lib/os/sem.c.obj
+[15/190] Building C object zephyr/CMakeFiles/zephyr.dir/lib/utils/timeutil.c.obj
+[16/190] Building C object zephyr/CMakeFiles/zephyr.dir/lib/utils/bitmask.c.obj
+[17/190] Building C object zephyr/CMakeFiles/zephyr.dir/lib/libc/validate_libc.c.obj
+[18/190] Building C object zephyr/CMakeFiles/zephyr.dir/lib/utils/ring_buffer.c.obj
+[19/190] Building C object CMakeFiles/app.dir/src/main.c.obj
+/home/hdj/zephyrproject/art_pi_example/15.usb_mass_sdmmc/src/main.c: In function 'main':
+/home/hdj/zephyrproject/art_pi_example/15.usb_mass_sdmmc/src/main.c:23:10: warning: implicit declaration of function 'usb_enable'; did you mean 'irq_enable'? [-Wimplicit-function-declaration]
+   23 |     rc = usb_enable(NULL);
+      |          ^~~~~~~~~~
+      |          irq_enable
+[20/190] Building C object zephyr/CMakeFiles/zephyr.dir/lib/utils/last_section_id.c.obj
+[21/190] Building C object zephyr/CMakeFiles/zephyr.dir/misc/generated/configs.c.obj
+[22/190] Building C object zephyr/CMakeFiles/zephyr.dir/lib/os/cbprintf_packaged.c.obj
+[23/190] Building C object zephyr/CMakeFiles/zephyr.dir/lib/heap/heap.c.obj
+[24/190] Linking C static library app/libapp.a
+[25/190] Building C object zephyr/CMakeFiles/zephyr.dir/soc/st/stm32/common/stm32_cache.c.obj
+[26/190] Building C object zephyr/CMakeFiles/zephyr.dir/lib/os/cbprintf_complete.c.obj
+[27/190] Building C object zephyr/CMakeFiles/zephyr.dir/lib/os/clock.c.obj
+[28/190] Building C object zephyr/CMakeFiles/zephyr.dir/lib/os/mpsc_pbuf.c.obj
+[29/190] Building C object zephyr/CMakeFiles/zephyr.dir/lib/os/assert.c.obj
+[30/190] Building C object zephyr/CMakeFiles/zephyr.dir/subsys/logging/log_cache.c.obj
+[31/190] Building C object zephyr/CMakeFiles/zephyr.dir/lib/utils/rb.c.obj
+[32/190] Building C object zephyr/CMakeFiles/zephyr.dir/lib/os/thread_entry.c.obj
+[33/190] Building C object zephyr/CMakeFiles/zephyr.dir/lib/utils/bitarray.c.obj
+[34/190] Building C object zephyr/CMakeFiles/zephyr.dir/soc/st/stm32/common/soc_config.c.obj
+[35/190] Building C object zephyr/CMakeFiles/zephyr.dir/soc/st/stm32/stm32h7x/mpu_regions.c.obj
+[36/190] Building C object zephyr/CMakeFiles/zephyr.dir/soc/st/stm32/common/stm32cube_hal.c.obj
+[37/190] Building C object zephyr/CMakeFiles/zephyr.dir/soc/st/stm32/common/stm32_backup_domain.c.obj
+[38/190] Building C object zephyr/CMakeFiles/zephyr.dir/subsys/logging/log_core.c.obj
+[39/190] Building C object zephyr/CMakeFiles/zephyr.dir/subsys/logging/log_output.c.obj
+[40/190] Building C object zephyr/arch/common/CMakeFiles/arch__common.dir/init.c.obj
+[41/190] Building C object zephyr/CMakeFiles/zephyr.dir/soc/st/stm32/stm32h7x/soc_m7.c.obj
+[42/190] Building C object zephyr/CMakeFiles/zephyr.dir/subsys/logging/log_msg.c.obj
+[43/190] Building C object zephyr/CMakeFiles/zephyr.dir/subsys/mem_mgmt/mem_attr.c.obj
+[44/190] Building C object zephyr/CMakeFiles/zephyr.dir/subsys/logging/log_mgmt.c.obj
+[45/190] Building C object zephyr/CMakeFiles/zephyr.dir/subsys/tracing/tracing_none.c.obj
+[46/190] Building ASM object zephyr/arch/arch/arm/core/CMakeFiles/arch__arm__core.dir/nmi_on_reset.S.obj
+[47/190] Generating linker_zephyr_pre0.cmd
+[48/190] Building C object zephyr/CMakeFiles/zephyr_pre0.dir/misc/empty_file.c.obj
+[49/190] Building C object zephyr/CMakeFiles/zephyr.dir/subsys/logging/backends/log_backend_uart.c.obj
+[50/190] Building C object zephyr/arch/common/CMakeFiles/arch__common.dir/sw_isr_common.c.obj
+[51/190] Building C object zephyr/arch/common/CMakeFiles/isr_tables.dir/isr_tables.c.obj
+[52/190] Building C object zephyr/arch/common/CMakeFiles/arch__common.dir/xip.c.obj
+[53/190] Building ASM object zephyr/arch/arch/arm/core/cortex_m/CMakeFiles/arch__arm__core__cortex_m.dir/fault_s.S.obj
+[54/190] Building C object zephyr/arch/arch/arm/core/CMakeFiles/arch__arm__core.dir/nmi.c.obj
+[55/190] Linking C static library zephyr/arch/common/libisr_tables.a
+[56/190] Building C object zephyr/CMakeFiles/zephyr.dir/subsys/disk/disk_access.c.obj
+[57/190] Building ASM object zephyr/arch/arch/arm/core/cortex_m/CMakeFiles/arch__arm__core__cortex_m.dir/reset.S.obj
+[58/190] Linking C static library zephyr/arch/common/libarch__common.a
+[59/190] Building C object zephyr/arch/arch/arm/core/CMakeFiles/arch__arm__core.dir/tls.c.obj
+[60/190] Building C object zephyr/CMakeFiles/zephyr.dir/subsys/usb/device/usb_transfer.c.obj
+/home/hdj/zephyrproject/zephyr/subsys/usb/device/usb_transfer.c: In function 'usb_transfer_work':
+/home/hdj/zephyrproject/zephyr/subsys/usb/device/usb_transfer.c:87:20: warning: Macro is deprecated
+   87 |         if (trans->flags & USB_TRANS_WRITE) {
+      |                    ^~~~~~~~~~~~~~~~~~~~~
+/home/hdj/zephyrproject/zephyr/subsys/usb/device/usb_transfer.c:89:34: warning: Macro is deprecated
+   89 |                         if (trans->flags & USB_TRANS_NO_ZLP) {
+      |                                  ^~~~~~~~~~~~~~~~~~~~~
+/home/hdj/zephyrproject/zephyr/subsys/usb/device/usb_transfer.c:99:34: warning: Macro is deprecated
+   99 |                         trans->flags |= USB_TRANS_NO_ZLP;
+      |                                  ^~~~~~~~~~~~~~~~~~~~~
+/home/hdj/zephyrproject/zephyr/subsys/usb/device/usb_transfer.c:102:17: warning: 'usb_write' is deprecated [-Wdeprecated-declarations]
+  102 |                 ret = usb_write(ep, trans->buffer, trans->bsize, &bytes);
+      |                 ^~~
+In file included from /home/hdj/zephyrproject/zephyr/subsys/usb/device/usb_transfer.c:9:
+/home/hdj/zephyrproject/zephyr/include/zephyr/usb/usb_device.h:276:18: note: declared here
+  276 | __deprecated int usb_write(uint8_t ep, const uint8_t *data, uint32_t data_len, uint32_t *bytes_ret);
+      |                  ^~~~~~~~~
+/home/hdj/zephyrproject/zephyr/subsys/usb/device/usb_transfer.c:114:17: warning: 'usb_dc_ep_read_wait' is deprecated [-Wdeprecated-declarations]
+  114 |                 ret = usb_dc_ep_read_wait(ep, trans->buffer, trans->bsize,
+      |                 ^~~
+In file included from /home/hdj/zephyrproject/zephyr/include/zephyr/usb/usb_device.h:41:
+/home/hdj/zephyrproject/zephyr/include/zephyr/drivers/usb/usb_dc.h:411:18: note: declared here
+  411 | __deprecated int usb_dc_ep_read_wait(uint8_t ep, uint8_t *data, uint32_t max_data_len,
+      |                  ^~~~~~~~~~~~~~~~~~~
+/home/hdj/zephyrproject/zephyr/subsys/usb/device/usb_transfer.c:128:17: warning: 'usb_dc_ep_mps' is deprecated [-Wdeprecated-declarations]
+  128 |                 if (!bytes || (bytes % usb_dc_ep_mps(ep)) || !trans->bsize) {
+      |                 ^~
+/home/hdj/zephyrproject/zephyr/include/zephyr/drivers/usb/usb_dc.h:441:18: note: declared here
+  441 | __deprecated int usb_dc_ep_mps(uint8_t ep);
+      |                  ^~~~~~~~~~~~~
+/home/hdj/zephyrproject/zephyr/subsys/usb/device/usb_transfer.c:135:17: warning: 'usb_dc_ep_read_continue' is deprecated [-Wdeprecated-declarations]
+  135 |                 usb_dc_ep_read_continue(ep);
+      |                 ^~~~~~~~~~~~~~~~~~~~~~~
+/home/hdj/zephyrproject/zephyr/include/zephyr/drivers/usb/usb_dc.h:429:18: note: declared here
+  429 | __deprecated int usb_dc_ep_read_continue(uint8_t ep);
+      |                  ^~~~~~~~~~~~~~~~~~~~~~~
+/home/hdj/zephyrproject/zephyr/subsys/usb/device/usb_transfer.c: In function 'usb_transfer_ep_callback':
+/home/hdj/zephyrproject/zephyr/subsys/usb/device/usb_transfer.c:183:33: warning: 'usb_dc_ep_read_wait' is deprecated [-Wdeprecated-declarations]
+  183 |                                 usb_dc_ep_read_wait(ep, &data, 1, &bytes);
+      |                                 ^~~~~~~~~~~~~~~~~~~
+/home/hdj/zephyrproject/zephyr/include/zephyr/drivers/usb/usb_dc.h:411:18: note: declared here
+  411 | __deprecated int usb_dc_ep_read_wait(uint8_t ep, uint8_t *data, uint32_t max_data_len,
+      |                  ^~~~~~~~~~~~~~~~~~~
+/home/hdj/zephyrproject/zephyr/subsys/usb/device/usb_transfer.c: In function 'usb_transfer':
+/home/hdj/zephyrproject/zephyr/subsys/usb/device/usb_transfer.c:207:9: warning: 'usb_transfer_is_busy' is deprecated [-Wdeprecated-declarations]
+  207 |         if (usb_transfer_is_busy(ep)) {
+      |         ^~
+/home/hdj/zephyrproject/zephyr/subsys/usb/device/usb_transfer.c:60:6: note: declared here
+   60 | bool usb_transfer_is_busy(uint8_t ep)
+      |      ^~~~~~~~~~~~~~~~~~~~
+/home/hdj/zephyrproject/zephyr/subsys/usb/device/usb_transfer.c:247:9: warning: 'usb_dc_ep_mps' is deprecated [-Wdeprecated-declarations]
+  247 |         if (usb_dc_ep_mps(ep) && (dlen % usb_dc_ep_mps(ep))) {
+      |         ^~
+/home/hdj/zephyrproject/zephyr/include/zephyr/drivers/usb/usb_dc.h:441:18: note: declared here
+  441 | __deprecated int usb_dc_ep_mps(uint8_t ep);
+      |                  ^~~~~~~~~~~~~
+/home/hdj/zephyrproject/zephyr/subsys/usb/device/usb_transfer.c:247:9: warning: 'usb_dc_ep_mps' is deprecated [-Wdeprecated-declarations]
+  247 |         if (usb_dc_ep_mps(ep) && (dlen % usb_dc_ep_mps(ep))) {
+      |         ^~
+/home/hdj/zephyrproject/zephyr/include/zephyr/drivers/usb/usb_dc.h:441:18: note: declared here
+  441 | __deprecated int usb_dc_ep_mps(uint8_t ep);
+      |                  ^~~~~~~~~~~~~
+/home/hdj/zephyrproject/zephyr/subsys/usb/device/usb_transfer.c:249:27: warning: Macro is deprecated
+  249 |                 trans->flags |= USB_TRANS_NO_ZLP;
+      |                           ^~~~~~~~~~~~~~~~~~~~~
+/home/hdj/zephyrproject/zephyr/subsys/usb/device/usb_transfer.c:252:20: warning: Macro is deprecated
+  252 |         if (flags & USB_TRANS_WRITE) {
+      |                    ^~~~~~~~~~~~~~~~~~~  
+/home/hdj/zephyrproject/zephyr/subsys/usb/device/usb_transfer.c:257:17: warning: 'usb_dc_ep_read_continue' is deprecated [-Wdeprecated-declarations]
+  257 |                 ret = usb_dc_ep_read_continue(ep);
+      |                 ^~~
+/home/hdj/zephyrproject/zephyr/include/zephyr/drivers/usb/usb_dc.h:429:18: note: declared here
+  429 | __deprecated int usb_dc_ep_read_continue(uint8_t ep);
+      |                  ^~~~~~~~~~~~~~~~~~~~~~~
+/home/hdj/zephyrproject/zephyr/subsys/usb/device/usb_transfer.c: In function 'usb_transfer_sync':
+/home/hdj/zephyrproject/zephyr/subsys/usb/device/usb_transfer.c:321:9: warning: 'usb_transfer' is deprecated [-Wdeprecated-declarations]
+  321 |         ret = usb_transfer(ep, data, dlen, flags, usb_transfer_sync_cb, &pdata);
+      |         ^~~
+/home/hdj/zephyrproject/zephyr/subsys/usb/device/usb_transfer.c:200:5: note: declared here
+  200 | int usb_transfer(uint8_t ep, uint8_t *data, size_t dlen, unsigned int flags,
+      |     ^~~~~~~~~~~~
+[61/190] Building ASM object zephyr/arch/arch/arm/core/cortex_m/CMakeFiles/arch__arm__core__cortex_m.dir/vector_table.S.obj
+[62/190] Building ASM object zephyr/arch/arch/arm/core/cortex_m/CMakeFiles/arch__arm__core__cortex_m.dir/swap_helper.S.obj
+[63/190] Building C object zephyr/CMakeFiles/zephyr.dir/subsys/usb/device/usb_descriptor.c.obj
+/home/hdj/zephyrproject/zephyr/subsys/usb/device/usb_descriptor.c:57:13: warning: Macro is deprecated
+   57 | USBD_DEVICE_DESCR_DEFINE(primary) struct common_descriptor common_desc = {
+      |             ^~~~~~~~~~~~~~~~~~~~~
+/home/hdj/zephyrproject/zephyr/subsys/usb/device/usb_descriptor.c:76:27: warning: Macro is deprecated
+   76 |                 .bMaxPacketSize0 = USB_MAX_CTRL_MPS,
+      |                           ^~~~~~~~~~~~~~~~~~~~~
+/home/hdj/zephyrproject/zephyr/subsys/usb/device/usb_descriptor.c:142:13: warning: Macro is deprecated
+  142 | USBD_STRING_DESCR_DEFINE(primary) struct usb_string_desription string_descr = {
+      |             ^~~~~~~~~~~~~~~~~~~~~
+/home/hdj/zephyrproject/zephyr/subsys/usb/device/usb_descriptor.c:179:13: warning: Macro is deprecated
+  179 | USBD_TERM_DESCR_DEFINE(primary) struct usb_desc_header term_descr = {
+      |             ^~~~~~~~~~~~~~~~~~~~~
+/home/hdj/zephyrproject/zephyr/subsys/usb/device/usb_descriptor.c: In function 'usb_validate_ep_cfg_data':
+/home/hdj/zephyrproject/zephyr/subsys/usb/device/usb_descriptor.c:284:25: warning: 'usb_dc_ep_check_cap' is deprecated [-Wdeprecated-declarations]
+  284 |                         if (!usb_dc_ep_check_cap(&ep_cfg)) {
+      |                         ^~
+In file included from /home/hdj/zephyrproject/zephyr/include/zephyr/usb/usb_device.h:41,
+                 from /home/hdj/zephyrproject/zephyr/subsys/usb/device/usb_descriptor.c:13:
+/home/hdj/zephyrproject/zephyr/include/zephyr/drivers/usb/usb_dc.h:214:18: note: declared here
+  214 | __deprecated int usb_dc_ep_check_cap(const struct usb_dc_ep_cfg_data * const cfg);
+      |                  ^~~~~~~~~~~~~~~~~~~
+/home/hdj/zephyrproject/zephyr/subsys/usb/device/usb_descriptor.c: In function 'usb_desc_update_mps0':
+/home/hdj/zephyrproject/zephyr/subsys/usb/device/usb_descriptor.c:385:27: warning: Macro is deprecated
+  385 |                 .ep_mps = USB_MAX_CTRL_MPS,
+      |                           ^~~~~~~~~~~~~~~~~    
+/home/hdj/zephyrproject/zephyr/subsys/usb/device/usb_descriptor.c:390:9: warning: 'usb_dc_ep_check_cap' is deprecated [-Wdeprecated-declarations]
+  390 |         ret = usb_dc_ep_check_cap(&ep_cfg);
+      |         ^~~
+/home/hdj/zephyrproject/zephyr/include/zephyr/drivers/usb/usb_dc.h:214:18: note: declared here
+  214 | __deprecated int usb_dc_ep_check_cap(const struct usb_dc_ep_cfg_data * const cfg);
+      |                  ^~~~~~~~~~~~~~~~~~~
+/home/hdj/zephyrproject/zephyr/subsys/usb/device/usb_descriptor.c:394:17: warning: 'usb_dc_ep_check_cap' is deprecated [-Wdeprecated-declarations]
+  394 |                 ret = usb_dc_ep_check_cap(&ep_cfg);
+      |                 ^~~
+/home/hdj/zephyrproject/zephyr/include/zephyr/drivers/usb/usb_dc.h:214:18: note: declared here
+  214 | __deprecated int usb_dc_ep_check_cap(const struct usb_dc_ep_cfg_data * const cfg);
+      |                  ^~~~~~~~~~~~~~~~~~~
+[64/190] Building C object zephyr/arch/arch/arm/core/CMakeFiles/arch__arm__core.dir/fatal.c.obj
+[65/190] Building ASM object zephyr/arch/arch/arm/core/cortex_m/CMakeFiles/arch__arm__core__cortex_m.dir/__aeabi_read_tp.S.obj
+[66/190] Building C object zephyr/arch/arch/arm/core/cortex_m/CMakeFiles/arch__arm__core__cortex_m.dir/exc_exit.c.obj
+[67/190] Linking C static library zephyr/arch/arch/arm/core/libarch__arm__core.a
+[68/190] Building C object zephyr/arch/arch/arm/core/cortex_m/CMakeFiles/arch__arm__core__cortex_m.dir/fpu.c.obj
+[69/190] Building C object zephyr/arch/arch/arm/core/cortex_m/CMakeFiles/arch__arm__core__cortex_m.dir/scb.c.obj
+[70/190] Building C object zephyr/arch/arch/arm/core/cortex_m/CMakeFiles/arch__arm__core__cortex_m.dir/thread_abort.c.obj
+[71/190] Building C object zephyr/arch/arch/arm/core/cortex_m/CMakeFiles/arch__arm__core__cortex_m.dir/irq_manage.c.obj
+[72/190] Building C object zephyr/arch/arch/arm/core/cortex_m/CMakeFiles/arch__arm__core__cortex_m.dir/prep_c.c.obj
+[73/190] Building C object zephyr/arch/arch/arm/core/cortex_m/CMakeFiles/arch__arm__core__cortex_m.dir/thread.c.obj
+[74/190] Building C object zephyr/arch/arch/arm/core/cortex_m/CMakeFiles/arch__arm__core__cortex_m.dir/cpu_idle.c.obj
+[75/190] Building C object zephyr/arch/arch/arm/core/cortex_m/CMakeFiles/arch__arm__core__cortex_m.dir/fault.c.obj
+[76/190] Building C object zephyr/arch/arch/arm/core/cortex_m/CMakeFiles/arch__arm__core__cortex_m.dir/irq_init.c.obj
+[77/190] Building C object zephyr/CMakeFiles/zephyr.dir/subsys/usb/device/usb_device.c.obj
+/home/hdj/zephyrproject/zephyr/subsys/usb/device/usb_device.c: In function 'usb_data_to_host':
+/home/hdj/zephyrproject/zephyr/subsys/usb/device/usb_device.c:248:17: warning: 'usb_write' is deprecated [-Wdeprecated-declarations]
+  248 |                 usb_write(USB_CONTROL_EP_IN, usb_dev.data_buf,
+      |                 ^~~~~~~~~
+In file included from /home/hdj/zephyrproject/zephyr/subsys/usb/device/usb_device.c:68:
+/home/hdj/zephyrproject/zephyr/include/zephyr/usb/usb_device.h:276:18: note: declared here
+  276 | __deprecated int usb_write(uint8_t ep, const uint8_t *data, uint32_t data_len, uint32_t *bytes_ret);
+      |                  ^~~~~~~~~
+/home/hdj/zephyrproject/zephyr/subsys/usb/device/usb_device.c:272:17: warning: 'usb_dc_ep_write' is deprecated [-Wdeprecated-declarations]
+  272 |                 usb_dc_ep_write(USB_CONTROL_EP_IN, NULL, 0, NULL);
+      |                 ^~~~~~~~~~~~~~~
+In file included from /home/hdj/zephyrproject/zephyr/include/zephyr/usb/usb_device.h:41:
+/home/hdj/zephyrproject/zephyr/include/zephyr/drivers/usb/usb_dc.h:346:18: note: declared here
+  346 | __deprecated int usb_dc_ep_write(const uint8_t ep, const uint8_t *const data,
+      |                  ^~~~~~~~~~~~~~~
+/home/hdj/zephyrproject/zephyr/subsys/usb/device/usb_device.c: In function 'usb_handle_control_transfer':
+/home/hdj/zephyrproject/zephyr/subsys/usb/device/usb_device.c:296:17: warning: 'usb_dc_ep_read' is deprecated [-Wdeprecated-declarations]
+  296 |                 if (usb_dc_ep_read(ep, (uint8_t *)&setup_raw,
+      |                 ^~
+/home/hdj/zephyrproject/zephyr/include/zephyr/drivers/usb/usb_dc.h:370:18: note: declared here
+  370 | __deprecated int usb_dc_ep_read(const uint8_t ep, uint8_t *const data,
+      |                  ^~~~~~~~~~~~~~
+/home/hdj/zephyrproject/zephyr/subsys/usb/device/usb_device.c:299:25: warning: 'usb_dc_ep_set_stall' is deprecated [-Wdeprecated-declarations]
+  299 |                         usb_dc_ep_set_stall(USB_CONTROL_EP_IN);
+      |                         ^~~~~~~~~~~~~~~~~~~
+/home/hdj/zephyrproject/zephyr/include/zephyr/drivers/usb/usb_dc.h:241:18: note: declared here
+  241 | __deprecated int usb_dc_ep_set_stall(const uint8_t ep);
+      |                  ^~~~~~~~~~~~~~~~~~~
+/home/hdj/zephyrproject/zephyr/subsys/usb/device/usb_device.c:323:33: warning: 'usb_dc_ep_set_stall' is deprecated [-Wdeprecated-declarations]
+  323 |                                 usb_dc_ep_set_stall(USB_CONTROL_EP_IN);
+      |                                 ^~~~~~~~~~~~~~~~~~~
+/home/hdj/zephyrproject/zephyr/include/zephyr/drivers/usb/usb_dc.h:241:18: note: declared here
+  241 | __deprecated int usb_dc_ep_set_stall(const uint8_t ep);
+      |                  ^~~~~~~~~~~~~~~~~~~
+/home/hdj/zephyrproject/zephyr/subsys/usb/device/usb_device.c:324:33: warning: 'usb_dc_ep_set_stall' is deprecated [-Wdeprecated-declarations]
+  324 |                                 usb_dc_ep_set_stall(USB_CONTROL_EP_OUT);
+      |                                 ^~~~~~~~~~~~~~~~~~~
+/home/hdj/zephyrproject/zephyr/include/zephyr/drivers/usb/usb_dc.h:241:18: note: declared here
+  241 | __deprecated int usb_dc_ep_set_stall(const uint8_t ep);
+      |                  ^~~~~~~~~~~~~~~~~~~
+/home/hdj/zephyrproject/zephyr/subsys/usb/device/usb_device.c:341:25: warning: 'usb_dc_ep_set_stall' is deprecated [-Wdeprecated-declarations]
+  341 |                         usb_dc_ep_set_stall(USB_CONTROL_EP_IN);
+      |                         ^~~~~~~~~~~~~~~~~~~
+/home/hdj/zephyrproject/zephyr/include/zephyr/drivers/usb/usb_dc.h:241:18: note: declared here
+  241 | __deprecated int usb_dc_ep_set_stall(const uint8_t ep);
+      |                  ^~~~~~~~~~~~~~~~~~~
+/home/hdj/zephyrproject/zephyr/subsys/usb/device/usb_device.c:354:25: warning: 'usb_dc_ep_read' is deprecated [-Wdeprecated-declarations]
+  354 |                         if (usb_dc_ep_read(USB_CONTROL_EP_OUT,
+      |                         ^~
+/home/hdj/zephyrproject/zephyr/include/zephyr/drivers/usb/usb_dc.h:370:18: note: declared here
+  370 | __deprecated int usb_dc_ep_read(const uint8_t ep, uint8_t *const data,
+      |                  ^~~~~~~~~~~~~~
+/home/hdj/zephyrproject/zephyr/subsys/usb/device/usb_device.c:357:33: warning: 'usb_dc_ep_set_stall' is deprecated [-Wdeprecated-declarations]
+  357 |                                 usb_dc_ep_set_stall(USB_CONTROL_EP_IN);
+      |                                 ^~~~~~~~~~~~~~~~~~~
+/home/hdj/zephyrproject/zephyr/include/zephyr/drivers/usb/usb_dc.h:241:18: note: declared here
+  241 | __deprecated int usb_dc_ep_set_stall(const uint8_t ep);
+      |                  ^~~~~~~~~~~~~~~~~~~
+/home/hdj/zephyrproject/zephyr/subsys/usb/device/usb_device.c:362:17: warning: 'usb_dc_ep_read' is deprecated [-Wdeprecated-declarations]
+  362 |                 if (usb_dc_ep_read(USB_CONTROL_EP_OUT,
+      |                 ^~
+/home/hdj/zephyrproject/zephyr/include/zephyr/drivers/usb/usb_dc.h:370:18: note: declared here
+  370 | __deprecated int usb_dc_ep_read(const uint8_t ep, uint8_t *const data,
+      |                  ^~~~~~~~~~~~~~
+/home/hdj/zephyrproject/zephyr/subsys/usb/device/usb_device.c:366:25: warning: 'usb_dc_ep_set_stall' is deprecated [-Wdeprecated-declarations]
+  366 |                         usb_dc_ep_set_stall(USB_CONTROL_EP_IN);
+      |                         ^~~~~~~~~~~~~~~~~~~
+/home/hdj/zephyrproject/zephyr/include/zephyr/drivers/usb/usb_dc.h:241:18: note: declared here
+  241 | __deprecated int usb_dc_ep_set_stall(const uint8_t ep);
+      |                  ^~~~~~~~~~~~~~~~~~~
+/home/hdj/zephyrproject/zephyr/subsys/usb/device/usb_device.c:367:25: warning: 'usb_dc_ep_set_stall' is deprecated [-Wdeprecated-declarations]
+  367 |                         usb_dc_ep_set_stall(USB_CONTROL_EP_OUT);
+      |                         ^~~~~~~~~~~~~~~~~~~
+/home/hdj/zephyrproject/zephyr/include/zephyr/drivers/usb/usb_dc.h:241:18: note: declared here
+  241 | __deprecated int usb_dc_ep_set_stall(const uint8_t ep);
+      |                  ^~~~~~~~~~~~~~~~~~~
+/home/hdj/zephyrproject/zephyr/subsys/usb/device/usb_device.c:380:33: warning: 'usb_dc_ep_set_stall' is deprecated [-Wdeprecated-declarations]
+  380 |                                 usb_dc_ep_set_stall(USB_CONTROL_EP_IN);
+      |                                 ^~~~~~~~~~~~~~~~~~~
+/home/hdj/zephyrproject/zephyr/include/zephyr/drivers/usb/usb_dc.h:241:18: note: declared here
+  241 | __deprecated int usb_dc_ep_set_stall(const uint8_t ep);
+      |                  ^~~~~~~~~~~~~~~~~~~
+/home/hdj/zephyrproject/zephyr/subsys/usb/device/usb_device.c: In function 'set_endpoint':
+/home/hdj/zephyrproject/zephyr/subsys/usb/device/usb_device.c:581:9: warning: 'usb_dc_ep_configure' is deprecated [-Wdeprecated-declarations]
+  581 |         ret = usb_dc_ep_configure(&ep_cfg);
+      |         ^~~
+/home/hdj/zephyrproject/zephyr/include/zephyr/drivers/usb/usb_dc.h:229:18: note: declared here
+  229 | __deprecated int usb_dc_ep_configure(const struct usb_dc_ep_cfg_data * const cfg);
+      |                  ^~~~~~~~~~~~~~~~~~~
+/home/hdj/zephyrproject/zephyr/subsys/usb/device/usb_device.c:591:9: warning: 'usb_dc_ep_enable' is deprecated [-Wdeprecated-declarations]
+  591 |         ret = usb_dc_ep_enable(ep_cfg.ep_addr);
+      |         ^~~
+/home/hdj/zephyrproject/zephyr/include/zephyr/drivers/usb/usb_dc.h:294:18: note: declared here
+  294 | __deprecated int usb_dc_ep_enable(const uint8_t ep);
+      |                  ^~~~~~~~~~~~~~~~
+/home/hdj/zephyrproject/zephyr/subsys/usb/device/usb_device.c: In function 'disable_endpoint':
+/home/hdj/zephyrproject/zephyr/subsys/usb/device/usb_device.c:612:9: warning: 'usb_dc_ep_disable' is deprecated [-Wdeprecated-declarations]
+  612 |         ret = usb_dc_ep_disable(ep_addr);
+      |         ^~~
+/home/hdj/zephyrproject/zephyr/include/zephyr/drivers/usb/usb_dc.h:310:18: note: declared here
+  310 | __deprecated int usb_dc_ep_disable(const uint8_t ep);
+      |                  ^~~~~~~~~~~~~~~~~
+/home/hdj/zephyrproject/zephyr/subsys/usb/device/usb_device.c: In function 'reset_endpoint':
+/home/hdj/zephyrproject/zephyr/subsys/usb/device/usb_device.c:647:9: warning: 'usb_cancel_transfer' is deprecated [-Wdeprecated-declarations]
+  647 |         usb_cancel_transfer(ep_cfg.ep_addr);
+      |         ^~~~~~~~~~~~~~~~~~~
+/home/hdj/zephyrproject/zephyr/include/zephyr/usb/usb_device.h:440:19: note: declared here
+  440 | __deprecated void usb_cancel_transfer(uint8_t ep);
+      |                   ^~~~~~~~~~~~~~~~~~~
+/home/hdj/zephyrproject/zephyr/subsys/usb/device/usb_device.c: In function 'usb_handle_std_device_req':
+/home/hdj/zephyrproject/zephyr/subsys/usb/device/usb_device.c:877:25: warning: 'usb_dc_set_address' is deprecated [-Wdeprecated-declarations]
+  877 |                         return !usb_dc_set_address(setup->wValue);
+      |                         ^~~~~~
+/home/hdj/zephyrproject/zephyr/include/zephyr/drivers/usb/usb_dc.h:184:18: note: declared here
+  184 | __deprecated int usb_dc_set_address(const uint8_t addr);
+      |                  ^~~~~~~~~~~~~~~~~~
+/home/hdj/zephyrproject/zephyr/subsys/usb/device/usb_device.c: In function 'usb_get_status_endpoint':
+/home/hdj/zephyrproject/zephyr/subsys/usb/device/usb_device.c:1045:17: warning: 'usb_dc_ep_is_stalled' is deprecated [-Wdeprecated-declarations]
+ 1045 |                 usb_dc_ep_is_stalled(ep, &data[0]);
+      |                 ^~~~~~~~~~~~~~~~~~~~
+/home/hdj/zephyrproject/zephyr/include/zephyr/drivers/usb/usb_dc.h:266:18: note: declared here
+  266 | __deprecated int usb_dc_ep_is_stalled(const uint8_t ep, uint8_t *const stalled);
+      |                  ^~~~~~~~~~~~~~~~~~~~
+/home/hdj/zephyrproject/zephyr/subsys/usb/device/usb_device.c: In function 'usb_halt_endpoint_req':
+/home/hdj/zephyrproject/zephyr/subsys/usb/device/usb_device.c:1074:25: warning: 'usb_dc_ep_set_stall' is deprecated [-Wdeprecated-declarations]
+ 1074 |                         usb_dc_ep_set_stall(ep);
+      |                         ^~~~~~~~~~~~~~~~~~~
+/home/hdj/zephyrproject/zephyr/include/zephyr/drivers/usb/usb_dc.h:241:18: note: declared here
+  241 | __deprecated int usb_dc_ep_set_stall(const uint8_t ep);
+      |                  ^~~~~~~~~~~~~~~~~~~
+/home/hdj/zephyrproject/zephyr/subsys/usb/device/usb_device.c:1080:25: warning: 'usb_dc_ep_clear_stall' is deprecated [-Wdeprecated-declarations]
+ 1080 |                         usb_dc_ep_clear_stall(ep);
+      |                         ^~~~~~~~~~~~~~~~~~~~~
+/home/hdj/zephyrproject/zephyr/include/zephyr/drivers/usb/usb_dc.h:253:18: note: declared here
+  253 | __deprecated int usb_dc_ep_clear_stall(const uint8_t ep);
+      |                  ^~~~~~~~~~~~~~~~~~~~~
+/home/hdj/zephyrproject/zephyr/subsys/usb/device/usb_device.c: In function 'disable_interface_ep':
+/home/hdj/zephyrproject/zephyr/subsys/usb/device/usb_device.c:1239:9: warning: 'usb_dc_ep_disable' is deprecated [-Wdeprecated-declarations]
+ 1239 |         ret = usb_dc_ep_disable(ep_data->ep_addr);
+      |         ^~~
+/home/hdj/zephyrproject/zephyr/include/zephyr/drivers/usb/usb_dc.h:310:18: note: declared here
+  310 | __deprecated int usb_dc_ep_disable(const uint8_t ep);
+      |                  ^~~~~~~~~~~~~~~~~
+/home/hdj/zephyrproject/zephyr/subsys/usb/device/usb_device.c: In function 'forward_status_cb':
+/home/hdj/zephyrproject/zephyr/subsys/usb/device/usb_device.c:1256:25: warning: 'usb_cancel_transfers' is deprecated [-Wdeprecated-declarations]
+ 1256 |                         usb_cancel_transfers();
+      |                         ^~~~~~~~~~~~~~~~~~~~
+/home/hdj/zephyrproject/zephyr/include/zephyr/usb/usb_device.h:447:19: note: declared here
+  447 | __deprecated void usb_cancel_transfers(void);
+      |                   ^~~~~~~~~~~~~~~~~~~~
+/home/hdj/zephyrproject/zephyr/subsys/usb/device/usb_device.c: In function 'usb_deconfig':
+/home/hdj/zephyrproject/zephyr/subsys/usb/device/usb_device.c:1344:9: warning: 'usb_dc_reset' is deprecated [-Wdeprecated-declarations]
+ 1344 |         usb_dc_reset();
+      |         ^~~~~~~~~~~~
+/home/hdj/zephyrproject/zephyr/include/zephyr/drivers/usb/usb_dc.h:173:18: note: declared here
+  173 | __deprecated int usb_dc_reset(void);
+      |                  ^~~~~~~~~~~~
+/home/hdj/zephyrproject/zephyr/subsys/usb/device/usb_device.c: In function 'usb_disable':
+/home/hdj/zephyrproject/zephyr/subsys/usb/device/usb_device.c:1358:9: warning: 'usb_dc_detach' is deprecated [-Wdeprecated-declarations]
+ 1358 |         ret = usb_dc_detach();
+      |         ^~~
+/home/hdj/zephyrproject/zephyr/include/zephyr/drivers/usb/usb_dc.h:161:18: note: declared here
+  161 | __deprecated int usb_dc_detach(void);
+      |                  ^~~~~~~~~~~~~
+/home/hdj/zephyrproject/zephyr/subsys/usb/device/usb_device.c:1363:9: warning: 'usb_cancel_transfers' is deprecated [-Wdeprecated-declarations]
+ 1363 |         usb_cancel_transfers();
+      |         ^~~~~~~~~~~~~~~~~~~~
+/home/hdj/zephyrproject/zephyr/include/zephyr/usb/usb_device.h:447:19: note: declared here
+  447 | __deprecated void usb_cancel_transfers(void);
+      |                   ^~~~~~~~~~~~~~~~~~~~
+/home/hdj/zephyrproject/zephyr/subsys/usb/device/usb_device.c: In function 'usb_write':
+/home/hdj/zephyrproject/zephyr/subsys/usb/device/usb_device.c:1393:17: warning: 'usb_dc_ep_write' is deprecated [-Wdeprecated-declarations]
+ 1393 |                 ret = usb_dc_ep_write(ep, data, data_len, bytes_ret);
+      |                 ^~~
+/home/hdj/zephyrproject/zephyr/include/zephyr/drivers/usb/usb_dc.h:346:18: note: declared here
+  346 | __deprecated int usb_dc_ep_write(const uint8_t ep, const uint8_t *const data,
+      |                  ^~~~~~~~~~~~~~~
+/home/hdj/zephyrproject/zephyr/subsys/usb/device/usb_device.c: In function 'usb_read':
+/home/hdj/zephyrproject/zephyr/subsys/usb/device/usb_device.c:1406:9: warning: 'usb_dc_ep_read' is deprecated [-Wdeprecated-declarations]
+ 1406 |         return usb_dc_ep_read(ep, data, max_data_len, ret_bytes);
+      |         ^~~~~~
+/home/hdj/zephyrproject/zephyr/include/zephyr/drivers/usb/usb_dc.h:370:18: note: declared here
+  370 | __deprecated int usb_dc_ep_read(const uint8_t ep, uint8_t *const data,
+      |                  ^~~~~~~~~~~~~~
+/home/hdj/zephyrproject/zephyr/subsys/usb/device/usb_device.c: In function 'usb_ep_set_stall':
+/home/hdj/zephyrproject/zephyr/subsys/usb/device/usb_device.c:1411:9: warning: 'usb_dc_ep_set_stall' is deprecated [-Wdeprecated-declarations]
+ 1411 |         return usb_dc_ep_set_stall(ep);
+      |         ^~~~~~
+/home/hdj/zephyrproject/zephyr/include/zephyr/drivers/usb/usb_dc.h:241:18: note: declared here
+  241 | __deprecated int usb_dc_ep_set_stall(const uint8_t ep);
+      |                  ^~~~~~~~~~~~~~~~~~~
+/home/hdj/zephyrproject/zephyr/subsys/usb/device/usb_device.c: In function 'usb_ep_clear_stall':
+/home/hdj/zephyrproject/zephyr/subsys/usb/device/usb_device.c:1416:9: warning: 'usb_dc_ep_clear_stall' is deprecated [-Wdeprecated-declarations]
+ 1416 |         return usb_dc_ep_clear_stall(ep);
+      |         ^~~~~~
+/home/hdj/zephyrproject/zephyr/include/zephyr/drivers/usb/usb_dc.h:253:18: note: declared here
+  253 | __deprecated int usb_dc_ep_clear_stall(const uint8_t ep);
+      |                  ^~~~~~~~~~~~~~~~~~~~~
+/home/hdj/zephyrproject/zephyr/subsys/usb/device/usb_device.c: In function 'usb_ep_read_wait':
+/home/hdj/zephyrproject/zephyr/subsys/usb/device/usb_device.c:1421:9: warning: 'usb_dc_ep_read_wait' is deprecated [-Wdeprecated-declarations]
+ 1421 |         return usb_dc_ep_read_wait(ep, data, max_data_len, ret_bytes);
+      |         ^~~~~~
+/home/hdj/zephyrproject/zephyr/include/zephyr/drivers/usb/usb_dc.h:411:18: note: declared here
+  411 | __deprecated int usb_dc_ep_read_wait(uint8_t ep, uint8_t *data, uint32_t max_data_len,
+      |                  ^~~~~~~~~~~~~~~~~~~
+/home/hdj/zephyrproject/zephyr/subsys/usb/device/usb_device.c: In function 'usb_ep_read_continue':
+/home/hdj/zephyrproject/zephyr/subsys/usb/device/usb_device.c:1426:9: warning: 'usb_dc_ep_read_continue' is deprecated [-Wdeprecated-declarations]
+ 1426 |         return usb_dc_ep_read_continue(ep);
+      |         ^~~~~~
+/home/hdj/zephyrproject/zephyr/include/zephyr/drivers/usb/usb_dc.h:429:18: note: declared here
+  429 | __deprecated int usb_dc_ep_read_continue(uint8_t ep);
+      |                  ^~~~~~~~~~~~~~~~~~~~~~~
+/home/hdj/zephyrproject/zephyr/subsys/usb/device/usb_device.c: In function 'usb_wakeup_request':
+/home/hdj/zephyrproject/zephyr/subsys/usb/device/usb_device.c:1437:17: warning: 'usb_get_remote_wakeup_status' is deprecated [-Wdeprecated-declarations]
+ 1437 |                 if (usb_get_remote_wakeup_status()) {
+      |                 ^~
+/home/hdj/zephyrproject/zephyr/subsys/usb/device/usb_device.c:1429:6: note: declared here
+ 1429 | bool usb_get_remote_wakeup_status(void)
+      |      ^~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/home/hdj/zephyrproject/zephyr/subsys/usb/device/usb_device.c:1438:25: warning: 'usb_dc_wakeup_request' is deprecated [-Wdeprecated-declarations]
+ 1438 |                         return usb_dc_wakeup_request();
+      |                         ^~~~~~
+/home/hdj/zephyrproject/zephyr/include/zephyr/drivers/usb/usb_dc.h:452:18: note: declared here
+  452 | __deprecated int usb_dc_wakeup_request(void);
+      |                  ^~~~~~~~~~~~~~~~~~~~~
+/home/hdj/zephyrproject/zephyr/subsys/usb/device/usb_device.c: In function 'composite_setup_ep_cb':
+/home/hdj/zephyrproject/zephyr/subsys/usb/device/usb_device.c:1564:25: warning: 'usb_dc_ep_set_callback' is deprecated [-Wdeprecated-declarations]
+ 1564 |                         if (usb_dc_ep_set_callback(ep_data[n].ep_addr,
+      |                         ^~
+/home/hdj/zephyrproject/zephyr/include/zephyr/drivers/usb/usb_dc.h:389:18: note: declared here
+  389 | __deprecated int usb_dc_ep_set_callback(const uint8_t ep, const usb_dc_ep_callback cb);
+      |                  ^~~~~~~~~~~~~~~~~~~~~~
+/home/hdj/zephyrproject/zephyr/subsys/usb/device/usb_device.c: In function 'usb_enable':
+/home/hdj/zephyrproject/zephyr/subsys/usb/device/usb_device.c:1619:17: warning: 'usb_set_config' is deprecated [-Wdeprecated-declarations]
+ 1619 |                 usb_set_config(usb_get_device_descriptor());
+      |                 ^~~~~~~~~~~~~~
+/home/hdj/zephyrproject/zephyr/subsys/usb/device/usb_device.c:1574:5: note: declared here
+ 1574 | int usb_set_config(const uint8_t *device_descriptor)
+      |     ^~~~~~~~~~~~~~
+/home/hdj/zephyrproject/zephyr/subsys/usb/device/usb_device.c:1636:9: warning: 'usb_dc_set_status_callback' is deprecated [-Wdeprecated-declarations]
+ 1636 |         usb_dc_set_status_callback(forward_status_cb);
+      |         ^~~~~~~~~~~~~~~~~~~~~~~~~~
+/home/hdj/zephyrproject/zephyr/include/zephyr/drivers/usb/usb_dc.h:197:19: note: declared here
+  197 | __deprecated void usb_dc_set_status_callback(const usb_dc_status_callback cb);
+      |                   ^~~~~~~~~~~~~~~~~~~~~~~~~~
+/home/hdj/zephyrproject/zephyr/subsys/usb/device/usb_device.c:1638:9: warning: 'usb_dc_attach' is deprecated [-Wdeprecated-declarations]
+ 1638 |         ret = usb_dc_attach();
+      |         ^~~
+/home/hdj/zephyrproject/zephyr/include/zephyr/drivers/usb/usb_dc.h:149:18: note: declared here
+  149 | __deprecated int usb_dc_attach(void);
+      |                  ^~~~~~~~~~~~~
+/home/hdj/zephyrproject/zephyr/subsys/usb/device/usb_device.c:1661:9: warning: 'usb_dc_ep_configure' is deprecated [-Wdeprecated-declarations]
+ 1661 |         ret = usb_dc_ep_configure(&ep0_cfg);
+      |         ^~~
+/home/hdj/zephyrproject/zephyr/include/zephyr/drivers/usb/usb_dc.h:229:18: note: declared here
+  229 | __deprecated int usb_dc_ep_configure(const struct usb_dc_ep_cfg_data * const cfg);
+      |                  ^~~~~~~~~~~~~~~~~~~
+/home/hdj/zephyrproject/zephyr/subsys/usb/device/usb_device.c:1667:9: warning: 'usb_dc_ep_configure' is deprecated [-Wdeprecated-declarations]
+ 1667 |         ret = usb_dc_ep_configure(&ep0_cfg);
+      |         ^~~
+/home/hdj/zephyrproject/zephyr/include/zephyr/drivers/usb/usb_dc.h:229:18: note: declared here
+  229 | __deprecated int usb_dc_ep_configure(const struct usb_dc_ep_cfg_data * const cfg);
+      |                  ^~~~~~~~~~~~~~~~~~~
+/home/hdj/zephyrproject/zephyr/subsys/usb/device/usb_device.c:1673:9: warning: 'usb_dc_ep_set_callback' is deprecated [-Wdeprecated-declarations]
+ 1673 |         ret = usb_dc_ep_set_callback(USB_CONTROL_EP_OUT,
+      |         ^~~
+/home/hdj/zephyrproject/zephyr/include/zephyr/drivers/usb/usb_dc.h:389:18: note: declared here
+  389 | __deprecated int usb_dc_ep_set_callback(const uint8_t ep, const usb_dc_ep_callback cb);
+      |                  ^~~~~~~~~~~~~~~~~~~~~~
+/home/hdj/zephyrproject/zephyr/subsys/usb/device/usb_device.c:1679:9: warning: 'usb_dc_ep_set_callback' is deprecated [-Wdeprecated-declarations]
+ 1679 |         ret = usb_dc_ep_set_callback(USB_CONTROL_EP_IN,
+      |         ^~~
+/home/hdj/zephyrproject/zephyr/include/zephyr/drivers/usb/usb_dc.h:389:18: note: declared here
+  389 | __deprecated int usb_dc_ep_set_callback(const uint8_t ep, const usb_dc_ep_callback cb);
+      |                  ^~~~~~~~~~~~~~~~~~~~~~
+/home/hdj/zephyrproject/zephyr/subsys/usb/device/usb_device.c:1692:9: warning: 'usb_dc_ep_enable' is deprecated [-Wdeprecated-declarations]
+ 1692 |         ret = usb_dc_ep_enable(USB_CONTROL_EP_OUT);
+      |         ^~~
+/home/hdj/zephyrproject/zephyr/include/zephyr/drivers/usb/usb_dc.h:294:18: note: declared here
+  294 | __deprecated int usb_dc_ep_enable(const uint8_t ep);
+      |                  ^~~~~~~~~~~~~~~~
+/home/hdj/zephyrproject/zephyr/subsys/usb/device/usb_device.c:1698:9: warning: 'usb_dc_ep_enable' is deprecated [-Wdeprecated-declarations]
+ 1698 |         ret = usb_dc_ep_enable(USB_CONTROL_EP_IN);
+      |         ^~~
+/home/hdj/zephyrproject/zephyr/include/zephyr/drivers/usb/usb_dc.h:294:18: note: declared here
+  294 | __deprecated int usb_dc_ep_enable(const uint8_t ep);
+      |                  ^~~~~~~~~~~~~~~~
+[78/190] Building C object zephyr/arch/arch/arm/core/cortex_m/CMakeFiles/arch__arm__core__cortex_m.dir/isr_wrapper.c.obj
+[79/190] Building C object zephyr/CMakeFiles/zephyr.dir/subsys/usb/device/class/msc.c.obj
+/home/hdj/zephyrproject/zephyr/subsys/usb/device/class/msc.c:129:13: warning: Macro is deprecated
+  129 | USBD_CLASS_DESCR_DEFINE(primary, 0) struct usb_mass_config mass_cfg = {
+      |             ^~~~~~~~~~~~~~~~~~~~~
+/home/hdj/zephyrproject/zephyr/subsys/usb/device/class/msc.c: In function 'sendCSW':
+/home/hdj/zephyrproject/zephyr/subsys/usb/device/class/msc.c:288:9: warning: 'usb_write' is deprecated [-Wdeprecated-declarations]
+  288 |         if (usb_write(mass_ep_data[MSD_IN_EP_IDX].ep_addr, (uint8_t *)&csw,
+      |         ^~
+In file included from /home/hdj/zephyrproject/zephyr/subsys/usb/device/class/msc.c:42:
+/home/hdj/zephyrproject/zephyr/include/zephyr/usb/usb_device.h:276:18: note: declared here
+  276 | __deprecated int usb_write(uint8_t ep, const uint8_t *data, uint32_t data_len, uint32_t *bytes_ret);
+      |                  ^~~~~~~~~
+/home/hdj/zephyrproject/zephyr/subsys/usb/device/class/msc.c: In function 'fail':
+/home/hdj/zephyrproject/zephyr/subsys/usb/device/class/msc.c:300:25: warning: 'usb_ep_set_stall' is deprecated [-Wdeprecated-declarations]
+  300 |                         usb_ep_set_stall(mass_ep_data[MSD_IN_EP_IDX].ep_addr);
+      |                         ^~~~~~~~~~~~~~~~
+/home/hdj/zephyrproject/zephyr/include/zephyr/usb/usb_device.h:312:18: note: declared here
+  312 | __deprecated int usb_ep_set_stall(uint8_t ep);
+      |                  ^~~~~~~~~~~~~~~~
+/home/hdj/zephyrproject/zephyr/subsys/usb/device/class/msc.c:302:25: warning: 'usb_ep_set_stall' is deprecated [-Wdeprecated-declarations]
+  302 |                         usb_ep_set_stall(mass_ep_data[MSD_OUT_EP_IDX].ep_addr);
+      |                         ^~~~~~~~~~~~~~~~
+/home/hdj/zephyrproject/zephyr/include/zephyr/usb/usb_device.h:312:18: note: declared here
+  312 | __deprecated int usb_ep_set_stall(uint8_t ep);
+      |                  ^~~~~~~~~~~~~~~~
+/home/hdj/zephyrproject/zephyr/subsys/usb/device/class/msc.c: In function 'write':
+/home/hdj/zephyrproject/zephyr/subsys/usb/device/class/msc.c:321:9: warning: 'usb_write' is deprecated [-Wdeprecated-declarations]
+  321 |         if (usb_write(mass_ep_data[MSD_IN_EP_IDX].ep_addr, buf, size, NULL)) {
+      |         ^~
+/home/hdj/zephyrproject/zephyr/include/zephyr/usb/usb_device.h:276:18: note: declared here
+  276 | __deprecated int usb_write(uint8_t ep, const uint8_t *data, uint32_t data_len, uint32_t *bytes_ret);
+      |                  ^~~~~~~~~
+/home/hdj/zephyrproject/zephyr/subsys/usb/device/class/msc.c: In function 'testUnitReady':
+/home/hdj/zephyrproject/zephyr/subsys/usb/device/class/msc.c:377:25: warning: 'usb_ep_set_stall' is deprecated [-Wdeprecated-declarations]
+  377 |                         usb_ep_set_stall(mass_ep_data[MSD_IN_EP_IDX].ep_addr);
+      |                         ^~~~~~~~~~~~~~~~
+/home/hdj/zephyrproject/zephyr/include/zephyr/usb/usb_device.h:312:18: note: declared here
+  312 | __deprecated int usb_ep_set_stall(uint8_t ep);
+      |                  ^~~~~~~~~~~~~~~~
+/home/hdj/zephyrproject/zephyr/subsys/usb/device/class/msc.c:380:25: warning: 'usb_ep_set_stall' is deprecated [-Wdeprecated-declarations]
+  380 |                         usb_ep_set_stall(mass_ep_data[MSD_OUT_EP_IDX].ep_addr);
+      |                         ^~~~~~~~~~~~~~~~
+/home/hdj/zephyrproject/zephyr/include/zephyr/usb/usb_device.h:312:18: note: declared here
+  312 | __deprecated int usb_ep_set_stall(uint8_t ep);
+      |                  ^~~~~~~~~~~~~~~~
+/home/hdj/zephyrproject/zephyr/subsys/usb/device/class/msc.c: In function 'thread_memory_read_done':
+/home/hdj/zephyrproject/zephyr/subsys/usb/device/class/msc.c:464:9: warning: 'usb_write' is deprecated [-Wdeprecated-declarations]
+  464 |         if (usb_write(mass_ep_data[MSD_IN_EP_IDX].ep_addr,
+      |         ^~
+/home/hdj/zephyrproject/zephyr/include/zephyr/usb/usb_device.h:276:18: note: declared here
+  276 | __deprecated int usb_write(uint8_t ep, const uint8_t *data, uint32_t data_len, uint32_t *bytes_ret);
+      |                  ^~~~~~~~~
+/home/hdj/zephyrproject/zephyr/subsys/usb/device/class/msc.c: In function 'CBWDecode':
+/home/hdj/zephyrproject/zephyr/subsys/usb/device/class/msc.c:625:41: warning: 'usb_ep_set_stall' is deprecated [-Wdeprecated-declarations]
+  625 |                                         usb_ep_set_stall(
+      |                                         ^~~~~~~~~~~~~~~~
+/home/hdj/zephyrproject/zephyr/include/zephyr/usb/usb_device.h:312:18: note: declared here
+  312 | __deprecated int usb_ep_set_stall(uint8_t ep);
+      |                  ^~~~~~~~~~~~~~~~
+/home/hdj/zephyrproject/zephyr/subsys/usb/device/class/msc.c:640:41: warning: 'usb_ep_set_stall' is deprecated [-Wdeprecated-declarations]
+  640 |                                         usb_ep_set_stall(
+      |                                         ^~~~~~~~~~~~~~~~
+/home/hdj/zephyrproject/zephyr/include/zephyr/usb/usb_device.h:312:18: note: declared here
+  312 | __deprecated int usb_ep_set_stall(uint8_t ep);
+      |                  ^~~~~~~~~~~~~~~~
+/home/hdj/zephyrproject/zephyr/subsys/usb/device/class/msc.c:660:41: warning: 'usb_ep_set_stall' is deprecated [-Wdeprecated-declarations]
+  660 |                                         usb_ep_set_stall(
+      |                                         ^~~~~~~~~~~~~~~~
+/home/hdj/zephyrproject/zephyr/include/zephyr/usb/usb_device.h:312:18: note: declared here
+  312 | __deprecated int usb_ep_set_stall(uint8_t ep);
+      |                  ^~~~~~~~~~~~~~~~
+/home/hdj/zephyrproject/zephyr/subsys/usb/device/class/msc.c: In function 'mass_storage_bulk_out':
+/home/hdj/zephyrproject/zephyr/subsys/usb/device/class/msc.c:771:9: warning: 'usb_ep_read_wait' is deprecated [-Wdeprecated-declarations]
+  771 |         usb_ep_read_wait(ep, bo_buf, CONFIG_MASS_STORAGE_BULK_EP_MPS,
+      |         ^~~~~~~~~~~~~~~~
+/home/hdj/zephyrproject/zephyr/include/zephyr/usb/usb_device.h:349:18: note: declared here
+  349 | __deprecated int usb_ep_read_wait(uint8_t ep, uint8_t *data, uint32_t max_data_len,
+      |                  ^~~~~~~~~~~~~~~~
+/home/hdj/zephyrproject/zephyr/subsys/usb/device/class/msc.c:802:17: warning: 'usb_ep_set_stall' is deprecated [-Wdeprecated-declarations]
+  802 |                 usb_ep_set_stall(ep);
+      |                 ^~~~~~~~~~~~~~~~
+/home/hdj/zephyrproject/zephyr/include/zephyr/usb/usb_device.h:312:18: note: declared here
+  312 | __deprecated int usb_ep_set_stall(uint8_t ep);
+      |                  ^~~~~~~~~~~~~~~~
+/home/hdj/zephyrproject/zephyr/subsys/usb/device/class/msc.c:809:17: warning: 'usb_ep_read_continue' is deprecated [-Wdeprecated-declarations]
+  809 |                 usb_ep_read_continue(ep);
+      |                 ^~~~~~~~~~~~~~~~~~~~
+/home/hdj/zephyrproject/zephyr/include/zephyr/usb/usb_device.h:368:18: note: declared here
+  368 | __deprecated int usb_ep_read_continue(uint8_t ep);
+      |                  ^~~~~~~~~~~~~~~~~~~~
+/home/hdj/zephyrproject/zephyr/subsys/usb/device/class/msc.c: In function 'thread_memory_write_done':
+/home/hdj/zephyrproject/zephyr/subsys/usb/device/class/msc.c:847:9: warning: 'usb_ep_read_continue' is deprecated [-Wdeprecated-declarations]
+  847 |         usb_ep_read_continue(mass_ep_data[MSD_OUT_EP_IDX].ep_addr);
+      |         ^~~~~~~~~~~~~~~~~~~~
+/home/hdj/zephyrproject/zephyr/include/zephyr/usb/usb_device.h:368:18: note: declared here
+  368 | __deprecated int usb_ep_read_continue(uint8_t ep);
+      |                  ^~~~~~~~~~~~~~~~~~~~
+/home/hdj/zephyrproject/zephyr/subsys/usb/device/class/msc.c: In function 'mass_storage_bulk_in':
+/home/hdj/zephyrproject/zephyr/subsys/usb/device/class/msc.c:894:17: warning: 'usb_ep_set_stall' is deprecated [-Wdeprecated-declarations]
+  894 |                 usb_ep_set_stall(mass_ep_data[MSD_IN_EP_IDX].ep_addr);
+      |                 ^~~~~~~~~~~~~~~~
+/home/hdj/zephyrproject/zephyr/include/zephyr/usb/usb_device.h:312:18: note: declared here
+  312 | __deprecated int usb_ep_set_stall(uint8_t ep);
+      |                  ^~~~~~~~~~~~~~~~
+/home/hdj/zephyrproject/zephyr/subsys/usb/device/class/msc.c: At top level:
+/home/hdj/zephyrproject/zephyr/subsys/usb/device/class/msc.c:962:13: warning: Macro is deprecated
+  962 | USBD_DEFINE_CFG_DATA(mass_storage_config) = {
+      |             ^~~~~~~~~~~~~~~~~~~~~
+[80/190] Linking C static library zephyr/libzephyr.a
+[81/190] Building C object zephyr/lib/libc/common/CMakeFiles/lib__libc__common.dir/source/time/time.c.obj
+[82/190] Building C object zephyr/arch/arch/arm/core/cortex_m/CMakeFiles/arch__arm__core__cortex_m.dir/cache.c.obj
+[83/190] Building C object zephyr/arch/arch/arm/core/mpu/CMakeFiles/arch__arm__core__mpu.dir/arm_core_mpu.c.obj
+[84/190] Building C object zephyr/lib/libc/common/CMakeFiles/lib__libc__common.dir/source/stdio/remove.c.obj
+[85/190] Linking C static library zephyr/arch/arch/arm/core/cortex_m/libarch__arm__core__cortex_m.a
+[86/190] Building C object zephyr/lib/libc/picolibc/CMakeFiles/lib__libc__picolibc.dir/cbprintf.c.obj
+[87/190] Building C object zephyr/lib/libc/picolibc/CMakeFiles/lib__libc__picolibc.dir/assert.c.obj
+[88/190] Building C object zephyr/lib/libc/picolibc/CMakeFiles/lib__libc__picolibc.dir/exit.c.obj
+[89/190] Building C object zephyr/lib/libc/picolibc/CMakeFiles/lib__libc__picolibc.dir/chk_fail.c.obj
+[90/190] Building C object zephyr/lib/libc/picolibc/CMakeFiles/lib__libc__picolibc.dir/errno_wrap.c.obj
+[91/190] Building C object zephyr/lib/libc/picolibc/CMakeFiles/lib__libc__picolibc.dir/stdio.c.obj
+[92/190] Building C object zephyr/lib/libc/common/CMakeFiles/lib__libc__common.dir/source/stdlib/abort.c.obj
+[93/190] Building C object zephyr/arch/arch/arm/core/mpu/CMakeFiles/arch__arm__core__mpu.dir/arm_mpu.c.obj
+[94/190] Building C object zephyr/lib/libc/picolibc/CMakeFiles/lib__libc__picolibc.dir/locks.c.obj
+[95/190] Linking C static library zephyr/arch/arch/arm/core/mpu/libarch__arm__core__mpu.a
+[96/190] Linking C static library zephyr/lib/libc/picolibc/liblib__libc__picolibc.a
+[97/190] Building C object zephyr/lib/libc/common/CMakeFiles/lib__libc__common.dir/source/stdlib/malloc.c.obj
+[98/190] Linking C static library zephyr/lib/libc/common/liblib__libc__common.a
+[99/190] Building C object zephyr/subsys/fs/CMakeFiles/subsys__fs.dir/fs_impl.c.obj
+[100/190] Building C object zephyr/subsys/fs/CMakeFiles/subsys__fs.dir/fat_fs.c.obj
+[101/190] Building C object zephyr/subsys/random/CMakeFiles/subsys__random.dir/random_test_csprng.c.obj
+[102/190] Building C object zephyr/subsys/random/CMakeFiles/subsys__random.dir/random_timer.c.obj
+[103/190] Linking C static library zephyr/subsys/random/libsubsys__random.a
+[104/190] Building C object zephyr/subsys/fs/ext2/CMakeFiles/subsys__fs__ext2.dir/ext2_disk_access.c.obj
+[105/190] Building C object zephyr/subsys/fs/ext2/CMakeFiles/subsys__fs__ext2.dir/ext2_ops.c.obj
+[106/190] Building C object zephyr/subsys/fs/ext2/CMakeFiles/subsys__fs__ext2.dir/ext2_bitmap.c.obj
+[107/190] Building C object zephyr/drivers/interrupt_controller/CMakeFiles/drivers__interrupt_controller.dir/intc_gpio_stm32.c.obj
+[108/190] Building C object zephyr/subsys/fs/ext2/CMakeFiles/subsys__fs__ext2.dir/ext2_format.c.obj
+[109/190] Building C object zephyr/drivers/pinctrl/CMakeFiles/drivers__pinctrl.dir/common.c.obj
+[110/190] Building C object zephyr/subsys/fs/CMakeFiles/subsys__fs.dir/fs.c.obj
+[111/190] Building C object zephyr/drivers/disk/CMakeFiles/drivers__disk.dir/sdmmc_stm32.c.obj
+[112/190] Linking C static library zephyr/subsys/fs/libsubsys__fs.a
+[113/190] Linking C static library zephyr/drivers/disk/libdrivers__disk.a
+[114/190] Building C object zephyr/drivers/clock_control/CMakeFiles/drivers__clock_control.dir/clock_stm32_ll_h7.c.obj
+[115/190] Linking C static library zephyr/drivers/clock_control/libdrivers__clock_control.a
+[116/190] Building C object zephyr/drivers/console/CMakeFiles/drivers__console.dir/uart_console.c.obj
+[117/190] Linking C static library zephyr/drivers/console/libdrivers__console.a
+[118/190] Building C object zephyr/drivers/hwinfo/CMakeFiles/drivers__hwinfo.dir/hwinfo_weak_impl.c.obj
+[119/190] Building C object zephyr/drivers/gpio/CMakeFiles/drivers__gpio.dir/gpio_stm32.c.obj
+[120/190] Building C object zephyr/drivers/interrupt_controller/CMakeFiles/drivers__interrupt_controller.dir/intc_exti_stm32.c.obj
+[121/190] Building C object zephyr/drivers/hwinfo/CMakeFiles/drivers__hwinfo.dir/hwinfo_stm32.c.obj
+[122/190] Linking C static library zephyr/drivers/gpio/libdrivers__gpio.a
+[123/190] Linking C static library zephyr/drivers/interrupt_controller/libdrivers__interrupt_controller.a
+[124/190] Building C object modules/fatfs/CMakeFiles/modules__fatfs.dir/home/hdj/zephyrproject/modules/fs/fatfs/ff.c.obj
+[125/190] Building C object zephyr/drivers/pinctrl/CMakeFiles/drivers__pinctrl.dir/pinctrl_stm32.c.obj
+[126/190] Linking C static library zephyr/drivers/hwinfo/libdrivers__hwinfo.a
+[127/190] Linking C static library zephyr/drivers/pinctrl/libdrivers__pinctrl.a
+[128/190] Building C object zephyr/subsys/fs/ext2/CMakeFiles/subsys__fs__ext2.dir/ext2_impl.c.obj
+[129/190] Building C object zephyr/drivers/reset/CMakeFiles/drivers__reset.dir/reset_stm32.c.obj
+[130/190] Building C object zephyr/subsys/fs/ext2/CMakeFiles/subsys__fs__ext2.dir/ext2_diskops.c.obj
+[131/190] Linking C static library zephyr/drivers/reset/libdrivers__reset.a
+[132/190] Building C object modules/hal_stm32/stm32cube/CMakeFiles/..__modules__hal__stm32__stm32cube.dir/stm32h7xx/soc/system_stm32h7xx.c.obj
+[133/190] Building C object modules/hal_stm32/stm32cube/CMakeFiles/..__modules__hal__stm32__stm32cube.dir/stm32h7xx/drivers/src/stm32h7xx_hal.c.obj
+[134/190] Linking C static library zephyr/subsys/fs/ext2/libsubsys__fs__ext2.a
+[135/190] Building C object modules/hal_stm32/stm32cube/CMakeFiles/..__modules__hal__stm32__stm32cube.dir/stm32h7xx/drivers/src/stm32h7xx_hal_rcc_ex.c.obj
+[136/190] Building C object zephyr/drivers/timer/CMakeFiles/drivers__timer.dir/sys_clock_init.c.obj
+[137/190] Building C object modules/hal_stm32/stm32cube/CMakeFiles/..__modules__hal__stm32__stm32cube.dir/stm32h7xx/drivers/src/stm32h7xx_hal_cortex.c.obj
+[138/190] Building C object modules/hal_stm32/stm32cube/CMakeFiles/..__modules__hal__stm32__stm32cube.dir/stm32h7xx/drivers/src/stm32h7xx_hal_rcc.c.obj
+[139/190] Building C object zephyr/drivers/timer/CMakeFiles/drivers__timer.dir/cortex_m_systick.c.obj
+[140/190] Building C object modules/hal_stm32/stm32cube/CMakeFiles/..__modules__hal__stm32__stm32cube.dir/stm32h7xx/drivers/src/stm32h7xx_hal_pcd.c.obj
+[141/190] Building C object modules/hal_stm32/stm32cube/CMakeFiles/..__modules__hal__stm32__stm32cube.dir/stm32h7xx/drivers/src/stm32h7xx_hal_pcd_ex.c.obj
+[142/190] Building C object modules/hal_stm32/stm32cube/CMakeFiles/..__modules__hal__stm32__stm32cube.dir/stm32h7xx/drivers/src/stm32h7xx_hal_sd.c.obj
+[143/190] Linking C static library zephyr/drivers/timer/libdrivers__timer.a
+[144/190] Building C object modules/fatfs/CMakeFiles/modules__fatfs.dir/zfs_diskio.c.obj
+[145/190] Building C object modules/hal_stm32/stm32cube/CMakeFiles/..__modules__hal__stm32__stm32cube.dir/stm32h7xx/drivers/src/stm32h7xx_ll_rcc.c.obj
+[146/190] Building C object zephyr/drivers/serial/CMakeFiles/drivers__serial.dir/uart_stm32.c.obj
+[147/190] Linking C static library modules/fatfs/libmodules__fatfs.a
+[148/190] Building C object modules/hal_stm32/stm32cube/CMakeFiles/..__modules__hal__stm32__stm32cube.dir/stm32h7xx/drivers/src/stm32h7xx_ll_sdmmc.c.obj
+[149/190] Building C object modules/hal_stm32/stm32cube/CMakeFiles/..__modules__hal__stm32__stm32cube.dir/stm32h7xx/drivers/src/stm32h7xx_ll_usb.c.obj
+[150/190] Linking C static library zephyr/drivers/serial/libdrivers__serial.a
+[151/190] Building C object modules/hal_stm32/stm32cube/CMakeFiles/..__modules__hal__stm32__stm32cube.dir/stm32h7xx/drivers/src/stm32h7xx_ll_utils.c.obj
+[152/190] Linking C static library modules/hal_stm32/stm32cube/lib..__modules__hal__stm32__stm32cube.a
+[153/190] Building C object zephyr/kernel/CMakeFiles/kernel.dir/version.c.obj
+[154/190] Building C object zephyr/kernel/CMakeFiles/kernel.dir/main_weak.c.obj
+[155/190] Building C object zephyr/kernel/CMakeFiles/kernel.dir/banner.c.obj
+[156/190] Building C object zephyr/kernel/CMakeFiles/kernel.dir/busy_wait.c.obj
+[157/190] Building C object zephyr/kernel/CMakeFiles/kernel.dir/errno.c.obj
+[158/190] Building C object zephyr/drivers/usb/device/CMakeFiles/drivers__usb__device.dir/usb_dc_stm32.c.obj
+/home/hdj/zephyrproject/zephyr/drivers/usb/device/usb_dc_stm32.c: In function 'usb_dc_ep_write':
+/home/hdj/zephyrproject/zephyr/drivers/usb/device/usb_dc_stm32.c:978:20: warning: Macro is deprecated
+  978 |         if (ep == EP0_IN && len > USB_MAX_CTRL_MPS) {
+      |                    ^~~~~~~~~~~~~~~~~~~~~
+/home/hdj/zephyrproject/zephyr/drivers/usb/device/usb_dc_stm32.c:979:27: warning: Macro is deprecated
+  979 |                 len = USB_MAX_CTRL_MPS;
+      |                           ^~~~~~~~~~~~~        
+/home/hdj/zephyrproject/zephyr/drivers/usb/device/usb_dc_stm32.c: In function 'usb_dc_ep_read':
+/home/hdj/zephyrproject/zephyr/drivers/usb/device/usb_dc_stm32.c:1074:9: warning: 'usb_dc_ep_read_wait' is deprecated [-Wdeprecated-declarations]
+ 1074 |         if (usb_dc_ep_read_wait(ep, data, max_data_len, read_bytes) != 0) {
+      |         ^~
+/home/hdj/zephyrproject/zephyr/drivers/usb/device/usb_dc_stm32.c:1009:5: note: declared here
+ 1009 | int usb_dc_ep_read_wait(uint8_t ep, uint8_t *data, uint32_t max_data_len,
+      |     ^~~~~~~~~~~~~~~~~~~
+/home/hdj/zephyrproject/zephyr/drivers/usb/device/usb_dc_stm32.c:1078:9: warning: 'usb_dc_ep_read_continue' is deprecated [-Wdeprecated-declarations]
+ 1078 |         if (usb_dc_ep_read_continue(ep) != 0) {
+      |         ^~
+/home/hdj/zephyrproject/zephyr/drivers/usb/device/usb_dc_stm32.c:1051:5: note: declared here
+ 1051 | int usb_dc_ep_read_continue(uint8_t ep)
+      |     ^~~~~~~~~~~~~~~~~~~~~~~
+/home/hdj/zephyrproject/zephyr/drivers/usb/device/usb_dc_stm32.c: In function 'usb_dc_ep_halt':
+/home/hdj/zephyrproject/zephyr/drivers/usb/device/usb_dc_stm32.c:1087:9: warning: 'usb_dc_ep_set_stall' is deprecated [-Wdeprecated-declarations]
+ 1087 |         return usb_dc_ep_set_stall(ep);
+      |         ^~~~~~
+/home/hdj/zephyrproject/zephyr/drivers/usb/device/usb_dc_stm32.c:835:5: note: declared here
+  835 | int usb_dc_ep_set_stall(const uint8_t ep)
+      |     ^~~~~~~~~~~~~~~~~~~
+[159/190] Building C object zephyr/kernel/CMakeFiles/kernel.dir/device.c.obj
+[160/190] Building C object zephyr/kernel/CMakeFiles/kernel.dir/mem_slab.c.obj
+[161/190] Building C object zephyr/kernel/CMakeFiles/kernel.dir/kheap.c.obj
+[162/190] Linking C static library zephyr/drivers/usb/device/libdrivers__usb__device.a
+[163/190] Building C object zephyr/kernel/CMakeFiles/kernel.dir/init.c.obj
+[164/190] Building C object zephyr/kernel/CMakeFiles/kernel.dir/float.c.obj
+[165/190] Building C object zephyr/kernel/CMakeFiles/kernel.dir/fatal.c.obj
+[166/190] Building C object zephyr/kernel/CMakeFiles/kernel.dir/idle.c.obj
+[167/190] Building C object zephyr/kernel/CMakeFiles/kernel.dir/msg_q.c.obj
+[168/190] Building C object zephyr/kernel/CMakeFiles/kernel.dir/queue.c.obj
+[169/190] Building C object zephyr/kernel/CMakeFiles/kernel.dir/stack.c.obj
+[170/190] Building C object zephyr/kernel/CMakeFiles/kernel.dir/mailbox.c.obj
+[171/190] Building C object zephyr/kernel/CMakeFiles/kernel.dir/sem.c.obj
+[172/190] Building C object zephyr/kernel/CMakeFiles/kernel.dir/system_work_q.c.obj
+[173/190] Building C object zephyr/kernel/CMakeFiles/kernel.dir/work.c.obj
+[174/190] Building C object zephyr/kernel/CMakeFiles/kernel.dir/condvar.c.obj
+[175/190] Building C object zephyr/kernel/CMakeFiles/kernel.dir/mutex.c.obj
+[176/190] Building C object zephyr/kernel/CMakeFiles/kernel.dir/pipe.c.obj
+[177/190] Building C object zephyr/kernel/CMakeFiles/kernel.dir/sched.c.obj
+[178/190] Building C object zephyr/kernel/CMakeFiles/kernel.dir/thread.c.obj
+[179/190] Building C object zephyr/kernel/CMakeFiles/kernel.dir/timeslicing.c.obj
+[180/190] Building C object zephyr/kernel/CMakeFiles/kernel.dir/timeout.c.obj
+[181/190] Building C object zephyr/kernel/CMakeFiles/kernel.dir/mempool.c.obj
+[182/190] Building C object zephyr/kernel/CMakeFiles/kernel.dir/timer.c.obj
+[183/190] Building C object zephyr/kernel/CMakeFiles/kernel.dir/dynamic_disabled.c.obj
+[184/190] Linking C static library zephyr/kernel/libkernel.a
+[185/190] Linking C executable zephyr/zephyr_pre0.elf
+[186/190] Generating linker.cmd
+[187/190] Generating isr_tables.c, isr_tables_vt.ld, isr_tables_swi.ld
+[188/190] Building C object zephyr/CMakeFiles/zephyr_final.dir/misc/empty_file.c.obj
+[189/190] Building C object zephyr/CMakeFiles/zephyr_final.dir/isr_tables.c.obj
+[190/190] Linking C executable zephyr/zephyr.elf
+Memory region         Used Size  Region Size  %age Used
+           FLASH:       88020 B         2 MB      4.20%
+             RAM:       68256 B       512 KB     13.02%
+          EXTMEM:          0 GB         8 MB      0.00%
+           SRAM0:          0 GB       512 KB      0.00%
+           SRAM1:          0 GB       128 KB      0.00%
+           SRAM2:          0 GB       128 KB      0.00%
+           SRAM4:          0 GB        64 KB      0.00%
+            DTCM:          0 GB       128 KB      0.00%
+            ITCM:          0 GB        64 KB      0.00%
+           SRAM3:         16 KB        32 KB     50.00%
+          SDRAM1:          0 GB         6 MB      0.00%
+        IDT_LIST:          0 GB        32 KB      0.00%
+Generating files from /home/hdj/zephyrproject/art_pi_example/build-15.usb_mass_sdmmc/zephyr/zephyr.elf for board: art_pi
+image.py: sign the payload
+image.py: sign the payload
