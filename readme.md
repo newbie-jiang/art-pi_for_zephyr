@@ -1,4 +1,4 @@
-# <a href="https://docs.zephyrproject.org/latest/boards/ruiside/art_pi/doc/index.html" target="_blank" rel="noopener noreferrer">ART-PI  for Zephyr</a>
+# <a href="https://docs.zephyrproject.org/latest/boards/ruiside/art_pi/doc/index.html" target="_blank" rel="noopener noreferrer">ART-PI  for Zephyr(STM32H750XB)</a>
 
 # <a href="https://newbie-jiang.github.io/art-pi_for_zephyr" target="_blank" rel="noopener noreferrer">Pages</a>
 
