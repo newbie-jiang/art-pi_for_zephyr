@@ -2,7 +2,11 @@
 
 # <a href="https://newbie-jiang.github.io/art-pi_for_zephyr" target="_blank" rel="noopener noreferrer">Pages</a>
 
+
+
 ![art_pi](https://cloud.rocketpi.club/cloud/art_pi.webp)
+
+![image-20251108184853730](https://cloud.rocketpi.club/cloud/image-20251108184853730.png)
 
 
 # Support hardware 
